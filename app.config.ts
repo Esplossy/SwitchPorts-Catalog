@@ -30,9 +30,8 @@ const env = {
   // App branding - update these values directly (do not use env vars)
   appName: "SwitchPorts Catalog",
   appSlug: "switchports",
-  // S3 URL of the app logo - set this to the URL returned by generate_image when creating custom logo
-  // Leave empty to use the default icon from assets/images/icon.png
-  logoUrl: "",
+  // Stable public URL used for the Manus project logo metadata.
+  logoUrl: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663912842943/WbzqRUtsBckaYXgb.png",
   scheme: schemeFromBundleId,
   iosBundleId: bundleId,
   androidPackage: bundleId,

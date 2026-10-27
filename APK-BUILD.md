@@ -1,18 +1,29 @@
-# Gerar o APK Android
+# APK Android debug
 
-O projeto está configurado para Android e a validação local passou. A configuração pública do Expo é:
+O ambiente nativo foi preparado e o APK debug foi gerado com sucesso em 27/10/2026.
 
-- Nome: `SwitchPorts Catalog`
-- Slug: `switchports`
-- Pacote Android: `space.manus.switchports.t165141055861472`
-- Ícone e splash: `assets/images/icon.png` e `assets/images/splash-icon.png`
+## Artefato validado
 
-## Build
+- Arquivo: `artifacts/SwitchPorts-debug.apk`
+- Tamanho: aproximadamente 122 MB
+- Pacote: `space.manus.switchports.t165141055861472`
+- Versão: `1.0.0` / versionCode `1`
+- Compile/target SDK: 36
+- Assinatura: Android APK Signature Scheme v2 válida
+- SHA-256: `205074ef3136ddef4a21dfcf2fd37929e6f8377bff3c377c93a990349aec7683`
 
-1. Abra o Dashboard do projeto `SwitchPorts Catalog`.
-2. Use o checkpoint mais recente deste projeto.
-3. Escolha a ação de build Android.
-4. Para instalação direta no telefone, selecione o artefato **APK**; para publicação na Play Store, use **AAB**.
-5. Baixe o artefato concluído e abra o APK no Android. Se o Android bloquear a instalação, habilite temporariamente a permissão de instalação de fontes desconhecidas para o aplicativo que abriu o arquivo.
+O APK usa a chave de desenvolvimento padrão em `~/.android/debug.keystore`, com alias `androiddebugkey` e senha `android`. Essa chave é apropriada para testes e instalação local, não para publicação em produção.
 
-O Sandbox de desenvolvimento não executa builds nativos Android. Por isso este arquivo não afirma que um APK já foi produzido; ele registra o caminho oficial para gerar o binário a partir do checkpoint aceito.
+## Instalar no Android
+
+Baixe o APK, abra-o no telefone e autorize a instalação de fontes desconhecidas caso o Android solicite. Também é possível instalar por USB com:
+
+```bash
+adb install -r SwitchPorts-debug.apk
+```
+
+## Reproduzir o build
+
+O script `scripts/setup-android-debug.sh` instala o JDK, Android SDK, platform-tools, build-tools e cria a keystore debug. Depois, `scripts/build-debug-apk.sh` executa o Expo prebuild e `assembleDebug`, copiando o resultado para `artifacts/SwitchPorts-debug.apk`.
+
+A pasta nativa `android/`, o ambiente local `.android-build-env` e `artifacts/` ficam ignorados pelo Git para não substituir o fluxo gerenciado do projeto nem salvar binários no repositório.

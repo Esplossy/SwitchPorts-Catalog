@@ -43,6 +43,8 @@ app-example
 # generated native folders
 /ios
 /android
+.android-build-env
+/artifacts/
 
 # IDE
 .vscode/

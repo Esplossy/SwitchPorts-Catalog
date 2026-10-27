@@ -17,9 +17,9 @@ if [ ! -d "$PROJECT_DIR/android" ]; then
 fi
 
 cd "$PROJECT_DIR/android"
-./gradlew assembleDebug
+NODE_ENV=production ./gradlew assembleRelease
 
 mkdir -p "$PROJECT_DIR/artifacts"
-cp -f "$PROJECT_DIR/android/app/build/outputs/apk/debug/app-debug.apk" "$PROJECT_DIR/artifacts/SwitchPorts-debug.apk"
+cp -f "$PROJECT_DIR/android/app/build/outputs/apk/release/app-release.apk" "$PROJECT_DIR/artifacts/SwitchPorts-debug.apk"
 printf '\nAPK criado em: %s\n' "$PROJECT_DIR/artifacts/SwitchPorts-debug.apk"
 ls -lh "$PROJECT_DIR/artifacts/SwitchPorts-debug.apk"

@@ -1,6 +1,6 @@
-# APK Android debug
+# APK Android local assinado com chave debug
 
-O ambiente nativo foi preparado e o APK debug foi gerado com sucesso em 27/10/2026.
+O ambiente nativo foi preparado e o APK local foi gerado com sucesso em 27/10/2026. Ele usa a variante **release** para embutir o bundle JavaScript, mas é assinado com a chave debug para testes e instalação pessoal.
 
 ## Artefato validado
 
@@ -10,9 +10,11 @@ O ambiente nativo foi preparado e o APK debug foi gerado com sucesso em 27/10/20
 - Versão: `1.0.0` / versionCode `1`
 - Compile/target SDK: 36
 - Assinatura: Android APK Signature Scheme v2 válida
-- SHA-256: `205074ef3136ddef4a21dfcf2fd37929e6f8377bff3c377c93a990349aec7683`
+- SHA-256: `bb1d370b4ea754f9755f9739d491e129fa40c5ce3837925ec85192910cdb9984`
 
 O APK usa a chave de desenvolvimento padrão em `~/.android/debug.keystore`, com alias `androiddebugkey` e senha `android`. Essa chave é apropriada para testes e instalação local, não para publicação em produção.
+
+O antigo `assembleDebug` não deve ser usado para instalação standalone: a variante debug pode aguardar o Metro em um telefone físico. O script atual usa `NODE_ENV=production ./gradlew assembleRelease`, que embute o bundle e gera um app que abre sem servidor.
 
 ## Instalar no Android
 

@@ -22,6 +22,8 @@ export type CatalogItem = {
 
 export type SyncState = "loading" | "ready" | "syncing" | "offline" | "error";
 
+export type CatalogSort = "recent" | "oldest" | "name";
+
 export type CachedCatalog = {
   items: CatalogItem[];
   syncedAt: string;
@@ -199,6 +201,27 @@ export function formatPortDate(value: string) {
   const match = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
   if (!match) return value;
   return `${match[1]}/${match[2]}/${match[3]}`;
+}
+
+function catalogDateValue(value: string) {
+  const brazilian = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (brazilian) return Date.UTC(Number(brazilian[3]), Number(brazilian[2]) - 1, Number(brazilian[1]));
+  const iso = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (iso) return Date.UTC(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3]));
+  return 0;
+}
+
+export function sortCatalogItems(items: CatalogItem[], sort: CatalogSort = "recent") {
+  return [...items].sort((a, b) => {
+    if (sort === "name") return a.name.localeCompare(b.name, "pt-BR") || a.category.localeCompare(b.category, "pt-BR");
+    const aDate = catalogDateValue(a.lastUpdated);
+    const bDate = catalogDateValue(b.lastUpdated);
+    if (aDate === 0 && bDate !== 0) return 1;
+    if (bDate === 0 && aDate !== 0) return -1;
+    const dateDifference = bDate - aDate;
+    if (dateDifference !== 0) return sort === "recent" ? dateDifference : -dateDifference;
+    return a.name.localeCompare(b.name, "pt-BR");
+  });
 }
 
 export function getCatalogSeed() {

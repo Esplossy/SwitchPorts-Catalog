@@ -15,6 +15,7 @@
 - [x] **Descoberta e organização**
   - Oferece busca por nome, sistema, categoria, versão e repositório.
   - Filtra por plataforma/categoria e status ativo/arquivado.
+  - Ordena por padrão pelos mais recentes e permite alternar para mais antigos ou ordem alfabética A–Z.
   - Permite destacar projetos atualizados recentemente.
   - Mostra contador total e contador do resultado atual.
 

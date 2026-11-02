@@ -7,12 +7,13 @@ import { CatalogCard } from "@/components/catalog-card";
 import { ScreenContainer } from "@/components/screen-container";
 import { useColors } from "@/hooks/use-colors";
 import { useCatalog } from "@/lib/catalog-context";
+import { sortCatalogItems } from "@/lib/catalog";
 
 export default function FavoritesScreen() {
   const router = useRouter();
   const colors = useColors();
   const { items, favorites, showArchived, toggleFavorite, isFavorite } = useCatalog();
-  const favoriteItems = useMemo(() => items.filter((item) => favorites.includes(item.id) && (showArchived || !item.archived)), [favorites, items, showArchived]);
+  const favoriteItems = useMemo(() => sortCatalogItems(items.filter((item) => favorites.includes(item.id) && (showArchived || !item.archived))), [favorites, items, showArchived]);
 
   return (
     <ScreenContainer>

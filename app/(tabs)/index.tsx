@@ -7,7 +7,7 @@ import { CatalogCard } from "@/components/catalog-card";
 import { ScreenContainer } from "@/components/screen-container";
 import { useCatalog } from "@/lib/catalog-context";
 import { useColors } from "@/hooks/use-colors";
-import type { CatalogItem } from "@/lib/catalog";
+import { sortCatalogItems, type CatalogItem, type CatalogSort } from "@/lib/catalog";
 
 type StatusFilter = "all" | "recent" | "active" | "archived";
 
@@ -27,6 +27,7 @@ export default function CatalogScreen() {
   const [query, setQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("Todos");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [sortMode, setSortMode] = useState<CatalogSort>("recent");
 
   const categories = useMemo(() => {
     const values = new Set(items.filter((item) => showArchived || !item.archived).map((item) => item.category));
@@ -35,7 +36,7 @@ export default function CatalogScreen() {
 
   const filteredItems = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase("pt-BR");
-    return items
+    const matchingItems = items
       .filter((item) => showArchived || !item.archived)
       .filter((item) => categoryFilter === "Todos" || item.category === categoryFilter)
       .filter((item) => {
@@ -48,7 +49,8 @@ export default function CatalogScreen() {
         if (!normalizedQuery) return true;
         return [item.name, item.system, item.category, item.version, item.repoUrl].some((value) => value.toLocaleLowerCase("pt-BR").includes(normalizedQuery));
       });
-  }, [categoryFilter, items, query, showArchived, statusFilter]);
+    return sortCatalogItems(matchingItems, sortMode);
+  }, [categoryFilter, items, query, showArchived, sortMode, statusFilter]);
 
   const renderItem = ({ item }: { item: CatalogItem }) => (
     <CatalogCard
@@ -103,6 +105,12 @@ export default function CatalogScreen() {
             <Text style={[styles.sectionLabel, { color: colors.muted }]}>CATEGORIA</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}>
               {categories.map((category) => <FilterChip key={category} label={category} selected={categoryFilter === category} onPress={() => setCategoryFilter(category)} />)}
+            </ScrollView>
+            <Text style={[styles.sectionLabel, { color: colors.muted }]}>ORDENAR POR</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}>
+              <FilterChip label="Mais recentes" selected={sortMode === "recent"} onPress={() => setSortMode("recent")} />
+              <FilterChip label="Mais antigos" selected={sortMode === "oldest"} onPress={() => setSortMode("oldest")} />
+              <FilterChip label="A–Z" selected={sortMode === "name"} onPress={() => setSortMode("name")} />
             </ScrollView>
             {syncState === "offline" && <View style={[styles.offlineBanner, { backgroundColor: `${colors.warning}18`, borderColor: `${colors.warning}55` }]}><MaterialIcons name="cloud-off" size={17} color={colors.warning} /><Text style={[styles.offlineText, { color: colors.warning }]}>Modo offline: mostrando a última cópia disponível.</Text></View>}
           </View>

@@ -9,7 +9,7 @@ import { StatusPill } from "@/components/status-pill";
 export function CatalogCard({ item, favorite, onPress, onToggleFavorite }: { item: CatalogItem; favorite: boolean; onPress: () => void; onToggleFavorite: () => void }) {
   const colors = useColors();
   const [imageFailed, setImageFailed] = useState(false);
-  const previewUrl = getRepositoryPreviewUrl(item.repoUrl);
+  const previewUrl = item.imageUrl ?? getRepositoryPreviewUrl(item.repoUrl);
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.card, { backgroundColor: colors.surface, borderColor: colors.border }, pressed && styles.pressed]}>
       <View style={[styles.marker, { backgroundColor: item.archived ? colors.warning : item.recent ? colors.success : colors.primary }]} />

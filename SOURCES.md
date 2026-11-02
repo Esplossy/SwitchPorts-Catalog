@@ -8,7 +8,7 @@ O repositório [robzilla10001/SwitchPorts](https://github.com/robzilla10001/Swit
 
 O [Preservia Port Archive](https://preservia.github.io/ports/) é uma fonte complementar estruturada. Na consulta realizada, apresentava 14 ports com cartões, ícones, autor, versão, descrição, página de origem e link de download. O repositório [preservia/ports](https://github.com/preservia/ports) mantém `ports.json` e registros individuais em JSON; o README informa que o arquivo é curado, contém metadados e que os ports foram testados em firmware 20.1.0.
 
-Como os registros Preservia também oferecem downloads pré-compilados e o objetivo deste app é um catálogo seguro de links e metadados, o aplicativo não incorpora nem redistribui esses arquivos. A fonte foi adicionada em Ajustes como referência complementar para consulta manual.
+Como os registros Preservia também oferecem downloads pré-compilados e o objetivo deste app é um catálogo seguro de links e metadados, o aplicativo não incorpora nem redistribui esses arquivos. A lista estruturada foi integrada ao catálogo somente como metadados: na sincronização atual ela acrescenta 13 itens novos, pois “Perfect Dark” já existia na fonte principal. A página também continua disponível em Ajustes como referência complementar.
 
 ## Ultimate Switch Port Thread
 
@@ -20,4 +20,4 @@ A página de tópico [GitHub · switch-homebrew](https://github.com/topics/switc
 
 ## Critério adotado
 
-O catálogo continua sincronizando automaticamente apenas o SwitchPorts, que possui a estrutura tabular e os critérios editoriais necessários para uma atualização segura. As outras fontes aparecem em **Ajustes → Fontes complementares**, evitando duplicações, resultados não comparáveis e inclusão acidental de links diretos para arquivos distribuíveis.
+O catálogo sincroniza automaticamente o SwitchPorts como fonte principal e a lista JSON estruturada da Preservia como fonte complementar. GBATemp e GitHub Topics continuam como fontes de descoberta manual em **Ajustes → Fontes complementares**, evitando duplicações, resultados não comparáveis e inclusão acidental de links diretos para arquivos distribuíveis.

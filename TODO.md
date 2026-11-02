@@ -36,7 +36,7 @@
   - Configura ícones, splash, identificadores e metadados de branding do aplicativo.
   - Permite compartilhar o nome e o repositório pela folha nativa do Android.
   - Oferece notificações locais somente para favoritos quando há mudança de versão, data, firmware ou links durante uma sincronização.
-  - Exibe fontes complementares pesquisadas: Preservia Port Archive, Ultimate Switch Port Thread e GitHub switch-homebrew.
+  - Integra 13 itens adicionais da lista JSON do Preservia Port Archive, deduplica “Perfect Dark” já existente e mantém GBATemp/GitHub Topics como fontes de descoberta manual.
 
 - [x] **Validação do projeto**
   - TypeScript, lint e configuração pública do Expo foram verificados sem erros.

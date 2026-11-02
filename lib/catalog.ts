@@ -5,6 +5,8 @@ import { CATALOG_SEED } from "@/data/catalog-seed";
 export const REPOSITORY_URL = "https://github.com/robzilla10001/SwitchPorts";
 export const README_URL = "https://raw.githubusercontent.com/robzilla10001/SwitchPorts/main/README.md";
 export const DEAD_URL = "https://raw.githubusercontent.com/robzilla10001/SwitchPorts/main/DEAD.md";
+export const PRESERVIA_MANIFEST_URL = "https://raw.githubusercontent.com/preservia/ports/main/ports.json";
+export const PRESERVIA_RAW_BASE_URL = "https://raw.githubusercontent.com/preservia/ports/main/";
 export const COMPLEMENTARY_SOURCES = [
   {
     name: "Preservia Port Archive",
@@ -38,6 +40,7 @@ export type CatalogItem = {
   threadUrl: string;
   archived: boolean;
   recent: boolean;
+  imageUrl?: string;
 };
 
 export type SyncState = "loading" | "ready" | "syncing" | "offline" | "error";
@@ -91,6 +94,35 @@ function slug(value: string) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 70);
+}
+
+type PreserviaRecord = { name?: unknown; icon?: unknown; version?: unknown; source?: unknown };
+
+function parsePreserviaRecord(record: PreserviaRecord, key: string): CatalogItem | null {
+  const name = typeof record.name === "string" ? cleanCell(record.name) : "";
+  if (!name) return null;
+  const source = typeof record.source === "string" && /^https?:\/\//i.test(record.source) ? record.source : "https://github.com/preservia/ports";
+  const icon = typeof record.icon === "string" ? record.icon.replace(/^\/+/, "") : "";
+  return {
+    id: slug(`preservia-${key}-${name}`),
+    name,
+    system: "Nintendo Switch",
+    category: "Preservia Archive",
+    version: typeof record.version === "string" ? record.version : "n/a",
+    lastUpdated: "n/a",
+    firmware: "n/d",
+    repoUrl: source,
+    threadUrl: "",
+    archived: false,
+    recent: false,
+    imageUrl: icon ? `https://preservia.github.io/ports/${icon}` : undefined,
+  };
+}
+
+export function parsePreserviaRecords(manifest: unknown, records: Array<{ key: string; record: PreserviaRecord }>) {
+  const keys = Array.isArray(manifest) ? manifest.map(String) : Object.values((manifest ?? {}) as Record<string, unknown>).map(String);
+  const byKey = new Map(records.map((entry) => [entry.key, entry.record]));
+  return keys.map((key) => parsePreserviaRecord(byKey.get(key) ?? {}, key)).filter((item): item is CatalogItem => Boolean(item));
 }
 
 export function parsePortMarkdown(markdown: string, archived: boolean): CatalogItem[] {
@@ -169,8 +201,27 @@ export async function fetchCatalog(): Promise<CatalogItem[]> {
       throw new Error("A fonte não respondeu corretamente.");
     }
     const [readme, dead] = await Promise.all(responses.map((response) => response.text()));
-    const items = [...parsePortMarkdown(readme, false), ...parsePortMarkdown(dead, true)];
-    const unique = Array.from(new Map(items.map((item) => [item.id, item])).values());
+    const primaryItems = [...parsePortMarkdown(readme, false), ...parsePortMarkdown(dead, true)];
+    let complementaryItems: CatalogItem[] = [];
+    try {
+      const manifestResponse = await fetch(PRESERVIA_MANIFEST_URL, { signal: controller.signal });
+      if (manifestResponse.ok) {
+        const manifest = await manifestResponse.json();
+        const keys = Array.isArray(manifest) ? manifest.map(String) : Object.values((manifest ?? {}) as Record<string, unknown>).map(String);
+        const recordResponses = await Promise.all(keys.map((key) => fetch(`${PRESERVIA_RAW_BASE_URL}ports/${key}.json`, { signal: controller.signal })));
+        const records = await Promise.all(recordResponses.map(async (response, index) => ({ key: keys[index], record: response.ok ? await response.json() as PreserviaRecord : {} })));
+        complementaryItems = parsePreserviaRecords(manifest, records);
+      }
+    } catch {
+      complementaryItems = [];
+    }
+    const seenNames = new Set<string>();
+    const unique = [...primaryItems, ...complementaryItems].filter((item) => {
+      const key = item.name.trim().toLocaleLowerCase("pt-BR");
+      if (seenNames.has(key)) return false;
+      seenNames.add(key);
+      return true;
+    });
     if (unique.length < 10) throw new Error("A fonte retornou poucos itens para uma sincronização segura.");
     return unique.sort((a, b) => Number(a.archived) - Number(b.archived) || a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
   } finally {

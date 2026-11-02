@@ -41,7 +41,7 @@ export default function SettingsScreen() {
 
         <Text style={[styles.sectionLabel, { color: colors.muted }]}>FONTE E CRÉDITOS</Text>
         <View style={[styles.infoCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-          <View style={styles.infoRow}><MaterialIcons name="inventory-2" size={20} color={colors.primary} /><View style={styles.infoCopy}><Text style={[styles.infoTitle, { color: colors.foreground }]}>SwitchPorts</Text><Text style={[styles.infoText, { color: colors.muted }]}>{items.length} itens indexados a partir do README.md e DEAD.md.</Text></View></View>
+          <View style={styles.infoRow}><MaterialIcons name="inventory-2" size={20} color={colors.primary} /><View style={styles.infoCopy}><Text style={[styles.infoTitle, { color: colors.foreground }]}>Catálogo agregado</Text><Text style={[styles.infoText, { color: colors.muted }]}>{items.length} itens indexados a partir do README.md, DEAD.md e Preservia Port Archive.</Text></View></View>
           <Pressable onPress={() => void Linking.openURL(REPOSITORY_URL)} style={({ pressed }) => [styles.sourceButton, { borderColor: colors.border }, pressed && styles.pressed]}><Text style={[styles.sourceButtonText, { color: colors.primary }]}>Abrir repositório original</Text><MaterialIcons name="open-in-new" size={17} color={colors.primary} /></Pressable>
         </View>
 

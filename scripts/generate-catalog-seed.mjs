@@ -10,6 +10,8 @@ const sources = [
     archived: true,
   },
 ];
+const PRESERVIA_MANIFEST_URL = "https://raw.githubusercontent.com/preservia/ports/main/ports.json";
+const PRESERVIA_RAW_BASE_URL = "https://raw.githubusercontent.com/preservia/ports/main/";
 
 function cleanCell(value = "") {
   return value
@@ -50,6 +52,27 @@ function slug(value) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 70);
+}
+
+function parsePreserviaRecord(record, key) {
+  const name = typeof record.name === "string" ? cleanCell(record.name) : "";
+  if (!name) return null;
+  const source = typeof record.source === "string" && /^https?:\/\//i.test(record.source) ? record.source : "https://github.com/preservia/ports";
+  const icon = typeof record.icon === "string" ? record.icon.replace(/^\/+/, "") : "";
+  return {
+    id: slug(`preservia-${key}-${name}`),
+    name,
+    system: "Nintendo Switch",
+    category: "Preservia Archive",
+    version: typeof record.version === "string" ? record.version : "n/a",
+    lastUpdated: "n/a",
+    firmware: "n/d",
+    repoUrl: source,
+    threadUrl: "",
+    archived: false,
+    recent: false,
+    ...(icon ? { imageUrl: `https://preservia.github.io/ports/${icon}` } : {}),
+  };
 }
 
 function parseMarkdown(markdown, archived) {
@@ -124,7 +147,24 @@ for (const source of sources) {
   allItems.push(...parseMarkdown(await response.text(), source.archived));
 }
 
-const unique = Array.from(new Map(allItems.map((item) => [item.id, item])).values());
+const preserviaManifestResponse = await fetch(PRESERVIA_MANIFEST_URL);
+if (preserviaManifestResponse.ok) {
+  const manifest = await preserviaManifestResponse.json();
+  const keys = Array.isArray(manifest) ? manifest.map(String) : Object.values(manifest).map(String);
+  const records = await Promise.all(keys.map(async (key) => {
+    const response = await fetch(`${PRESERVIA_RAW_BASE_URL}ports/${key}.json`);
+    return { key, record: response.ok ? await response.json() : {} };
+  }));
+  allItems.push(...records.map(({ key, record }) => parsePreserviaRecord(record, key)).filter(Boolean));
+}
+
+const seenNames = new Set();
+const unique = allItems.filter((item) => {
+  const key = item.name.trim().toLocaleLowerCase("pt-BR");
+  if (seenNames.has(key)) return false;
+  seenNames.add(key);
+  return true;
+});
 unique.sort((a, b) => Number(a.archived) - Number(b.archived) || a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
 
 await mkdir("data", { recursive: true });

@@ -84,12 +84,7 @@ export default function CatalogScreen() {
             </View>
             <Text style={[styles.title, { color: colors.foreground }]}>Encontre um port em segundos.</Text>
             <Text style={[styles.subtitle, { color: colors.muted }]}>Links oficiais, versões e estados organizados em um só lugar.</Text>
-            <View style={[styles.summary, { backgroundColor: colors.foreground }]}>
-              <View><Text style={styles.summaryLabel}>CATÁLOGO ATUAL</Text><Text style={styles.summaryNumber}>{items.length}</Text><Text style={styles.summaryCaption}>itens indexados</Text></View>
-              <View style={styles.summaryRule} />
-              <View><Text style={styles.summaryLabel}>RESULTADOS</Text><Text style={styles.summaryNumber}>{filteredItems.length}</Text><Text style={styles.summaryCaption}>nesta consulta</Text></View>
-              <MaterialIcons name="arrow-outward" size={30} color={colors.primary} style={styles.summaryIcon} />
-            </View>
+            <View style={styles.resultMeta}><Text style={[styles.resultMetaText, { color: colors.muted }]}>{filteredItems.length} {filteredItems.length === 1 ? "resultado" : "resultados"}</Text><Text style={[styles.resultMetaText, { color: colors.muted }]}>· {items.length} no catálogo</Text></View>
             <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.border }]}>
               <MaterialIcons name="search" size={22} color={colors.muted} />
               <TextInput value={query} onChangeText={setQuery} placeholder="Buscar título, sistema ou repositório" placeholderTextColor={colors.muted} style={[styles.searchInput, { color: colors.foreground }]} returnKeyType="search" />
@@ -134,12 +129,8 @@ const styles = StyleSheet.create({
   syncText: { fontSize: 10 },
   title: { fontSize: 29, lineHeight: 33, fontWeight: "900", letterSpacing: -0.8, maxWidth: 330, marginTop: 5 },
   subtitle: { fontSize: 14, lineHeight: 20, maxWidth: 340 },
-  summary: { minHeight: 116, borderRadius: 20, padding: 17, flexDirection: "row", alignItems: "center", gap: 18, overflow: "hidden", marginTop: 6 },
-  summaryLabel: { color: "#8EA7AE", fontSize: 9, fontWeight: "900", letterSpacing: 1.1 },
-  summaryNumber: { color: "#E8F4F5", fontSize: 28, fontWeight: "900", lineHeight: 33, marginTop: 2 },
-  summaryCaption: { color: "#8EA7AE", fontSize: 11 },
-  summaryRule: { width: 1, height: 50, backgroundColor: "#244354" },
-  summaryIcon: { marginLeft: "auto" },
+  resultMeta: { flexDirection: "row", alignItems: "center", gap: 7, marginTop: 1 },
+  resultMetaText: { fontSize: 11, fontWeight: "700" },
   searchBox: { height: 52, borderRadius: 16, borderWidth: 1, paddingHorizontal: 14, flexDirection: "row", alignItems: "center", gap: 10, marginTop: 3 },
   searchInput: { flex: 1, fontSize: 14, paddingVertical: 0 },
   sectionLabel: { fontSize: 10, fontWeight: "900", letterSpacing: 1.1, marginTop: 3 },

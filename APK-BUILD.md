@@ -10,7 +10,7 @@ O ambiente nativo foi preparado e o APK local foi gerado com sucesso em 27/10/20
 - Versão: `1.0.0` / versionCode `1`
 - Compile/target SDK: 36
 - Assinatura: Android APK Signature Scheme v2 válida
-- SHA-256: `3b016c998c77b0132c0f299ac165c8f09827d36a69bcfe714cb3e2c39c466cbe`
+- SHA-256: `d1affe2ff180cc3e89551636e95e1ea90d8cd03ca7afd01880e6ebdbbc37486e`
 
 O APK usa a chave de desenvolvimento padrão em `~/.android/debug.keystore`, com alias `androiddebugkey` e senha `android`. Essa chave é apropriada para testes e instalação local, não para publicação em produção.
 

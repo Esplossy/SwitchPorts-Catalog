@@ -1,15 +1,21 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
 
 import { useColors } from "@/hooks/use-colors";
-import { formatPortDate, type CatalogItem } from "@/lib/catalog";
+import { formatPortDate, getRepositoryPreviewUrl, type CatalogItem } from "@/lib/catalog";
 import { StatusPill } from "@/components/status-pill";
 
 export function CatalogCard({ item, favorite, onPress, onToggleFavorite }: { item: CatalogItem; favorite: boolean; onPress: () => void; onToggleFavorite: () => void }) {
   const colors = useColors();
+  const [imageFailed, setImageFailed] = useState(false);
+  const previewUrl = getRepositoryPreviewUrl(item.repoUrl);
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.card, { backgroundColor: colors.surface, borderColor: colors.border }, pressed && styles.pressed]}>
       <View style={[styles.marker, { backgroundColor: item.archived ? colors.warning : item.recent ? colors.success : colors.primary }]} />
+      <View style={[styles.thumbnail, { backgroundColor: `${colors.primary}16` }]}>
+        {previewUrl && !imageFailed ? <Image source={{ uri: previewUrl }} style={styles.thumbnailImage} resizeMode="cover" onError={() => setImageFailed(true)} /> : <MaterialIcons name="extension" size={25} color={item.archived ? colors.warning : colors.primary} />}
+      </View>
       <View style={styles.content}>
         <View style={styles.topLine}>
           <View style={styles.titleWrap}>
@@ -38,6 +44,8 @@ export function CatalogCard({ item, favorite, onPress, onToggleFavorite }: { ite
 const styles = StyleSheet.create({
   card: { flexDirection: "row", minHeight: 104, borderWidth: 1, borderRadius: 18, overflow: "hidden", marginBottom: 10 },
   marker: { width: 4 },
+  thumbnail: { width: 64, height: 64, borderRadius: 15, marginLeft: 11, marginVertical: 19, alignItems: "center", justifyContent: "center", overflow: "hidden" },
+  thumbnailImage: { width: "100%", height: "100%" },
   content: { flex: 1, paddingHorizontal: 15, paddingVertical: 14, gap: 14 },
   pressed: { opacity: 0.78, transform: [{ scale: 0.995 }] },
   topLine: { flexDirection: "row", alignItems: "flex-start", gap: 8 },

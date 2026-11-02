@@ -203,6 +203,13 @@ export function formatPortDate(value: string) {
   return `${match[1]}/${match[2]}/${match[3]}`;
 }
 
+export function getRepositoryPreviewUrl(repoUrl: string) {
+  const match = repoUrl.match(/^https?:\/\/(?:www\.)?github\.com\/([^/#?]+)\/([^/#?]+)/i);
+  if (!match) return null;
+  const repository = match[2].replace(/\.git$/, "");
+  return `https://opengraph.githubassets.com/1/${match[1]}/${repository}`;
+}
+
 function catalogDateValue(value: string) {
   const brazilian = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
   if (brazilian) return Date.UTC(Number(brazilian[3]), Number(brazilian[2]) - 1, Number(brazilian[1]));

@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 import {
   fetchCatalog,
@@ -9,13 +9,18 @@ import {
   saveCachedCatalog,
   savePreferences,
   type CatalogItem,
+  type CatalogSort,
   type SyncState,
 } from "@/lib/catalog";
+import { notifyFavoriteChanges } from "@/lib/notifications";
 
 type CatalogContextValue = {
   items: CatalogItem[];
   favorites: string[];
   showArchived: boolean;
+  sortMode: CatalogSort;
+  firmwareOnly: boolean;
+  favoriteNotifications: boolean;
   syncState: SyncState;
   errorMessage: string | null;
   lastSyncedAt: string | null;
@@ -24,6 +29,9 @@ type CatalogContextValue = {
   toggleFavorite: (id: string) => void;
   isFavorite: (id: string) => boolean;
   setShowArchived: (value: boolean) => void;
+  setSortMode: (value: CatalogSort) => void;
+  setFirmwareOnly: (value: boolean) => void;
+  setFavoriteNotifications: (value: boolean) => Promise<void>;
 };
 
 const CatalogContext = createContext<CatalogContextValue | null>(null);
@@ -32,10 +40,21 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CatalogItem[]>(getCatalogSeed());
   const [favorites, setFavorites] = useState<string[]>([]);
   const [showArchived, setShowArchived] = useState(true);
+  const [sortMode, setSortMode] = useState<CatalogSort>("recent");
+  const [firmwareOnly, setFirmwareOnly] = useState(false);
+  const [favoriteNotifications, setFavoriteNotificationsState] = useState(false);
   const [syncState, setSyncState] = useState<SyncState>("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [lastSyncedAt, setLastSyncedAt] = useState<string | null>(null);
   const [preferencesReady, setPreferencesReady] = useState(false);
+  const itemsRef = useRef(items);
+  const favoritesRef = useRef(favorites);
+  const lastSyncedAtRef = useRef(lastSyncedAt);
+  const favoriteNotificationsRef = useRef(favoriteNotifications);
+  itemsRef.current = items;
+  favoritesRef.current = favorites;
+  lastSyncedAtRef.current = lastSyncedAt;
+  favoriteNotificationsRef.current = favoriteNotifications;
 
   const syncNow = useCallback(async () => {
     setSyncState("syncing");
@@ -43,6 +62,17 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
     try {
       const freshItems = await fetchCatalog();
       const syncedAt = new Date().toISOString();
+      if (lastSyncedAtRef.current && favoriteNotificationsRef.current) {
+        const previousById = new Map(itemsRef.current.map((item) => [item.id, item]));
+        const changedFavoriteNames = freshItems
+          .filter((item) => favoritesRef.current.includes(item.id))
+          .filter((item) => {
+            const previous = previousById.get(item.id);
+            return previous && ["version", "lastUpdated", "firmware", "repoUrl", "threadUrl"].some((key) => previous[key as keyof CatalogItem] !== item[key as keyof CatalogItem]);
+          })
+          .map((item) => item.name);
+        await notifyFavoriteChanges(changedFavoriteNames);
+      }
       setItems(freshItems);
       setLastSyncedAt(syncedAt);
       setSyncState("ready");
@@ -64,6 +94,9 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       }
       setFavorites(preferences.favorites);
       setShowArchived(preferences.showArchived);
+      setSortMode(preferences.sortMode);
+      setFirmwareOnly(preferences.firmwareOnly);
+      setFavoriteNotificationsState(preferences.favoriteNotifications);
       setPreferencesReady(true);
       if (!cancelled) await syncNow();
     }
@@ -74,8 +107,18 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   }, [syncNow]);
 
   useEffect(() => {
-    if (preferencesReady) void savePreferences(favorites, showArchived);
-  }, [favorites, preferencesReady, showArchived]);
+    if (preferencesReady) void savePreferences(favorites, showArchived, sortMode, firmwareOnly, favoriteNotifications);
+  }, [favoriteNotifications, favorites, firmwareOnly, preferencesReady, showArchived, sortMode]);
+
+  const setFavoriteNotifications = useCallback(async (value: boolean) => {
+    if (!value) {
+      setFavoriteNotificationsState(false);
+      return;
+    }
+    const { requestFavoriteNotificationPermission } = await import("@/lib/notifications");
+    const granted = await requestFavoriteNotificationPermission();
+    setFavoriteNotificationsState(granted);
+  }, []);
 
   const toggleFavorite = useCallback((id: string) => {
     setFavorites((current) => (current.includes(id) ? current.filter((favorite) => favorite !== id) : [...current, id]));
@@ -88,6 +131,9 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       items,
       favorites,
       showArchived,
+      sortMode,
+      firmwareOnly,
+      favoriteNotifications,
       syncState,
       errorMessage,
       lastSyncedAt,
@@ -96,8 +142,11 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       toggleFavorite,
       isFavorite,
       setShowArchived,
+      setSortMode,
+      setFirmwareOnly,
+      setFavoriteNotifications,
     }),
-    [errorMessage, favorites, isFavorite, items, lastSyncedAt, showArchived, syncNow, syncState, toggleFavorite],
+    [errorMessage, favoriteNotifications, favorites, firmwareOnly, isFavorite, items, lastSyncedAt, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
   );
 
   return <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>;

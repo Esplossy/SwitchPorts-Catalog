@@ -1,6 +1,6 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Linking, Pressable, ScrollView, Share, StyleSheet, Text, View } from "react-native";
 
 import { ScreenContainer } from "@/components/screen-container";
 import { StatusPill } from "@/components/status-pill";
@@ -25,7 +25,7 @@ export default function DetailScreen() {
   return (
     <ScreenContainer>
       <ScrollView contentContainerStyle={styles.content}>
-        <View style={styles.topBar}><Pressable onPress={() => router.back()} hitSlop={10} style={[styles.iconButton, { backgroundColor: colors.surface, borderColor: colors.border }]}><MaterialIcons name="arrow-back" size={21} color={colors.foreground} /></Pressable><Pressable onPress={() => toggleFavorite(item.id)} hitSlop={10} style={[styles.iconButton, { backgroundColor: colors.surface, borderColor: colors.border }]}><MaterialIcons name={favorite ? "star" : "star-border"} size={22} color={favorite ? colors.warning : colors.foreground} /></Pressable></View>
+        <View style={styles.topBar}><Pressable onPress={() => router.back()} hitSlop={10} style={[styles.iconButton, { backgroundColor: colors.surface, borderColor: colors.border }]}><MaterialIcons name="arrow-back" size={21} color={colors.foreground} /></Pressable><View style={styles.topActions}><Pressable onPress={() => void Share.share({ title: item.name, message: `${item.name}\n${item.repoUrl}` })} hitSlop={10} style={[styles.iconButton, { backgroundColor: colors.surface, borderColor: colors.border }]}><MaterialIcons name="share" size={21} color={colors.foreground} /></Pressable><Pressable onPress={() => toggleFavorite(item.id)} hitSlop={10} style={[styles.iconButton, { backgroundColor: colors.surface, borderColor: colors.border }]}><MaterialIcons name={favorite ? "star" : "star-border"} size={22} color={favorite ? colors.warning : colors.foreground} /></Pressable></View></View>
         <View style={styles.hero}><View style={[styles.heroMark, { backgroundColor: item.archived ? `${colors.warning}20` : `${colors.primary}20` }]}><MaterialIcons name={item.archived ? "inventory-2" : "extension"} size={30} color={item.archived ? colors.warning : colors.primary} /></View><View style={styles.badgeRow}>{item.archived && <StatusPill label="ARQUIVADO" tone="warning" />}{item.recent && <StatusPill label="ATUALIZADO" tone="success" />}</View><Text style={[styles.title, { color: colors.foreground }]}>{item.name}</Text><Text style={[styles.subtitle, { color: colors.muted }]}>{item.system === item.category ? item.system : `${item.system} · ${item.category}`}</Text></View>
 
         <View style={[styles.metaCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
@@ -50,6 +50,7 @@ export default function DetailScreen() {
 const styles = StyleSheet.create({
   content: { paddingHorizontal: 16, paddingTop: 9, paddingBottom: 36, gap: 13 },
   topBar: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
+  topActions: { flexDirection: "row", gap: 8 },
   iconButton: { width: 42, height: 42, borderWidth: 1, borderRadius: 14, alignItems: "center", justifyContent: "center" },
   hero: { paddingTop: 17, gap: 8 },
   heroMark: { width: 64, height: 64, borderRadius: 21, alignItems: "center", justifyContent: "center", marginBottom: 3 },

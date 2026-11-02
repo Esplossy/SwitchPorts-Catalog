@@ -18,6 +18,8 @@
   - Ordena por padrão pelos mais recentes e permite alternar para mais antigos ou ordem alfabética A–Z.
   - Exibe somente uma linha compacta e dinâmica de resultados, sem o painel grande e inerte de contadores.
   - Mostra uma miniatura pequena da prévia pública do repositório GitHub quando disponível e usa um ícone de fallback quando não houver imagem.
+  - Persiste a ordem escolhida entre “Mais recentes”, “Mais antigos” e “A–Z”.
+  - Oferece o filtro “FW 21+” para mostrar somente ports marcados como compatíveis.
   - Permite destacar projetos atualizados recentemente.
   - Mostra contador total e contador do resultado atual.
 
@@ -32,6 +34,9 @@
   - Usa interface Android moderna, legível, eficiente e integralmente em português do Brasil.
   - Inclui citação da fonte e aviso explícito de que o app é somente um catálogo de links e metadados.
   - Configura ícones, splash, identificadores e metadados de branding do aplicativo.
+  - Permite compartilhar o nome e o repositório pela folha nativa do Android.
+  - Oferece notificações locais somente para favoritos quando há mudança de versão, data, firmware ou links durante uma sincronização.
+  - Exibe fontes complementares pesquisadas: Preservia Port Archive, Ultimate Switch Port Thread e GitHub switch-homebrew.
 
 - [x] **Validação do projeto**
   - TypeScript, lint e configuração pública do Expo foram verificados sem erros.

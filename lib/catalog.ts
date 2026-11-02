@@ -5,6 +5,26 @@ import { CATALOG_SEED } from "@/data/catalog-seed";
 export const REPOSITORY_URL = "https://github.com/robzilla10001/SwitchPorts";
 export const README_URL = "https://raw.githubusercontent.com/robzilla10001/SwitchPorts/main/README.md";
 export const DEAD_URL = "https://raw.githubusercontent.com/robzilla10001/SwitchPorts/main/DEAD.md";
+export const COMPLEMENTARY_SOURCES = [
+  {
+    name: "Preservia Port Archive",
+    description: "Arquivo curado de ports homebrew com metadados e links de origem.",
+    url: "https://preservia.github.io/ports/",
+    repositoryUrl: "https://github.com/preservia/ports",
+  },
+  {
+    name: "Ultimate Switch Port Thread",
+    description: "Discussão comunitária do GBATemp com novidades e sugestões de ports.",
+    url: "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/",
+    repositoryUrl: "https://github.com/robzilla10001/SwitchPorts",
+  },
+  {
+    name: "GitHub · switch-homebrew",
+    description: "Descoberta ampla de projetos marcados com o tópico switch-homebrew.",
+    url: "https://github.com/topics/switch-homebrew",
+    repositoryUrl: "https://github.com/topics/switch-homebrew",
+  },
+] as const;
 
 export type CatalogItem = {
   id: string;
@@ -30,7 +50,7 @@ export type CachedCatalog = {
 };
 
 const CATALOG_CACHE_KEY = "switchports.catalog.cache.v1";
-const PREFERENCES_KEY = "switchports.preferences.v1";
+const PREFERENCES_KEY = "switchports.preferences.v2";
 
 function cleanCell(value = "") {
   return value
@@ -174,22 +194,25 @@ export async function saveCachedCatalog(items: CatalogItem[], syncedAt: string) 
   await AsyncStorage.setItem(CATALOG_CACHE_KEY, JSON.stringify({ items, syncedAt } satisfies CachedCatalog));
 }
 
-export async function loadPreferences(): Promise<{ favorites: string[]; showArchived: boolean }> {
+export async function loadPreferences(): Promise<{ favorites: string[]; showArchived: boolean; sortMode: CatalogSort; firmwareOnly: boolean; favoriteNotifications: boolean }> {
   try {
     const raw = await AsyncStorage.getItem(PREFERENCES_KEY);
-    if (!raw) return { favorites: [], showArchived: true };
-    const parsed = JSON.parse(raw) as { favorites?: unknown; showArchived?: unknown };
+    if (!raw) return { favorites: [], showArchived: true, sortMode: "recent", firmwareOnly: false, favoriteNotifications: false };
+    const parsed = JSON.parse(raw) as { favorites?: unknown; showArchived?: unknown; sortMode?: unknown; firmwareOnly?: unknown; favoriteNotifications?: unknown };
     return {
       favorites: Array.isArray(parsed.favorites) ? parsed.favorites.filter((value): value is string => typeof value === "string") : [],
       showArchived: parsed.showArchived !== false,
+      sortMode: parsed.sortMode === "oldest" || parsed.sortMode === "name" ? parsed.sortMode : "recent",
+      firmwareOnly: parsed.firmwareOnly === true,
+      favoriteNotifications: parsed.favoriteNotifications === true,
     };
   } catch {
-    return { favorites: [], showArchived: true };
+    return { favorites: [], showArchived: true, sortMode: "recent", firmwareOnly: false, favoriteNotifications: false };
   }
 }
 
-export async function savePreferences(favorites: string[], showArchived: boolean) {
-  await AsyncStorage.setItem(PREFERENCES_KEY, JSON.stringify({ favorites, showArchived }));
+export async function savePreferences(favorites: string[], showArchived: boolean, sortMode: CatalogSort, firmwareOnly: boolean, favoriteNotifications: boolean) {
+  await AsyncStorage.setItem(PREFERENCES_KEY, JSON.stringify({ favorites, showArchived, sortMode, firmwareOnly, favoriteNotifications }));
 }
 
 export function formatSyncDate(value: string | null) {

@@ -3,16 +3,22 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import {
   fetchCatalog,
   formatSyncDate,
+  getCatalogChanges,
   getCatalogSeed,
   loadCachedCatalog,
+  loadChangeHistory,
   loadPreferences,
   saveCachedCatalog,
+  saveChangeHistory,
   savePreferences,
+  type CatalogChange,
   type CatalogItem,
   type CatalogSort,
   type SyncState,
 } from "@/lib/catalog";
 import { notifyFavoriteChanges } from "@/lib/notifications";
+import "@/lib/background-sync";
+import { registerBackgroundSync } from "@/lib/background-sync";
 
 type CatalogContextValue = {
   items: CatalogItem[];
@@ -21,6 +27,7 @@ type CatalogContextValue = {
   sortMode: CatalogSort;
   firmwareOnly: boolean;
   favoriteNotifications: boolean;
+  changeHistory: CatalogChange[];
   syncState: SyncState;
   errorMessage: string | null;
   lastSyncedAt: string | null;
@@ -43,6 +50,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   const [sortMode, setSortMode] = useState<CatalogSort>("recent");
   const [firmwareOnly, setFirmwareOnly] = useState(false);
   const [favoriteNotifications, setFavoriteNotificationsState] = useState(false);
+  const [changeHistory, setChangeHistory] = useState<CatalogChange[]>([]);
   const [syncState, setSyncState] = useState<SyncState>("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [lastSyncedAt, setLastSyncedAt] = useState<string | null>(null);
@@ -51,10 +59,12 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   const favoritesRef = useRef(favorites);
   const lastSyncedAtRef = useRef(lastSyncedAt);
   const favoriteNotificationsRef = useRef(favoriteNotifications);
+  const changeHistoryRef = useRef(changeHistory);
   itemsRef.current = items;
   favoritesRef.current = favorites;
   lastSyncedAtRef.current = lastSyncedAt;
   favoriteNotificationsRef.current = favoriteNotifications;
+  changeHistoryRef.current = changeHistory;
 
   const syncNow = useCallback(async () => {
     setSyncState("syncing");
@@ -62,6 +72,12 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
     try {
       const freshItems = await fetchCatalog();
       const syncedAt = new Date().toISOString();
+      const changes = getCatalogChanges(itemsRef.current, freshItems, syncedAt);
+      if (changes.length > 0) {
+        const mergedHistory = [...changes, ...changeHistoryRef.current].slice(0, 80);
+        setChangeHistory(mergedHistory);
+        await saveChangeHistory(mergedHistory);
+      }
       if (lastSyncedAtRef.current && favoriteNotificationsRef.current) {
         const previousById = new Map(itemsRef.current.map((item) => [item.id, item]));
         const changedFavoriteNames = freshItems
@@ -86,7 +102,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     let cancelled = false;
     async function bootstrap() {
-      const [cached, preferences] = await Promise.all([loadCachedCatalog(), loadPreferences()]);
+      const [cached, preferences, history] = await Promise.all([loadCachedCatalog(), loadPreferences(), loadChangeHistory()]);
       if (cancelled) return;
       if (cached) {
         setItems(cached.items);
@@ -97,7 +113,9 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setSortMode(preferences.sortMode);
       setFirmwareOnly(preferences.firmwareOnly);
       setFavoriteNotificationsState(preferences.favoriteNotifications);
+      setChangeHistory(history);
       setPreferencesReady(true);
+      void registerBackgroundSync();
       if (!cancelled) await syncNow();
     }
     void bootstrap();
@@ -134,6 +152,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       sortMode,
       firmwareOnly,
       favoriteNotifications,
+      changeHistory,
       syncState,
       errorMessage,
       lastSyncedAt,
@@ -146,7 +165,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setFirmwareOnly,
       setFavoriteNotifications,
     }),
-    [errorMessage, favoriteNotifications, favorites, firmwareOnly, isFavorite, items, lastSyncedAt, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
+    [changeHistory, errorMessage, favoriteNotifications, favorites, firmwareOnly, isFavorite, items, lastSyncedAt, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
   );
 
   return <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>;

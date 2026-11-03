@@ -1,20 +1,29 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useColors } from "@/hooks/use-colors";
-import { formatPortDate, getRepositoryPreviewUrl, type CatalogItem } from "@/lib/catalog";
+import { formatPortDate, getFirmwareLabel, getFirmwareStatus, getRepositoryPreviewUrl, type CatalogItem } from "@/lib/catalog";
+import { cacheImage } from "@/lib/image-cache";
 import { StatusPill } from "@/components/status-pill";
 
 export function CatalogCard({ item, favorite, onPress, onToggleFavorite }: { item: CatalogItem; favorite: boolean; onPress: () => void; onToggleFavorite: () => void }) {
   const colors = useColors();
-  const [imageFailed, setImageFailed] = useState(false);
+  const [failedImageUrl, setFailedImageUrl] = useState<string | null>(null);
   const previewUrl = item.imageUrl ?? getRepositoryPreviewUrl(item.repoUrl);
+  const [cachedPreview, setCachedPreview] = useState<{ source: string; uri: string } | null>(null);
+  const firmwareStatus = getFirmwareStatus(item.firmware);
+  useEffect(() => {
+    let active = true;
+    if (previewUrl) void cacheImage(previewUrl).then((uri) => { if (active) setCachedPreview({ source: previewUrl, uri }); });
+    return () => { active = false; };
+  }, [previewUrl]);
+  const imageUri = cachedPreview?.source === previewUrl ? cachedPreview.uri : previewUrl;
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.card, { backgroundColor: colors.surface, borderColor: colors.border }, pressed && styles.pressed]}>
       <View style={[styles.marker, { backgroundColor: item.archived ? colors.warning : item.recent ? colors.success : colors.primary }]} />
       <View style={[styles.thumbnail, { backgroundColor: `${colors.primary}16` }]}>
-        {previewUrl && !imageFailed ? <Image source={{ uri: previewUrl }} style={styles.thumbnailImage} resizeMode="cover" onError={() => setImageFailed(true)} /> : <MaterialIcons name="extension" size={25} color={item.archived ? colors.warning : colors.primary} />}
+        {imageUri && failedImageUrl !== imageUri ? <Image source={{ uri: imageUri }} style={styles.thumbnailImage} resizeMode="cover" onError={() => setFailedImageUrl(imageUri)} /> : <MaterialIcons name="extension" size={25} color={item.archived ? colors.warning : colors.primary} />}
       </View>
       <View style={styles.content}>
         <View style={styles.topLine}>
@@ -32,6 +41,8 @@ export function CatalogCard({ item, favorite, onPress, onToggleFavorite }: { ite
             <Text style={[styles.date, { color: colors.muted }]}>{formatPortDate(item.lastUpdated)}</Text>
           </View>
           <View style={styles.badges}>
+            <StatusPill label={item.source === "Preservia" ? "PRESERVIA" : "SWITCHPORTS"} tone="info" />
+            {firmwareStatus !== "unknown" && <StatusPill label={getFirmwareLabel(item.firmware)} tone={firmwareStatus === "fw21" ? "success" : "warning"} />}
             {item.recent && <StatusPill label="NOVO" tone="success" />}
             {item.archived && <StatusPill label="ARQUIVADO" tone="warning" />}
           </View>

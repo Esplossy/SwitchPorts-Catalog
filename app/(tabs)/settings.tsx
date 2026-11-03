@@ -9,7 +9,7 @@ import { useCatalog } from "@/lib/catalog-context";
 
 export default function SettingsScreen() {
   const colors = useColors();
-  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
+  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
   const isSyncing = syncState === "syncing";
 
   return (
@@ -48,6 +48,11 @@ export default function SettingsScreen() {
         <Text style={[styles.sectionLabel, { color: colors.muted }]}>FONTES COMPLEMENTARES</Text>
         <View style={styles.sources}>
           {COMPLEMENTARY_SOURCES.map((source) => <Pressable key={source.name} onPress={() => void Linking.openURL(source.url)} style={({ pressed }) => [styles.sourceCard, { backgroundColor: colors.surface, borderColor: colors.border }, pressed && styles.pressed]}><View style={[styles.sourceIcon, { backgroundColor: `${colors.primary}18` }]}><MaterialIcons name="travel-explore" size={19} color={colors.primary} /></View><View style={styles.infoCopy}><Text style={[styles.sourceTitle, { color: colors.foreground }]}>{source.name}</Text><Text style={[styles.sourceDescription, { color: colors.muted }]}>{source.description}</Text></View><MaterialIcons name="open-in-new" size={17} color={colors.primary} /></Pressable>)}
+        </View>
+
+        <Text style={[styles.sectionLabel, { color: colors.muted }]}>HISTÓRICO RECENTE</Text>
+        <View style={[styles.historyCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          {changeHistory.length === 0 ? <Text style={[styles.historyEmpty, { color: colors.muted }]}>As alterações aparecerão após a próxima sincronização.</Text> : changeHistory.slice(0, 8).map((change) => <View key={`${change.detectedAt}-${change.id}-${change.type}`} style={styles.historyRow}><View style={[styles.historyDot, { backgroundColor: change.type === "added" ? colors.success : change.type === "removed" ? colors.warning : colors.primary }]} /><View style={styles.historyCopy}><Text numberOfLines={1} style={[styles.historyName, { color: colors.foreground }]}>{change.name}</Text><Text style={[styles.historyMeta, { color: colors.muted }]}>{change.type === "added" ? "Adicionado" : change.type === "removed" ? "Removido" : "Atualizado"} · {change.source} · {new Date(change.detectedAt).toLocaleDateString("pt-BR")}</Text></View></View>)}
         </View>
 
         <View style={[styles.notice, { backgroundColor: `${colors.warning}12`, borderColor: `${colors.warning}45` }]}><MaterialIcons name="info-outline" size={19} color={colors.warning} /><Text style={[styles.noticeText, { color: colors.muted }]}>Este app é apenas um catálogo de links e metadados. Ele não baixa nem distribui jogos, ROMs, executáveis ou arquivos protegidos.</Text></View>
@@ -90,6 +95,13 @@ const styles = StyleSheet.create({
   sourceIcon: { width: 38, height: 38, borderRadius: 12, alignItems: "center", justifyContent: "center" },
   sourceTitle: { fontSize: 13, fontWeight: "800" },
   sourceDescription: { fontSize: 11, lineHeight: 16, marginTop: 3 },
+  historyCard: { borderWidth: 1, borderRadius: 17, padding: 14, gap: 12 },
+  historyEmpty: { fontSize: 12, lineHeight: 18 },
+  historyRow: { flexDirection: "row", alignItems: "center", gap: 10 },
+  historyDot: { width: 8, height: 8, borderRadius: 8 },
+  historyCopy: { flex: 1, gap: 3 },
+  historyName: { fontSize: 13, fontWeight: "800" },
+  historyMeta: { fontSize: 11 },
   notice: { borderWidth: 1, borderRadius: 15, padding: 13, flexDirection: "row", gap: 9, alignItems: "flex-start" },
   noticeText: { flex: 1, fontSize: 12, lineHeight: 18 },
   footer: { fontSize: 11, lineHeight: 17, textAlign: "center", marginTop: 5 },

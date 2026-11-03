@@ -71,6 +71,7 @@ function parsePreserviaRecord(record, key) {
     threadUrl: "",
     archived: false,
     recent: false,
+    source: "Preservia",
     ...(icon ? { imageUrl: `https://preservia.github.io/ports/${icon}` } : {}),
   };
 }
@@ -134,6 +135,7 @@ function parseMarkdown(markdown, archived) {
       threadUrl,
       archived,
       recent: nameWithMarker.startsWith("🟢"),
+      source: "SwitchPorts",
     });
   }
 

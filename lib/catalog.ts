@@ -40,8 +40,13 @@ export type CatalogItem = {
   threadUrl: string;
   archived: boolean;
   recent: boolean;
+  source?: "SwitchPorts" | "Preservia";
   imageUrl?: string;
 };
+
+export type FirmwareStatus = "fw21" | "older" | "unknown";
+export type CatalogChangeType = "added" | "updated" | "removed";
+export type CatalogChange = { id: string; name: string; type: CatalogChangeType; source: string; detectedAt: string };
 
 export type SyncState = "loading" | "ready" | "syncing" | "offline" | "error";
 
@@ -115,6 +120,7 @@ function parsePreserviaRecord(record: PreserviaRecord, key: string): CatalogItem
     threadUrl: "",
     archived: false,
     recent: false,
+    source: "Preservia",
     imageUrl: icon ? `https://preservia.github.io/ports/${icon}` : undefined,
   };
 }
@@ -184,6 +190,7 @@ export function parsePortMarkdown(markdown: string, archived: boolean): CatalogI
       threadUrl,
       archived,
       recent: nameWithMarker.startsWith("🟢"),
+      source: "SwitchPorts",
     });
   }
 
@@ -266,6 +273,34 @@ export async function savePreferences(favorites: string[], showArchived: boolean
   await AsyncStorage.setItem(PREFERENCES_KEY, JSON.stringify({ favorites, showArchived, sortMode, firmwareOnly, favoriteNotifications }));
 }
 
+export async function loadChangeHistory(): Promise<CatalogChange[]> {
+  try {
+    const raw = await AsyncStorage.getItem("switchports.catalog.history.v1");
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as unknown;
+    return Array.isArray(parsed) ? parsed.filter((entry): entry is CatalogChange => Boolean(entry && typeof entry === "object" && "id" in entry && "name" in entry && "type" in entry && "detectedAt" in entry)).slice(0, 80) : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function saveChangeHistory(history: CatalogChange[]) {
+  await AsyncStorage.setItem("switchports.catalog.history.v1", JSON.stringify(history.slice(0, 80)));
+}
+
+export function getCatalogChanges(previous: CatalogItem[], next: CatalogItem[], detectedAt = new Date().toISOString()) {
+  const before = new Map(previous.map((item) => [item.id, item]));
+  const after = new Map(next.map((item) => [item.id, item]));
+  const changes: CatalogChange[] = [];
+  for (const item of next) {
+    const old = before.get(item.id);
+    if (!old) changes.push({ id: item.id, name: item.name, type: "added", source: item.source ?? "SwitchPorts", detectedAt });
+    else if (["version", "lastUpdated", "firmware", "repoUrl", "threadUrl"].some((key) => old[key as keyof CatalogItem] !== item[key as keyof CatalogItem])) changes.push({ id: item.id, name: item.name, type: "updated", source: item.source ?? "SwitchPorts", detectedAt });
+  }
+  for (const item of previous) if (!after.has(item.id)) changes.push({ id: item.id, name: item.name, type: "removed", source: item.source ?? "SwitchPorts", detectedAt });
+  return changes;
+}
+
 export function formatSyncDate(value: string | null) {
   if (!value) return "Ainda não sincronizado";
   return new Date(value).toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" });
@@ -275,6 +310,18 @@ export function formatPortDate(value: string) {
   const match = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
   if (!match) return value;
   return `${match[1]}/${match[2]}/${match[3]}`;
+}
+
+export function getFirmwareStatus(value: string): FirmwareStatus {
+  const normalized = value.trim().toLowerCase();
+  if (/^(yes|sim|21\+|21\.\d|22\.|23\.)/.test(normalized)) return "fw21";
+  if (/^(no|não|20\.|19\.|18\.)/.test(normalized)) return "older";
+  return "unknown";
+}
+
+export function getFirmwareLabel(value: string) {
+  const status = getFirmwareStatus(value);
+  return status === "fw21" ? "FW 21+" : status === "older" ? "FW ≤20" : "FW n/d";
 }
 
 export function getRepositoryPreviewUrl(repoUrl: string) {

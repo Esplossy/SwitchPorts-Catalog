@@ -1,31 +1,42 @@
-# APK Android local assinado com chave debug
+# APK Android do SwitchPorts Catalog
 
-O ambiente nativo foi preparado e o APK local foi gerado com sucesso em 27/10/2026. Ele usa a variante **release** para embutir o bundle JavaScript, mas é assinado com a chave debug para testes e instalação pessoal.
+O projeto possui duas variantes standalone locais:
 
-## Artefato validado
+- `SwitchPorts-debug.apk`: release com bundle JavaScript, assinado com a chave debug padrão, indicado para testes.
+- `SwitchPorts-release.apk`: release com bundle JavaScript, assinado com uma keystore própria local, indicado para instalação pessoal e futuras atualizações enquanto a keystore for preservada.
 
-- Arquivo: `artifacts/SwitchPorts-debug.apk`
-- Tamanho: aproximadamente 122 MB
+## Artefato release validado
+
+- Arquivo: `artifacts/SwitchPorts-release.apk`
+- Tamanho: aproximadamente 64 MB
 - Pacote: `space.manus.switchports.t165141055861472`
 - Versão: `1.0.0` / versionCode `1`
 - Compile/target SDK: 36
 - Assinatura: Android APK Signature Scheme v2 válida
-- SHA-256: `1d10acea538713e566b5fb00faadfa458fd5b83edee610126a84702f5194c965`
+- SHA-256: `dabc0d9288509a404f69a6149afaf6816c0470c26adbee02c7583ee56b310461`
 
-O APK usa a chave de desenvolvimento padrão em `~/.android/debug.keystore`, com alias `androiddebugkey` e senha `android`. Essa chave é apropriada para testes e instalação local, não para publicação em produção.
-
-O antigo `assembleDebug` não deve ser usado para instalação standalone: a variante debug pode aguardar o Metro em um telefone físico. O script atual usa `NODE_ENV=production ./gradlew assembleRelease`, que embute o bundle e gera um app que abre sem servidor.
+A keystore release e a senha ficam somente no ambiente local e são ignoradas pelo Git. Para preservar a possibilidade de atualizar o APK instalado, não apague `android/app/switchports-release.keystore` nem `.release-keystore.env` neste ambiente.
 
 ## Instalar no Android
 
-Baixe o APK, abra-o no telefone e autorize a instalação de fontes desconhecidas caso o Android solicite. Também é possível instalar por USB com:
+Baixe o APK, abra-o no telefone e autorize a instalação de fontes desconhecidas caso o Android solicite. Para atualizar uma instalação anterior, use o mesmo APK assinado com a mesma keystore:
 
 ```bash
-adb install -r SwitchPorts-debug.apk
+adb install -r SwitchPorts-release.apk
 ```
 
 ## Reproduzir o build
 
-O script `scripts/setup-android-debug.sh` instala o JDK, Android SDK, platform-tools, build-tools e cria a keystore debug. Depois, `scripts/build-debug-apk.sh` executa o Expo prebuild e `assembleDebug`, copiando o resultado para `artifacts/SwitchPorts-debug.apk`.
+`bash scripts/setup-android-debug.sh` prepara o JDK, Android SDK e ferramentas nativas. Para gerar a versão de testes, use `bash scripts/build-debug-apk.sh`. Para gerar a versão release assinada com a keystore própria, use `bash scripts/build-release-apk.sh`.
 
-A pasta nativa `android/`, o ambiente local `.android-build-env` e `artifacts/` ficam ignorados pelo Git para não substituir o fluxo gerenciado do projeto nem salvar binários no repositório.
+A pasta nativa `android/`, os ambientes locais, keystores e `artifacts/` ficam ignorados pelo Git. O Dashboard continua sendo o fluxo recomendado para builds oficiais de distribuição.
+
+## Melhorias incluídas nesta versão
+
+- Sincronização periódica com `expo-background-task`, respeitando as decisões de bateria e rede do Android.
+- Notificações somente quando um favorito é adicionado, atualizado ou removido durante uma sincronização.
+- Histórico local das últimas alterações detectadas.
+- Selo e filtro por fonte: SwitchPorts ou Preservia.
+- Estados de firmware mais claros: FW 21+, FW ≤20 ou FW n/d.
+- Cache local das miniaturas depois do primeiro carregamento.
+- Deduplicação preservando a fonte principal antes da Preservia.

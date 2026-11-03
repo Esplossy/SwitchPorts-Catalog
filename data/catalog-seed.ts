@@ -13,7 +13,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/boraeskicioglu/tasm2_nx",
     "threadUrl": "https://gbatemp.net/threads/the-amazing-spider-man-2-android-switch-port.685253/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-angry-birds-forever-https-github-com-aks79",
@@ -26,7 +27,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/abforever_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-angry-birds-space-hd-https-github-com-aks7",
@@ -39,7 +41,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/abspace_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-angry-birds-star-wars-2-https-github-com-m",
@@ -52,7 +55,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/markaurel13/abstarwars2_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-asphalt-8-airborne-retry-https-github-com-",
@@ -65,7 +69,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/a8retry_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-assassin-s-creed-altair-s-chronicles-hd-ht",
@@ -78,7 +83,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/iqbalriz/assassinscreed_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-call-of-duty-black-ops-zombies-https-githu",
@@ -91,7 +97,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/r4lix/codboz-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-costume-quest-https-github-com-iqbalriz-co",
@@ -104,7 +111,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/iqbalriz/costumequest_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-dan-the-man-https-github-com-hazevauks-dan",
@@ -117,7 +125,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/hazevauks/dantheman_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-dark-knight-rises-https-github-com-lemaste",
@@ -130,7 +139,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/lemasterxar5/tdkr_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-dead-space-sabotage-https-github-com-hazev",
@@ -143,7 +153,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/hazevauks/deadspace_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-disney-crossy-road-https-github-com-aks796",
@@ -156,7 +167,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/dcr_sea_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-ducktales-remastered-https-github-com-thor",
@@ -169,7 +181,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Ducktales-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-flappy-birds-family-https-github-com-aks79",
@@ -182,7 +195,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/flappybirdsfamily_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-jet-set-radio-https-github-com-lemasterxar",
@@ -195,7 +209,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/lemasterxar5/jet-set-radio-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-labyrinth-2-https-github-com-aks796-labyri",
@@ -208,7 +223,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/labyrinth2_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-modern-combat-3-fallen-nation-https-github",
@@ -221,7 +237,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Kaays/mc3_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-modern-combat-4-zero-hour-https-github-com",
@@ -234,7 +251,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Kaays/mc4_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-n-o-v-a-3-near-orbit-vanguard-alliance-htt",
@@ -247,7 +265,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/markaurel13/nova3-nx",
     "threadUrl": "https://gbatemp.net/threads/n-o-v-a-3-switch-port.685264/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-need-for-speed-most-wanted-https-github-co",
@@ -260,7 +279,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/SantiBros/NFSMostWanted2012-Android-Switch",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-plants-vs-zombies-touch-https-github-com-a",
@@ -273,7 +293,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/pvz_touch_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-rayman-fiesta-run-https-github-com-iqbalri",
@@ -286,7 +307,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/iqbalriz/fiestarun_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-rayman-jungle-run-https-github-com-iqbalri",
@@ -299,7 +321,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/iqbalriz/rayman_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-smash-hit-https-github-com-hazevauks-smash",
@@ -312,7 +335,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/hazevauks/smashhit_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-sonic-sega-all-stars-racing-https-github-c",
@@ -325,7 +349,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/sonic_allstars_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-space-hulk-https-github-com-liartes-spaceh",
@@ -338,7 +363,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/liartes/spacehulk-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-steven-universe-attack-the-light-https-git",
@@ -351,7 +377,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/iqbalriz/stevenrpg_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-32bit-android-32bit-ultimate-spider-man-total-mayhem-https-git",
@@ -364,7 +391,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/boraeskicioglu/spiderman_total_mayhem_nx",
     "threadUrl": "https://gbatemp.net/threads/ultimate-spider-man-total-mayhem-switch-port.685255/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-adventures-of-mana-https-github-com-nagaa9",
@@ -377,7 +405,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/aom_nx",
     "threadUrl": "https://gbatemp.net/threads/adventures-of-mana-switch-port.682785/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-after-burner-climax-https-github-com-nagaa",
@@ -390,7 +419,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/abc_nx",
     "threadUrl": "https://gbatemp.net/threads/after-burner-climax-switch-port.682933/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-angry-birds-2-https-github-com-nagaa95-ang",
@@ -403,7 +433,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/angrybirds2_nx",
     "threadUrl": "https://gbatemp.net/threads/angry-birds-2-switch-port.683461/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-angry-birds-classic-https-github-com-chans",
@@ -416,7 +447,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/angrybirdsclassic_nx",
     "threadUrl": "https://gbatemp.net/threads/angry-birds-classic-switch-port.682955/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-angry-birds-epic-all-stars-https-github-co",
@@ -429,7 +461,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/angrybirdsas_nx",
     "threadUrl": "https://gbatemp.net/threads/angry-birds-epic-all-stars-switch-port.684031/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-angry-birds-journey-https-github-com-nagaa",
@@ -442,7 +475,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/angrybirdsjourney_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-angry-birds-reloaded-https-github-com-aks7",
@@ -455,7 +489,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/abreloaded_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-animal-crossing-pocket-camp-https-github-c",
@@ -468,7 +503,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/acpc_nx",
     "threadUrl": "https://gbatemp.net/threads/animal-crossing-pocket-camp-complete-switch-port.683187/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-bad-piggies-https-github-com-chanseyistheb",
@@ -481,7 +517,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/badpiggies_nx",
     "threadUrl": "https://gbatemp.net/threads/bad-piggies-switch-port.683056/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-baldi-s-basic-classic-https-github-com-cha",
@@ -494,7 +531,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/baldi_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-banana-kong-https-github-com-chanseyistheb",
@@ -507,7 +545,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/bananakong_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-bloons-adventure-time-td-https-github-com-",
@@ -520,7 +559,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/battd_nx",
     "threadUrl": "https://gbatemp.net/threads/bloons-adventure-time-td-switch-port.684413/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-bloons-pop-https-github-com-chanseyisthebe",
@@ -533,7 +573,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/bloons_pop_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-bloons-supermonkey-2-https-github-com-chan",
@@ -546,7 +587,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/smk2_nx",
     "threadUrl": "https://gbatemp.net/threads/bloons-supermonkey-2-switch-port.684329/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-bloons-td-5-mobile-https-github-com-chanse",
@@ -559,7 +601,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/btd5_nx",
     "threadUrl": "https://gbatemp.net/threads/bloons-tower-defence-5-mobile-switch-port.683074/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-bombsquad-https-github-com-aks796-bombsqua",
@@ -572,7 +615,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/bombsquad_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-bombsquad-explodinary-https-github-com-aks",
@@ -585,7 +629,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/bse_rebombed_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-bombsquad-joyride-https-github-com-aks796-",
@@ -598,7 +643,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/bs_joyride_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-bouncemasters-https-github-com-chanseyisth",
@@ -611,7 +657,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/bouncemasters_nx",
     "threadUrl": "https://gbatemp.net/threads/bouncemasters-switch-port.684181/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-burger-shop-https-github-com-chanseyistheb",
@@ -624,7 +671,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/burgershop_nx",
     "threadUrl": "https://gbatemp.net/threads/burger-shop-switch-port.682910/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-burger-shop-2-https-github-com-chanseyisth",
@@ -637,7 +685,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/burgershop2_nx",
     "threadUrl": "https://gbatemp.net/threads/burger-shop-2-switch-port.682912/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-castle-of-illusion-https-github-com-nagaa9",
@@ -650,7 +699,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/coi_nx",
     "threadUrl": "https://gbatemp.net/threads/castle-of-illusion-switch-port.682811/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-castlevania-symphony-of-the-night-https-gi",
@@ -663,7 +713,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/sotn_nx",
     "threadUrl": "https://gbatemp.net/threads/castlevania-symphony-of-the-night-switch-port.682763/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-chaos-rings-iii-https-github-com-nagaa95-c",
@@ -676,7 +727,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/cr3_nx",
     "threadUrl": "https://gbatemp.net/threads/chaos-rings-iii-switch-port.682597/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-chrono-trigger-https-github-com-nagaa95-ct",
@@ -689,7 +741,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/ct_nx",
     "threadUrl": "https://gbatemp.net/threads/chrono-trigger-switch-port.682630/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-clay-jam-classic-https-github-com-chanseyi",
@@ -702,7 +755,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/clayjamclassic_nx",
     "threadUrl": "https://gbatemp.net/threads/clay-jam-classic-switch-port.683368/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-color-sheep-https-github-com-chanseyistheb",
@@ -715,7 +769,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/colorsheep_nx",
     "threadUrl": "https://gbatemp.net/threads/color-sheep-switch-port.683025/unread",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-counter-strike-source-https-github-com-nag",
@@ -728,7 +783,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/css_nx",
     "threadUrl": "https://gbatemp.net/threads/counter-strike-source-switch-port.682944/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-crazy-taxi-https-github-com-delsonazevedo-",
@@ -741,7 +797,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/delsonazevedo/crazytaxy_nx",
     "threadUrl": "https://gbatemp.net/threads/crazy-taxi-port.683085/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-cut-the-rope-https-github-com-nagaa95-ctr-",
@@ -754,7 +811,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/ctr_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-cut-the-rope-2-https-github-com-nagaa95-ct",
@@ -767,7 +825,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/ctr2_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-cut-the-rope-experiments-https-github-com-",
@@ -780,7 +839,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/1timewire1/ctr_experiments_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-cut-the-rope-magic-https-github-com-1timew",
@@ -793,7 +853,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/1timewire1/ctr_magic_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-cut-the-rope-time-travel-https-github-com-",
@@ -806,7 +867,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/1timewire1/ctr_timetravel_nx",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10900243",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-data-defense-https-github-com-chanseyisthe",
@@ -819,7 +881,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/datadefense_nx/",
     "threadUrl": "https://gbatemp.net/threads/data-defense-switch-port.684178/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-deep-3d-submarine-odyssey-https-github-com",
@@ -832,7 +895,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/artslay/abyssal_nx",
     "threadUrl": "https://gbatemp.net/threads/deep-3d-submarine-odyssey-nintendo-switch-port.684555/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-deus-ex-go-https-github-com-chanseyisthebe",
@@ -845,7 +909,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/deusexgo_nx",
     "threadUrl": "https://gbatemp.net/threads/deus-ex-go-switch-port.683492",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-dr-mario-mania-https-github-com-delsonazev",
@@ -858,7 +923,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/delsonazevedo/drmariomania_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-duke-dashington-remastered-https-github-co",
@@ -871,7 +937,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/dukedashington_nx",
     "threadUrl": "https://gbatemp.net/threads/adventure-island-game-ports-total-party-kill-heart-star-poor-bunny-duke-dashington-switch-port.684579/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-earn-2-die-https-github-com-xflipperkast-e",
@@ -884,7 +951,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/earntodie2_nx",
     "threadUrl": "https://gbatemp.net/threads/earn-to-die-2-switch-port.685412/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-far-cry-https-github-com-artslay-nearchuck",
@@ -897,7 +965,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/artslay/NearChuckle_nx",
     "threadUrl": "https://gbatemp.net/threads/far-cry-1-nintendo-switch-port.684771/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-final-fantasy-dimension-ii-https-github-co",
@@ -910,7 +979,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/ffd2_nx",
     "threadUrl": "https://gbatemp.net/threads/final-fantasy-dimensions-ii-switch-port.683067/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-final-fantasy-dimensions-https-github-com-",
@@ -923,7 +993,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/ffd_nx",
     "threadUrl": "https://gbatemp.net/threads/final-fantasy-dimensions-switch-port.682781/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-final-fantasy-iii-3d-remake-https-github-c",
@@ -936,7 +1007,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/ff3_3d_nx",
     "threadUrl": "https://gbatemp.net/threads/final-fantasy-iii-3d-remake-switch-port.682660/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-final-fantasy-iv-3d-remake-https-github-co",
@@ -949,7 +1021,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/ff4_3d_nx",
     "threadUrl": "https://gbatemp.net/threads/final-fantasy-iv-3d-remake-switch-port.682557/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-final-fantasy-iv-the-after-years-https-git",
@@ -962,7 +1035,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/ff4tay_nx",
     "threadUrl": "https://gbatemp.net/threads/final-fantasy-iv-the-after-years-switch-port.682541/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-flappy-bird-https-github-com-aks796-flappy",
@@ -975,7 +1049,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/flappy_bird_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-fruit-ninja-classic-https-github-com-chans",
@@ -988,7 +1063,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/fruitninjaclassic_nx",
     "threadUrl": "https://gbatemp.net/threads/fruit-ninja-classic-switch-port.683634/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-galaxy-on-fire-https-github-com-artslay-ga",
@@ -1001,7 +1077,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/artslay/galaxian_nx",
     "threadUrl": "https://gbatemp.net/threads/galaxy-on-fire-nintendo-switch-port.684562/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-geometry-dash-https-github-com-nagaa95-gda",
@@ -1014,7 +1091,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/gdash_nx",
     "threadUrl": "https://gbatemp.net/threads/geometry-dash-switch-port.682926/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-gizmoduck-https-github-com-thorhax-gizmodu",
@@ -1027,7 +1105,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Gizmoduck-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-grand-theft-auto-3-https-github-com-mariob",
@@ -1040,7 +1119,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/mariob0y/gta3-nx",
     "threadUrl": "https://gbatemp.net/threads/gta-3-mobile-switch-port.683969/#post-10900135",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-grand-theft-auto-chinatown-wars-https-gith",
@@ -1053,7 +1133,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/gtactw_nx",
     "threadUrl": "https://gbatemp.net/threads/gta-chinatown-wars-switch-port.682411/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-grand-theft-auto-liberty-city-stories-http",
@@ -1066,7 +1147,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/gtalcs_nx",
     "threadUrl": "https://gbatemp.net/threads/gta-liberty-city-stories-switch-port.682681/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-grand-theft-auto-san-andreas-https-github-",
@@ -1079,7 +1161,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/gtasa_nx",
     "threadUrl": "https://gbatemp.net/threads/gta-san-andreas-switch-port.683068/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-granny-https-github-com-xflipperkast-grann",
@@ -1092,7 +1175,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/granny_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-half-life-2-https-github-com-nagaa95-hl2-n",
@@ -1105,7 +1189,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/hl2_nx",
     "threadUrl": "https://gbatemp.net/threads/half-life-2-source-engine-switch-port.682466/unread",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-happy-wheels-https-github-com-chanseyisthe",
@@ -1118,7 +1203,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/happywheels_nx",
     "threadUrl": "https://gbatemp.net/threads/happy-wheels-switch-port.683669/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-heart-star-https-github-com-chanseyisthebe",
@@ -1131,7 +1217,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/heartstar_nx",
     "threadUrl": "https://gbatemp.net/threads/adventure-island-game-ports-total-party-kill-heart-star-poor-bunny-duke-dashington-switch-port.684579/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-hill-climb-racing-https-github-com-xflippe",
@@ -1144,7 +1231,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/HCR_NX",
     "threadUrl": "https://gbatemp.net/threads/hill-climb-racing-switch-port.683801/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-hitman-go-https-github-com-chanseyisthebes",
@@ -1157,7 +1245,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/hitmango_nx",
     "threadUrl": "https://gbatemp.net/threads/hitman-go-switch-port.683497/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-how-many-dudes-https-github-com-boraeskici",
@@ -1170,7 +1259,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/boraeskicioglu/hmd_nx",
     "threadUrl": "https://gbatemp.net/threads/how-many-dudes-switch-port.683527/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-infinity-blade-https-github-com-aks796-inf",
@@ -1183,7 +1273,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/infinityblade_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-jackie-chan-stuntmaster-https-github-com-c",
@@ -1196,7 +1287,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/CostelaCNX/ReChan-Switch",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-jetpack-joyride-https-github-com-nagaa95-j",
@@ -1209,7 +1301,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/jetpackjoyride_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-killer-bean-unleashed-https-github-com-cha",
@@ -1222,7 +1315,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/killerbean_nx/tree/main",
     "threadUrl": "https://gbatemp.net/threads/killer-bean-unleashed-switch-port.683815/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-kingdom-hearts-union-dark-road-https-githu",
@@ -1235,7 +1329,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/KHUx_nx",
     "threadUrl": "https://gbatemp.net/threads/kingdom-hearts-union-ch-dark-road-switch-port.683138/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-lara-croft-go-https-github-com-chanseyisth",
@@ -1248,7 +1343,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/laracroftgo_nx",
     "threadUrl": "https://gbatemp.net/threads/lara-croft-go-switch-port.683509/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-layton-brothers-mystery-room-https-github-",
@@ -1261,7 +1357,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/laytonbmr_nx",
     "threadUrl": "https://gbatemp.net/threads/layton-brothers-mystery-room-switch-port.682988/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-lego-batman-beyond-gotham-https-github-com",
@@ -1274,7 +1371,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/lbbg_nx",
     "threadUrl": "https://gbatemp.net/threads/lego-batman-3-beyond-gotham-switch-port.682841/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-lego-batman-dc-super-heroes-https-github-c",
@@ -1287,7 +1385,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/lbdcsh_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-lego-ninjago-shadow-of-ronin-https-github-",
@@ -1300,7 +1399,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/lnsor_nx",
     "threadUrl": "https://gbatemp.net/threads/lego-ninjago-shadow-of-ronin-switch-port.682953/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-lego-star-wars-the-complete-saga-https-git",
@@ -1313,7 +1413,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/lswtcs_nx",
     "threadUrl": "https://gbatemp.net/threads/lego-star-wars-the-complete-saga-switch-port.682412/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-lego-star-wars-the-force-awakens-https-git",
@@ -1326,7 +1427,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/lswtfa_nx",
     "threadUrl": "https://gbatemp.net/threads/lego-star-wars-the-force-awakens-switch-port.682692/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-level-up-mario-s-minigames-mayhem-https-gi",
@@ -1339,7 +1441,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/lummm_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-max-payne-https-github-com-nagaa95-max-nx-",
@@ -1352,7 +1455,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/max_nx_v2.1.131",
     "threadUrl": "https://gbatemp.net/threads/max-payne-mobile-port-loader.583635/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-mega-man-x-regenesis-https-github-com-stev",
@@ -1365,7 +1469,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/StevensND/mmxregenesis_nx",
     "threadUrl": "https://gbatemp.net/threads/mega-man-x-regenesis-nintendo-switch-port.684160/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-metroid-prime-origins-https-github-com-bsh",
@@ -1378,7 +1483,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/bshurikan/mpo_nx",
     "threadUrl": "https://gbatemp.net/threads/metroid-prime-origins-fan-game-nintendo-switch-port.684635/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-mul-mash-tab-ba-gal-gal-https-github-com-c",
@@ -1391,7 +1497,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/mulmash_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-nba-jam-https-github-com-delsonazevedo-nba",
@@ -1404,7 +1511,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/delsonazevedo/nbajam_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-osmos-https-github-com-chanseyisthebest-os",
@@ -1417,7 +1525,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/osmos_nx",
     "threadUrl": "https://gbatemp.net/threads/osmos-switch-port.684154/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-papa-pear-saga-https-github-com-chanseyist",
@@ -1430,7 +1539,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/papapear_nx",
     "threadUrl": "https://gbatemp.net/threads/papa-pear-saga-switch-port.684294/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-papa-s-burgeria-to-go-https-github-com-xfl",
@@ -1443,7 +1553,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/papasburgeria_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-papa-s-cluckeria-to-go-https-github-com-xf",
@@ -1456,7 +1567,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/papascluckeria_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-papa-s-paleteria-to-go-https-github-com-xf",
@@ -1469,7 +1581,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/papaspaleteria_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-papa-s-pizzeria-to-go-https-github-com-xfl",
@@ -1482,7 +1595,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/papapizzatg_nx",
     "threadUrl": "https://gbatemp.net/threads/papas-pizzeria-to-go-switch-port.683889/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-papers-please-https-github-com-chanseyisth",
@@ -1495,7 +1609,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/papersplease_nx",
     "threadUrl": "https://gbatemp.net/threads/papers-please-switch-port.683337/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-phigros-https-github-com-chanseyisthebest-",
@@ -1508,7 +1623,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/phigros_nx",
     "threadUrl": "https://gbatemp.net/threads/phigros-switch-port.683727/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-phigros-cn-https-github-com-6eone6-phigros",
@@ -1521,7 +1637,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/6eone6/phigros_nx_cn",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-pizza-vs-skeletons-https-github-com-chanse",
@@ -1534,7 +1651,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/pvs_nx/",
     "threadUrl": "https://gbatemp.net/threads/pizza-vs-skeletons-switch-port.684163/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-plants-vs-zombies-2-https-github-com-xflip",
@@ -1547,7 +1665,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/PVZ2_NX",
     "threadUrl": "https://gbatemp.net/threads/plants-vs-zombies-2-switch-port.683717/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-plants-vs-zombies-2-reflourished-https-git",
@@ -1560,7 +1679,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/PVZ2RF_NX",
     "threadUrl": "https://gbatemp.net/threads/plants-vs-zombies-2-reflourished-switch-port.684044/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-plants-vs-zombies-fusion-https-github-com-",
@@ -1573,7 +1693,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/pvz_fusion_en_nx",
     "threadUrl": "https://gbatemp.net/threads/plants-vs-zombies-fusion-switch-port.683213/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-pocket-crystal-league-https-github-com-cha",
@@ -1586,7 +1707,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/pcl_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-poinpy-https-github-com-chanseyisthebest-p",
@@ -1599,7 +1721,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/poinpy_nx/",
     "threadUrl": "https://gbatemp.net/threads/poinpy-switch-port.683562/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-poor-bunny-https-github-com-chanseyisthebe",
@@ -1612,7 +1735,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/poorbunny_nx",
     "threadUrl": "https://gbatemp.net/threads/adventure-island-game-ports-total-party-kill-heart-star-poor-bunny-duke-dashington-switch-port.684579/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-pou-https-github-com-xflipperkast-pou-nx",
@@ -1625,7 +1749,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/pou_nx",
     "threadUrl": "https://gbatemp.net/threads/pou-switch-port.683953/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-professor-layton-curious-village-hd-https-",
@@ -1638,7 +1763,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/layton_nx",
     "threadUrl": "https://gbatemp.net/threads/professor-layton-curious-village-hd-switch-port.682435/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-professor-layton-lost-hope-hd-https-github",
@@ -1651,7 +1777,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/layton3_nx",
     "threadUrl": "https://gbatemp.net/threads/professor-layton-lost-future-hd-switch-port.682462/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-professor-layton-pandora-s-box-hd-https-gi",
@@ -1664,7 +1791,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/layton2_nx",
     "threadUrl": "https://gbatemp.net/threads/professor-layton-pandoras-box-hd-switch-port.682460/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-real-drift-car-racing-https-github-com-dpa",
@@ -1677,7 +1805,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/dpadninja/realdrift_nx",
     "threadUrl": "https://gbatemp.net/threads/real-drift-car-racing-android-5-0-8-nintendo-switch-port.685675/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-rvgl-https-github-com-chanseyisthebest-rev",
@@ -1690,7 +1819,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/revolt_nx",
     "threadUrl": "https://gbatemp.net/threads/rvgl-re-volt-switch-port.684578/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-slay-the-spire-2-https-github-com-chanseyi",
@@ -1703,7 +1833,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/sts2_nx",
     "threadUrl": "https://gbatemp.net/threads/slay-the-spire-2-switch-port.683997/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-slither-io-https-github-com-xflipperkast-s",
@@ -1716,7 +1847,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/slither_nx",
     "threadUrl": "https://gbatemp.net/threads/slither-io-switch-port.684111/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-sonic-4-episode-2-https-github-com-boraesk",
@@ -1729,7 +1861,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/boraeskicioglu/s4ep2-nx",
     "threadUrl": "https://gbatemp.net/threads/sonic-the-hedgehog-4-episode-2-switch-port.682698/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-sonic-dash-https-github-com-chanseyisthebe",
@@ -1742,7 +1875,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/sonicdash_nx",
     "threadUrl": "https://gbatemp.net/threads/sonic-dash-sonic-dash-2-sonic-boom-switch-port.684613/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-sonic-dash-2-sonic-boom-https-github-com-c",
@@ -1755,7 +1889,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/sonicboomdash_nx",
     "threadUrl": "https://gbatemp.net/threads/sonic-dash-sonic-dash-2-sonic-boom-switch-port.684613/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-sonic-jump-https-github-com-chanseyisthebe",
@@ -1768,7 +1903,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/sonicjump_nx",
     "threadUrl": "https://gbatemp.net/threads/sonic-jump-switch-port.683742/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-sonic-jump-fever-https-github-com-chanseyi",
@@ -1781,7 +1917,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/sonicjumpfever_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-sonic-runners-adventure-https-github-com-b",
@@ -1794,7 +1931,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/boraeskicioglu/sonic_runners_adventure_nx",
     "threadUrl": "https://gbatemp.net/threads/sonic-runners-adventure-switch-port.683857/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-sonic-triple-trouble-16-bit-https-github-c",
@@ -1807,7 +1945,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/boraeskicioglu/stt16bit_nx",
     "threadUrl": "https://gbatemp.net/threads/sonic-triple-trouble-16-bit-switch-port.682814/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-stick-with-it-https-github-com-souldbminer",
@@ -1820,7 +1959,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/souldbminerr/swi-nx",
     "threadUrl": "https://gbatemp.net/threads/stick-with-it-switch-port.683200/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-stone-story-rpg-https-github-com-xflipperk",
@@ -1833,7 +1973,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xflipperkast/stonestory_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-streets-of-rage-x-https-github-com-delsona",
@@ -1846,7 +1987,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/delsonazevedo/sorx_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-subway-surfers-https-github-com-nagaa95-su",
@@ -1859,7 +2001,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/subwaysurfers_nx",
     "threadUrl": "https://gbatemp.net/threads/subway-surfers-switch-port.683440/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-super-mario-127-https-github-com-aks796-sm",
@@ -1872,7 +2015,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/sm127_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-super-mario-63-redux-https-github-com-aks7",
@@ -1885,7 +2029,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/sm63redux_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-super-mario-bros-remastered-https-github-c",
@@ -1898,7 +2043,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/delsonazevedo/Super-Mario-Bros.-Remastered-Switch",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-super-mario-world-remastered-plus-https-gi",
@@ -1911,7 +2057,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/delsonazevedo/Super-Mario-World-Remastered-Plus-Switch",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/page-3#post-10885621",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-swordigo-https-github-com-nagaa95-swordigo",
@@ -1924,7 +2071,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/swordigo_nx",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/#post-10883678",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-team-fortress-2-reclassic-https-github-com",
@@ -1937,7 +2085,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/tf2_nx",
     "threadUrl": "https://gbatemp.net/threads/team-fortress-2-switch-port.682734/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-the-elder-scrolls-ii-daggerfall-unity-http",
@@ -1950,7 +2099,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/daggerfall_nx",
     "threadUrl": "https://gbatemp.net/threads/daggerfall-unity-switch-port.684258/unread",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-the-executive-https-github-com-chanseyisth",
@@ -1963,7 +2113,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/the_executive_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-ticket-to-earth-https-github-com-chanseyis",
@@ -1976,7 +2127,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/tte_nx",
     "threadUrl": "https://gbatemp.net/threads/ticket-to-earth-switch-port.683549/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-total-party-kill-https-github-com-chanseyi",
@@ -1989,7 +2141,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/totalpartykill_nx",
     "threadUrl": "https://gbatemp.net/threads/adventure-island-game-ports-total-party-kill-heart-star-poor-bunny-duke-dashington-switch-port.684579/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-valkyrie-profile-lenneth-https-github-com-",
@@ -2002,7 +2155,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/delsonazevedo/vpl_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-very-little-nightmares-https-github-com-na",
@@ -2015,7 +2169,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/vln_nx",
     "threadUrl": "https://gbatemp.net/threads/very-little-nightmares-switch-port.682971/unread",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-vvvvvv-https-github-com-auggeythecat-nx-vv",
@@ -2028,7 +2183,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/auggeythecat/NX-VVVVVV--recomp",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-where-s-my-water-https-github-com-chanseyi",
@@ -2041,7 +2197,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/wmw_nx",
     "threadUrl": "https://gbatemp.net/threads/wheres-my-water-1-2-switch-port.683427/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-where-s-my-water-2-https-github-com-chanse",
@@ -2054,7 +2211,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/wmw2_nx",
     "threadUrl": "https://gbatemp.net/threads/wheres-my-water-1-2-switch-port.683427/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-ys-chronicles-1-https-github-com-di4volo-d",
@@ -2067,7 +2225,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/DI4VOLO-dev/ys1x_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-zombotron-re-boot-https-github-com-stevens",
@@ -2080,7 +2239,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/StevensND/zombotron_nx",
     "threadUrl": "https://gbatemp.net/threads/zombotron-re-boot-nintendo-switch-port.684161/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-zookeeper-dx-https-github-com-chanseyisthe",
@@ -2093,7 +2253,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/zookeeperdx_nx",
     "threadUrl": "https://gbatemp.net/threads/zookeeper-dx-switch-port.682974/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "arcade-arcade-cyber-troopers-virtual-on-https-github-com-thorhax-virtu",
@@ -2106,7 +2267,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Virtual-On-NX",
     "threadUrl": "https://gbatemp.net/threads/virtual-on-arcade.685244/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "arcade-arcade-daytona-usa-https-github-com-thorhax-daytona-nx-modern",
@@ -2119,7 +2281,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Daytona-NX-Modern",
     "threadUrl": "https://gbatemp.net/threads/daytona-usa-arcade-port-nx.685139/unread",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "arcade-arcade-killer-instinct-https-github-com-thorhax-killer-instinct",
@@ -2132,7 +2295,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Killer-Instinct-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "arcade-arcade-killer-instinct-2-https-github-com-thorhax-killer-instin",
@@ -2145,7 +2309,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Killer-Instinct-2-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "arcade-arcade-outrun-https-github-com-thorhax-cannonball-nx-modern",
@@ -2158,7 +2323,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Cannonball-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "arcade-arcade-sega-rally-https-github-com-jacquesdupontd-port0r",
@@ -2171,7 +2337,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/jacquesdupontd/port0r",
     "threadUrl": "https://gbatemp.net/threads/sega-rally-1995-arcade-on-switch-full-16-9-hd-textures-10-mods-replays-online-leaderboard.685124/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "arcade-arcade-sonic-the-fighters-https-github-com-boraeskicioglu-sonic",
@@ -2184,7 +2351,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/boraeskicioglu/sonic_the_fighters_nx",
     "threadUrl": "https://gbatemp.net/threads/sonic-the-fighters-switch-port.685251/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "arcade-arcade-virtua-fighter-2-https-github-com-thorhax-vf2-nx-modern",
@@ -2197,7 +2365,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/VF2-NX-Modern",
     "threadUrl": "https://gbatemp.net/threads/virtua-fighter-2-arcade.685157/unread",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-ps2-armsx2-https-github-com-palindromicbreadloaf-armsx2-nx",
@@ -2210,7 +2379,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/PalindromicBreadLoaf/ARMSX2-NX",
     "threadUrl": "https://gbatemp.net/threads/armsx2-nx-initial-release.682645/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-win-autorun-https-github-com-danfromtico-autorun",
@@ -2223,7 +2393,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/danfromtico/autorun",
     "threadUrl": "https://gbatemp.net/threads/autorun-play-windows-pc-games-on-your-nintendo-switch.684587/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-wiiu-cemu-https-github-com-nagaa95-cemu-nx",
@@ -2236,7 +2407,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/Cemu-nx",
     "threadUrl": "https://gbatemp.net/threads/cemu-wii-u-emulator-switch-port.683219/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-v-smile-d-smile-nx-https-github-com-1timewire1-d-smile-nx",
@@ -2249,7 +2421,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/1timewire1/D.Smile_nx/",
     "threadUrl": "https://gbatemp.net/threads/d-smile-nx-a-v-smile-emulator.684197/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-3ds-dekopon-https-github-com-palindromicbreadloaf-dekopon",
@@ -2262,7 +2435,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/PalindromicBreadLoaf/dekopon",
     "threadUrl": "https://gbatemp.net/threads/dekopon-mostly-fullspeed-3ds-emulation-on-nintendo-switch.683132/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-ngc-wii-dolphin-https-github-com-nagaa95-dolphin-nx",
@@ -2275,7 +2449,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/dolphin-nx",
     "threadUrl": "https://gbatemp.net/threads/dolphin-gc-wii-emulator-switch-port.683359/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-nds-drasticds-https-github-com-nagaa95-drasticds-nx",
@@ -2288,7 +2463,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/DrasticDS_nx",
     "threadUrl": "https://gbatemp.net/threads/drasticds-emulator-switch-port.683280/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-psx-duckstation-https-github-com-shooterspps-duckstation",
@@ -2301,7 +2477,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/shooterspps/duckstation",
     "threadUrl": "https://gbatemp.net/threads/duckstation-for-switch.654484/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-dc-flycast-https-flyinghead-github-io-flycast-builds",
@@ -2314,7 +2491,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://flyinghead.github.io/flycast-builds/",
     "threadUrl": "https://gbatemp.net/threads/flycast-standalone-for-nintendo-switch.593111/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-j2me-freej2me-https-github-com-miaoumeowmiaou-j2me-for-switc",
@@ -2327,7 +2505,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/MiaouMeowMiaou/j2me-for-switch",
     "threadUrl": "https://gbatemp.net/threads/freej2me-on-switch.684170/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-kirikiri-kirikiroid2-nx-https-github-com-erige005-kirikiroid",
@@ -2340,7 +2519,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Erige005/Kirikiroid2-NX",
     "threadUrl": "https://gbatemp.net/threads/release-kirikiroid2-nx-kirikiroid2-kirikiri-krkr-visual-novel-player-ported-to-the-switch.684902/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-model2-model2-nx-https-github-com-toniisound-model2-nx",
@@ -2353,7 +2533,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/toniisound/model2-nx",
     "threadUrl": "https://gbatemp.net/threads/release-model2-nx-1-0-experimental-sega-model-2-emulator-for-nintendo-switch-powered-by-mame.685198/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-ps2-nethersx2-https-github-com-nagaa95-nethersx2-nx",
@@ -2366,7 +2547,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/NetherSX2_nx",
     "threadUrl": "https://gbatemp.net/threads/nethersx2-switch-port.683038/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-ngc-wii-nezumiiruka-https-github-com-palindromicbreadloaf-ne",
@@ -2379,7 +2561,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/PalindromicBreadLoaf/nezumiiruka",
     "threadUrl": "https://gbatemp.net/threads/nezumiiruka-new-and-best-dolphin-port.685219/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-psp-ppsspp-https-github-com-sirsamael-ppsspp-switch-communit",
@@ -2392,7 +2575,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/SirSamael/ppsspp-switch-community-build",
     "threadUrl": "https://gbatemp.net/threads/ppsspp-switch-community-build.684008/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-psp-ppsspp-nx-https-github-com-nagaa95-ppsspp-nx",
@@ -2405,7 +2589,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/ppsspp-nx",
     "threadUrl": "https://gbatemp.net/threads/ppsspp-nx.684504/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-3ds-raika-azahar-https-github-com-raibatsu-raikopon",
@@ -2418,7 +2603,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Raibatsu/raikopon",
     "threadUrl": "https://gbatemp.net/threads/nintendo-switch-raika-azahar-the-3ds-emulator-aimed-at-base-nintendo-switch.683593/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-multi-retroarch-https-buildbot-libretro-com-nightly-nintendo",
@@ -2431,7 +2617,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://buildbot.libretro.com/nightly/nintendo/switch/libnx/",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-model3-supermodel-nx-https-github-com-toniisound-supermodel-",
@@ -2444,7 +2631,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/toniisound/supermodel-nx",
     "threadUrl": "https://gbatemp.net/threads/release-supermodel-nx-sega-model-3-arcade-emulator-for-nintendo-switch.684935/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-s-22-system22-nx-https-github-com-r4dius-system22-nx",
@@ -2457,7 +2645,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/r4dius/system22-nx",
     "threadUrl": "https://gbatemp.net/threads/system22-nx-emulator-port-mame.684898/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-multi-tico-https-github-com-ticohq-tico",
@@ -2470,7 +2659,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ticohq/tico",
     "threadUrl": "https://gbatemp.net/threads/tico-gamecube-wii-psp-and-3ds-on-switch-hos.681231/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-vita-vita3k-https-github-com-nagaa95-vita3k-nx",
@@ -2483,7 +2673,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/Vita3K-nx",
     "threadUrl": "https://gbatemp.net/threads/vita3k-playstation-vita.684076/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-saturn-yabasanshiro-https-github-com-thorhax-yabasanshiro-nx",
@@ -2496,7 +2687,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/yabasanshiro-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "emulators-g-w-yokoi-https-github-com-1timewire1-yokoi-game-watch-emula",
@@ -2509,7 +2701,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/1timewire1/Yokoi_Game_-_Watch_emulator_switch/tree/switch-port",
     "threadUrl": "https://gbatemp.net/threads/yokoi-game-watch-sm5xx-based-lcd-handhelds-emulator.684004/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-black-https-github-com-gerisson1996-blac",
@@ -2522,7 +2715,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/gerisson1996/BLACK-NX-PORT/blob/main/README.en.md",
     "threadUrl": "https://gbatemp.net/threads/black-xbox-nx-port.685756/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-burnout-3-takedown-https-github-com-anto",
@@ -2535,7 +2729,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/antoxa2584x/burnout3-sw",
     "threadUrl": "https://gbatemp.net/threads/burnout-3-takedown-switch-port.685241/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-cold-fear-https-github-com-gerisson1996-",
@@ -2548,7 +2743,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/gerisson1996/COLD-FEAR-NX-PORT",
     "threadUrl": "https://gbatemp.net/threads/cold-fear-nx-port-xbox-classic.685667/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-conker-live-reloaded-https-github-com-ra",
@@ -2561,7 +2757,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/rashevskyv/conker-lr-recomp",
     "threadUrl": "https://github.com/rashevskyv/conker-lr-recomp",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-dead-or-alive-2-ultimate-https-github-co",
@@ -2574,7 +2771,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/toniisound/doa2u-nx",
     "threadUrl": "https://gbatemp.net/threads/dead-or-alive-2-ultimate-wip.686023/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-dead-or-alive-3-https-github-com-toniiso",
@@ -2587,7 +2785,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/toniisound/doa3-nx",
     "threadUrl": "https://gbatemp.net/threads/release-dead-or-alive-3-wip.685748/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-def-jam-fight-for-ny-https-github-com-r-",
@@ -2600,7 +2799,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/R-drg/defjam-sw",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-fifa-street-https-github-com-xsaja-stree",
@@ -2613,7 +2813,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xsaja/street-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-flatout-2-https-github-com-antoxa2584x-f",
@@ -2626,7 +2827,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/antoxa2584x/flatout2-sw",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10924028",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-halo-combat-evolved-https-github-com-the",
@@ -2639,7 +2841,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/thelinkin3000/halo-ce-universal",
     "threadUrl": "https://gbatemp.net/threads/halo-ce-for-switch.684926/#post-10917594",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-midnight-club-3-dub-edition-https-github",
@@ -2652,7 +2855,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/laureladastra/mcdub3-nx",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10929991",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-mortal-kombat-shaolin-monks-https-github",
@@ -2665,7 +2869,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/ShaolinMonks-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-mvp-baseball-05-https-github-com-xsaja-m",
@@ -2678,7 +2883,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/xsaja/mvp-nx",
     "threadUrl": "https://gbatemp.net/threads/mvp-baseball-05-xbox-switch-port.686056/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-need-for-speed-carbon-https-github-com-a",
@@ -2691,7 +2897,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/antoxa2584x/nfsuc-sw",
     "threadUrl": "https://gbatemp.net/threads/need-for-speed-carbon-switch-port.685045/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-need-for-speed-underground-https-github-",
@@ -2704,7 +2911,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/antoxa2584x/nfsu1-sw",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-need-for-speed-underground-2-https-githu",
@@ -2717,7 +2925,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/antoxa2584x/nfsu2-sw",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10916795",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-ssx-tricky-https-github-com-devcrashday-",
@@ -2730,7 +2939,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/DevCrashDay/OpenTrickyNX",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10930586",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-microsoft-xbox-tom-and-jerry-war-of-the-whiskers-https-",
@@ -2743,7 +2953,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/JohnJames29/WOTW-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-bakugan-battle-brawlers-https-gi",
@@ -2756,7 +2967,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Wiredlainn-afk/Bakugan-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-bangai-o-hd-missile-fury-https-g",
@@ -2769,7 +2981,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/bangaio-nx",
     "threadUrl": "https://gbatemp.net/threads/bangai-o-hd-missile-fury-switch-port.686010/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-battleblock-theater-https-github",
@@ -2782,7 +2995,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/andresarevalo1/BattleBlockRecomp-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-bejeweled-3-https-github-com-cha",
@@ -2795,7 +3009,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/bejeweled3-nx",
     "threadUrl": "https://gbatemp.net/threads/bejeweled-3-xbox-360-ver-switch-port.685689/unread",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-blue-dragon-https-github-com-ad0",
@@ -2808,7 +3023,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Ad0ky/reblue",
     "threadUrl": "https://gbatemp.net/threads/blue-dragon-nintendo-switch-port.685955/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-castlevania-lords-of-shadow-http",
@@ -2821,7 +3037,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/FurryLilManChild/LoS1-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-dante-s-inferno-https-github-com",
@@ -2834,7 +3051,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/VasilkovND/dantes-inferno-nx",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10929994",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-dead-space-2-https-github-com-va",
@@ -2847,7 +3065,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/VasilkovND/ds2-nx",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10929994",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-feeding-frenzy-https-github-com-",
@@ -2860,7 +3079,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/feedingfrenzy-nx",
     "threadUrl": "https://gbatemp.net/threads/feeding-frenzy-1-2-xbox-360-ver-switch-port.685866/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-feeding-frenzy-2-shipwreck-showd",
@@ -2873,7 +3093,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/feedingfrenzy2-nx",
     "threadUrl": "https://gbatemp.net/threads/feeding-frenzy-1-2-xbox-360-ver-switch-port.685866/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-gears-of-war-2-https-github-com-",
@@ -2886,7 +3107,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/VasilkovND/gears2-nx",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10934260",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-guardian-heroes-https-github-com",
@@ -2899,7 +3121,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/rashevskyv/guardian-heroes-recomp-public",
     "threadUrl": "https://gbatemp.net/threads/guardian-heroes-xbla-xbox-360-for-switch-static-recompilation-port.685995/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-guwange-https-github-com-chansey",
@@ -2912,7 +3135,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/guwange-nx",
     "threadUrl": "https://gbatemp.net/threads/guwange-xbox-360-ver-switch-port.685699/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-ketsui-kizuna-jigoku-tachi-extra",
@@ -2925,7 +3149,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/ketsui-nx",
     "threadUrl": "https://gbatemp.net/threads/ketsui-xbox-360-ver-switch-port.685938/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-lost-odyssey-https-github-com-ad",
@@ -2938,7 +3163,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Ad0ky/LostOdysseyRecomp",
     "threadUrl": "https://gbatemp.net/threads/lost-odyssey-nintendo-switch-port.685442/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-mass-effect-https-github-com-neb",
@@ -2951,7 +3177,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/nebadasSwifty/masseffect-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-max-payne-3-https-github-com-vas",
@@ -2964,7 +3191,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/VasilkovND/mp3-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-metal-gear-rising-revengeance-ht",
@@ -2977,7 +3205,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/tuancapoo/mgr-nx-deko",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-monster-high-new-ghoul-in-school",
@@ -2990,7 +3219,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/adumah/mhnwis-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-mortal-kombat-komplete-edition-h",
@@ -3003,7 +3233,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/mk9-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-mushihimesama-futari-https-githu",
@@ -3016,7 +3247,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/futari-nx",
     "threadUrl": "https://gbatemp.net/threads/mushihimesama-futari-xbox-360-ver-switch-port.685115/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-nights-into-dreams-https-github-",
@@ -3029,7 +3261,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/nights-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-peggle-https-github-com-chanseyi",
@@ -3042,7 +3275,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/peggle1-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-peggle-2-https-github-com-chanse",
@@ -3055,7 +3289,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/peggle2-nx",
     "threadUrl": "https://gbatemp.net/threads/peggle-2-switch-port.685349/unread",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-silent-hill-homecoming-https-git",
@@ -3068,7 +3303,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/gerisson1996/SHH-NX-PORT",
     "threadUrl": "https://gbatemp.net/threads/release-silent-hill-homecoming-nx-v1-0-native-switch-port-of-silent-hill-homecoming-via-static-recompilation.686040/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-skate-3-https-github-com-johnuzo",
@@ -3081,7 +3317,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/JohnUzoka/skate-3-rust-engine",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-sonic-adventure-2-https-github-c",
@@ -3094,7 +3331,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/sa2-nx",
     "threadUrl": "https://gbatemp.net/threads/sonic-adventure-2-xbox-360-ver-switch-port.685092/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-sonic-the-hedgehog-2006-https-gi",
@@ -3107,7 +3345,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/MarathonRecomp-NX",
     "threadUrl": "https://gbatemp.net/threads/marathon-recompiled-sonic-the-hedgehog-2006-switch-port.682907/post-10916486",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-sonic-unleashed-https-github-com",
@@ -3120,7 +3359,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/UnleashedRecomp-NX",
     "threadUrl": "https://gbatemp.net/threads/sonic-unleashed-recompiled-homebrew-port.681869/post-10916920",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-space-channel-5-part-2-https-git",
@@ -3133,7 +3373,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/BiroGrafx/sc5p2-nx",
     "threadUrl": "https://gbatemp.net/threads/space-channel-5-part-2-switch-port.685536/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-the-simpson-s-game-https-github-",
@@ -3146,7 +3387,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/R-drg/the-simpsons-game-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-tony-hawk-s-project-8-https-gith",
@@ -3159,7 +3401,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/R-drg/project8-sw",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-torchlight-https-github-com-liar",
@@ -3172,7 +3415,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/liartes/torchlight-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-ultra-street-fighter-iv-https-gi",
@@ -3185,7 +3429,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/usf4-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-zuma-https-github-com-chanseyist",
@@ -3198,7 +3443,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/zuma-nx",
     "threadUrl": "https://gbatemp.net/threads/zuma-zumas-revenge-xbox-360-ver-switch-port.685928/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "microsoft-xbox-360-microsoft-xbox-360-zuma-s-revenge-https-github-com-",
@@ -3211,7 +3457,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/zumasrevenge-nx",
     "threadUrl": "https://gbatemp.net/threads/zuma-zumas-revenge-xbox-360-ver-switch-port.685928/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-banjo-kazooie-https-github-com-palindromicbrea",
@@ -3224,7 +3471,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/PalindromicBreadLoaf/Docklight",
     "threadUrl": "https://gbatemp.net/threads/docklight-a-port-of-lighthouse-to-the-nintendo-switch.683488/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-bomberman-64-https-github-com-paulodiasred-bm6",
@@ -3237,7 +3485,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/paulodiasred/BM64Switch",
     "threadUrl": "https://gbatemp.net/threads/release-bomberman-64-recompiled-native-switch-port-nsp-nro-60-fps.685448/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-castlevania-legacy-of-darkness-https-github-co",
@@ -3250,7 +3499,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/PalindromicBreadLoaf/LegacyOfDockness",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-conker-s-bad-fur-day-https-github-com-domazinu",
@@ -3263,7 +3513,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/DomazinUS/CBFD-Switch",
     "threadUrl": "https://gbatemp.net/threads/release-conkers-bad-fur-day-recompiled-for-nintendo-switch-60fps-720p-1080p-stock-clocks.685543/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-diddy-kong-racing-https-github-com-boraeskicio",
@@ -3276,7 +3527,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/boraeskicioglu/goldenballoon_nx",
     "threadUrl": "https://gbatemp.net/threads/diddy-kong-racing-golden-balloon-switch-port.683670/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-donkey-kong-64-https-github-com-trinalord777-d",
@@ -3289,7 +3541,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Trinalord777/DK64Recomp-NX",
     "threadUrl": "https://gbatemp.net/threads/dk64-reconkgpiled-nx-port.685111/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-f-zero-x-https-github-com-palindromicbreadloaf",
@@ -3302,7 +3555,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/PalindromicBreadLoaf/NX-Diffuser",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-mario-kart-64-https-github-com-harbourmasters-",
@@ -3315,7 +3569,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/HarbourMasters/SpaghettiKart/",
     "threadUrl": "https://gbatemp.net/threads/mario-kart-64-nintendo-switch-port.672589/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-mega-man-64-https-github-com-adumah-megaman64r",
@@ -3328,7 +3583,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/adumah/MegaMan64Recomp-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-paper-mario-https-github-com-thorhax-paperboat",
@@ -3341,7 +3597,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/PaperBoat-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-perfect-dark-https-github-com-perfect-dark-pc-",
@@ -3354,7 +3611,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/perfect-dark-pc-port/perfect_dark/",
     "threadUrl": "https://gbatemp.net/threads/perfect-dark-switch-port.663322/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-star-wars-rogue-squadron-https-github-com-furr",
@@ -3367,7 +3625,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/FurryLilManChild/rs64-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-starcraft64-https-github-com-gabryboy12-ai-sta",
@@ -3380,7 +3639,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/gabryboy12-ai/StarCraft64-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-super-mario-64-https-github-com-harbourmasters",
@@ -3393,7 +3653,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/HarbourMasters/Ghostship",
     "threadUrl": "https://gbatemp.net/threads/super-mario-64-gets-a-new-pc-port-from-the-harbour-masters-team.678985/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-super-smash-bros-https-github-com-kawaiibunga-",
@@ -3406,7 +3667,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/KawaiiBunga/BattleShipNX",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-the-legend-of-zelda-majora-s-mask-https-github",
@@ -3419,7 +3681,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/YoshiCrystal9/2ship2harkinian-Switch/",
     "threadUrl": "https://gbatemp.net/threads/majoras-mask-switch-port-2ship-2harkinian.667996/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-the-legened-of-zelda-ocarina-of-time-https-git",
@@ -3432,7 +3695,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/timschneeb/Shipwright-Switch/",
     "threadUrl": "https://gbatemp.net/threads/ocarina-of-time-switch-port-ship-of-harkinian.630367/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-wave-race-64-https-github-com-1weell-racewave4",
@@ -3445,7 +3709,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/1weell/RaceWave46-Switch",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gameboy-nintendo-gameboy-pokemon-gen-1-https-github-com-bryan",
@@ -3458,7 +3723,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/bryanthaboi/gen1recomp",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gameboy-nintendo-gameboy-pokemon-gen-2-https-github-com-under",
@@ -3471,7 +3737,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/UNDERdecoded/Gen2Recomped",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gameboy-advance-nintendo-gameboy-advance-metroid-zero-mission",
@@ -3484,7 +3751,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/JJTapiaXX/Metroid-Zero-Mission-NX",
     "threadUrl": "https://gbatemp.net/threads/metroid-zero-mission-nx.685276/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gameboy-advance-nintendo-gameboy-advance-sonic-advance-2-http",
@@ -3497,7 +3765,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/boraeskicioglu/sonic_advance2_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gameboy-advance-nintendo-gameboy-advance-the-legend-of-zelda-",
@@ -3510,7 +3779,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/HayatoG/tmc",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gameboy-color-nintendo-gameboy-color-the-legend-of-zelda-link",
@@ -3523,7 +3793,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/delsonazevedo/Zelda-LA-DX-HD-Updated",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gameboy-color-nintendo-gameboy-color-the-legend-of-zelda-orac",
@@ -3536,7 +3807,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/toniisound/oracles-nx",
     "threadUrl": "https://gbatemp.net/threads/release-oracles-nx-1-0-native-switch-port-of-oracle-of-ages-oracle-of-seasons.685197/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gamecube-nintendo-gamecube-animal-crossing-https-github-com-d",
@@ -3549,7 +3821,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/digdat0/ACGC-Switch-Port",
     "threadUrl": "https://gbatemp.net/threads/animal-crossing-gcnx-switch-port.685302/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gamecube-nintendo-gamecube-mario-kart-double-dash-https-githu",
@@ -3562,7 +3835,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/digdat0/mkdd-nx",
     "threadUrl": "https://gbatemp.net/threads/mario-kart-double-dash-nx-switch-port.685843/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gamecube-nintendo-gamecube-sonic-riders-https-github-com-tecl",
@@ -3575,7 +3849,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/teclilla18/sonic-riders-recomp",
     "threadUrl": "https://gbatemp.net/threads/release-wip-sonic-riders-native-port-switch-pc-static-recompilation-needs-testers.685760/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gamecube-nintendo-gamecube-super-mario-strikers-https-github-",
@@ -3588,7 +3863,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/new-coke/strikers",
     "threadUrl": "https://gbatemp.net/threads/strikers-a-native-port-of-super-mario-strikers-is-testing-a-switch-port.684553/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gamecube-nintendo-gamecube-super-smash-bros-melee-https-githu",
@@ -3601,7 +3877,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/KawaiiBunga/Melee-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gamecube-nintendo-gamecube-the-legend-of-zelda-twilight-princ",
@@ -3614,7 +3891,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/HayatoG/dusklight/",
     "threadUrl": "https://gbatemp.net/threads/dusk-for-switch-tloz-twilight-princess-port.681677/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-gamecube-nintendo-gamecube-the-legend-of-zelda-wind-waker-htt",
@@ -3627,7 +3905,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/centollOS/SwitchWaker",
     "threadUrl": "https://gbatemp.net/threads/zelda-the-wind-waker-switch-port.685126/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-wii-u-nintendo-wii-u-the-legend-of-zelda-wind-waker-hd-https-",
@@ -3640,7 +3919,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/centollOS/SwitchWakerHD",
     "threadUrl": "https://gbatemp.net/threads/zelda-the-wind-waker-switch-port.685126/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-0-a-d-https-github-com-souldbminerr-0ad-switch",
@@ -3653,7 +3933,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/souldbminerr/0ad-switch",
     "threadUrl": "https://gbatemp.net/threads/0-a-d-switch-port-rts-in-horizon-os.682759/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-age-of-empires-ii-the-age-of-kings-https-github-com-zaydme-opena",
@@ -3666,7 +3947,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Zaydme/openaok",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10935642",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-alien-vs-predator-gold-https-github-com-thorhax-avp-gold-nx-mode",
@@ -3679,7 +3961,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/AvP-Gold-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-atomic-bomberman-https-github-com-rashevskyv-atomic-bomberman",
@@ -3692,7 +3975,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/rashevskyv/atomic-bomberman",
     "threadUrl": "https://gbatemp.net/threads/atomic-bomberman-for-switch.685994/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-black-white-https-github-com-gitgarage-openblack",
@@ -3705,7 +3989,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/gitgarage/openblack",
     "threadUrl": "https://gbatemp.net/threads/release-openblack-for-switch-black-white-2001-on-nintendo-switch.685558/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-call-of-duty-black-ops-ii-https-github-com-hderick-bo2-requiem-n",
@@ -3718,7 +4003,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/HDErick/BO2-Requiem-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-call-of-duty-united-offensive-https-github-com-cznn999-cod-nx",
@@ -3731,7 +4017,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/cznn999/cod-nx",
     "threadUrl": "https://gbatemp.net/threads/release-call-of-duty-2003-united-offensive-nintendo-switch-native-port.685952/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-castlevania-revamped-https-github-com-bshurikan-cvrevamped-nx",
@@ -3744,7 +4031,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/bshurikan/cvrevamped_nx",
     "threadUrl": "https://gbatemp.net/threads/castlevania-revamped-nintendo-switch-port.684636/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-commander-keen-https-eliasoenal-com-2020-07-12-commander-keen-fo",
@@ -3757,7 +4045,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://eliasoenal.com/2020/07/12/commander-keen-for-nintendo-switch/",
     "threadUrl": "https://gbatemp.net/threads/commander-keen-for-switch.569609/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-cosmology-of-kyoto-https-github-com-seamusduncmcgrath-cosmologyo",
@@ -3770,7 +4059,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/seamusduncmcgrath/CosmologyOfKyoto-Recompiled",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-descent-https-github-com-thorhax-descent1-nx-modern",
@@ -3783,7 +4073,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Descent1-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-descent-2-https-github-com-thorhax-descent2-nx-modern",
@@ -3796,7 +4087,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Descent2-NX-Modern",
     "threadUrl": "https://gbatemp.net/threads/descent-2-nx.685064/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-diablo-http-github-com-thorhax-devilutionx-nx-modern",
@@ -3809,7 +4101,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "http://github.com/Thorhax/DevilutionX-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-doom-https-github-com-thorhax-gzdoom-nx-2026",
@@ -3822,7 +4115,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/GZDoom-NX-2026",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-driver-2-https-github-com-jamyaro-redriver2-switch",
@@ -3835,7 +4129,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/jamyaro/REDRIVER2-switch",
     "threadUrl": "https://gbatemp.net/threads/redriver2-driver-2-playstation-game-reverse-engineering.682414/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-dune-ii-https-github-com-carstene1ns-dunelegacy-tree-switch-port",
@@ -3848,7 +4143,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/carstene1ns/dunelegacy/tree/switch-port",
     "threadUrl": "https://gbatemp.net/threads/dune-legacy-dune-ii-remake.676917/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-elder-scrolls-iii-morrowind-https-github-com-fgsfdsfgs-openmw",
@@ -3861,7 +4157,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/fgsfdsfgs/openmw/",
     "threadUrl": "https://gbatemp.net/threads/openmw-for-switch.540250/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-fallout-https-github-com-ryandeering-fallout-ce-switch",
@@ -3874,7 +4171,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ryandeering/fallout-ce-switch/",
     "threadUrl": "https://gbatemp.net/threads/fallout-1-2-ce-switch-port.681906/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-fallout-2-https-github-com-ryandeering-fallout2-ce-switch",
@@ -3887,7 +4185,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ryandeering/fallout2-ce-switch/",
     "threadUrl": "https://gbatemp.net/threads/fallout-1-2-ce-switch-port.681906/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-fallout-new-vegas-https-github-com-derildx-nv-rs-nx",
@@ -3900,7 +4199,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/DerilDX/nv-rs-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-freespace-2-https-github-com-nagaa95-freespace2-nx",
@@ -3913,7 +4213,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/freespace2_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-half-life-https-github-com-fwgs-xash3d-fwgs",
@@ -3926,7 +4227,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/FWGS/xash3d-fwgs/",
     "threadUrl": "https://gbatemp.net/threads/xash3d-half-life-custom-goldsrc-engine-for-switch.522848/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-heroes-of-might-magic-ii-https-github-com-ihhub-fheroes2",
@@ -3939,7 +4241,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ihhub/fheroes2/",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-heroes-of-might-magic-iii-https-github-com-nagaa95-vcmi-nx",
@@ -3952,7 +4255,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/vcmi_nx/",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-insaniquarium-https-github-com-chanseyisthebest-insaniquarium-nx",
@@ -3965,7 +4269,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/insaniquarium_nx",
     "threadUrl": "https://gbatemp.net/threads/insaniquarium-deluxe-switch-port.684222/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-jazz-jackrabbit-2-https-github-com-deathkiller-jazz2",
@@ -3978,7 +4283,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/deathkiller/jazz2",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-luanti-https-github-com-adumah-luanti-nx",
@@ -3991,7 +4297,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/adumah/Luanti-NX/",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-marble-blast-collection-https-github-com-chanseyisthebest-mbhaxe",
@@ -4004,7 +4311,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/MBHaxe-Switch",
     "threadUrl": "https://gbatemp.net/threads/mbhaxe-switch-port-marble-blast-gold-ultra-platinum-platinum-quest.684096/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-mari0-https-github-com-delsonazevedo-mari0-switch",
@@ -4017,7 +4325,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/delsonazevedo/mari0-switch",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-mari0-alesan99-s-entities-https-github-com-aks796-mari0-ae-nx",
@@ -4030,7 +4339,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/aks796/mari0_ae_nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-mcosu-https-github-com-mckay42-mcosu-nx",
@@ -4043,7 +4353,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/McKay42/McOsu-NX",
     "threadUrl": "https://gbatemp.net/threads/mcosu-osu-for-the-switch.529564/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-medal-of-honor-allied-assault-https-github-com-nagaa95-openmohaa",
@@ -4056,7 +4367,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/openmohaa_nx/",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-mega-max-w-https-github-com-vroccolli-mega-man-w-switch-homebrew",
@@ -4069,7 +4381,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Vroccolli/mega-man-w-switch-homebrew",
     "threadUrl": "https://gbatemp.net/threads/megaman-w-fan-game-switch-port.685896/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-minecraft-java-1-12-2-https-github-com-etonedemid-minecraft-swit",
@@ -4082,7 +4395,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/etonedemid/minecraft-switch",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-nazi-zombies-portable-https-github-com-nzp-team-nzportable",
@@ -4095,7 +4409,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/nzp-team/nzportable/",
     "threadUrl": "https://gbatemp.net/threads/nzportable-nazi-zombies-made-with-quake-engine.624375/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-one-must-fall-2097-https-github-com-thorhax-openomf-nx-modern",
@@ -4108,7 +4423,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/OpenOMF-NX-Modern",
     "threadUrl": "https://gbatemp.net/threads/preliminary-list-of-updated-homebrew-apps-and-tools-for-fw-21-0-0-ams-1-10-0-please-add-your-findings.677217/post-10907101",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-outrun-2006-coast-2-coast-https-github-com-r4dius-outrun2-decomp",
@@ -4121,7 +4437,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/r4dius/outrun2-decomp",
     "threadUrl": "https://gbatemp.net/threads/outrun-2006-coast-2-coast-decomp.685083/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-plants-vs-zombies-https-github-com-hayatog-pvz-portable",
@@ -4134,7 +4451,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/HayatoG/PvZ-Portable/",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-pokemmo-https-github-com-petit-prince-dev-pokemmo-nx",
@@ -4147,7 +4465,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Petit-Prince-dev/PokeMMO-NX",
     "threadUrl": "https://gbatemp.net/threads/pokemmo-is-now-running-natively-on-the-nintendo-switch.685027/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-prey-https-github-com-hazevauks-openpreyswitch",
@@ -4160,7 +4479,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/hazevauks/openPREYswitch",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-project-zomboid-https-github-com-etonedemid-zomboid-switch",
@@ -4173,7 +4493,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/etonedemid/zomboid-switch",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-quake-https-github-com-thorhax-quakespasm-nx-modern",
@@ -4186,7 +4507,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Quakespasm-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-quake-2-https-github-com-thorhax-quake2-nx-modern",
@@ -4199,7 +4521,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Quake2-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-rollercoaster-tycoon-2-https-github-com-wander-eule-openrct2-swi",
@@ -4212,7 +4535,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Wander-Eule/OpenRCT2-Switch",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-sheep-dog-n-wolf-rewooled-https-github-com-adumah-sheepdogwolf-n",
@@ -4225,7 +4549,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/adumah/SheepDogWolf-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-silent-hill-https-github-com-derildx-silent-hill-decomp-nx",
@@ -4238,7 +4563,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/DerilDX/silent-hill-decomp-nx",
     "threadUrl": "https://gbatemp.net/threads/silent-hill-decompilation-nx-switch-port.682867/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-silent-hill-2-https-github-com-cutarev-sh2-nx",
@@ -4251,7 +4577,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/cutarev/sh2-nx",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10921957",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-silent-hill-3-https-github-com-cutarev-sh3-nx",
@@ -4264,7 +4591,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/cutarev/sh3-nx",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10921957",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-silent-hill-4-the-room-https-github-com-72ak-sh4-nx",
@@ -4277,7 +4605,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/72ak/sh4-nx",
     "threadUrl": "https://gbatemp.net/threads/ultimate-switch-port-thread.683071/post-10922888",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-sly-cooper-and-the-thievius-raccoonus-https-github-com-nagaa95-p",
@@ -4290,7 +4619,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/ProjectCane",
     "threadUrl": "https://gbatemp.net/threads/sly-cooper-projectcane-switch-port.685266/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-sonic-r-https-github-com-boraeskicioglu-sonic-r-nx",
@@ -4303,7 +4633,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/boraeskicioglu/sonic_r_nx",
     "threadUrl": "https://gbatemp.net/threads/sonic-r-switch-port-with-lan-support.684446/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-space-cadet-https-github-com-averne-spacecadetpinball-nx",
@@ -4316,7 +4647,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/averne/SpaceCadetPinball-NX/",
     "threadUrl": "https://gbatemp.net/threads/space-cadet-pinball-switch-port.601370/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-starbound-https-github-com-rohanbhattacharyya-osbm",
@@ -4329,7 +4661,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/RohanBhattacharyya/oSBM",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-super-mario-war-https-github-com-brendongl-supermariowar-nx",
@@ -4342,7 +4675,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/brendongl/supermariowar-nx",
     "threadUrl": "https://gbatemp.net/threads/release-super-mario-war-nx-v1-0-0-native-switch-port-4-player-local-60-fps.685705/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-terraria-mod-loader-https-github-com-johnuzoka-terrabuilder-nx",
@@ -4355,7 +4689,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/JohnUzoka/terrabuilder-nx",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-the-binding-of-isaac-repentance-https-github-com-antoniotorres02",
@@ -4368,7 +4703,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/antoniotorres02/isaac-switch-native",
     "threadUrl": "https://gbatemp.net/threads/binding-of-isaac-repentance-port.685733/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-the-legend-of-zelda-oni-link-begins-https-github-com-worthis-zel",
@@ -4381,7 +4717,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/worthis/ZeldaOLB-new-engine",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-the-legend-of-zelda-return-of-the-hylian-https-github-com-worthi",
@@ -4394,7 +4731,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/worthis/ZeldaROTH-new-engine",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-the-legend-of-zelda-time-to-triumph-https-github-com-worthis-zel",
@@ -4407,7 +4745,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/worthis/Zelda3T",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-the-simpsons-hit-and-run-https-github-com-thorhax-the-simpsons-h",
@@ -4420,7 +4759,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/The-Simpsons-Hit-and-Run",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-touhou-10-mountain-of-faith-https-github-com-saekaze-th10-switch",
@@ -4433,7 +4773,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/saekaze/th10-switch",
     "threadUrl": "https://gbatemp.net/threads/touhou-project-on-switch-all-ports-in-one-place.684850/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-touhou-11-subterranean-animism-https-github-com-saekaze-th11-swi",
@@ -4446,7 +4787,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/saekaze/th11-switch",
     "threadUrl": "https://gbatemp.net/threads/touhou-project-on-switch-all-ports-in-one-place.684850/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-touhou-12-undefined-fantastic-object-https-github-com-saekaze-th",
@@ -4459,7 +4801,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/saekaze/th12-switch/",
     "threadUrl": "https://gbatemp.net/threads/touhou-project-on-switch-all-ports-in-one-place.684850/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-touhou-15-legacy-of-lunatic-kingdom-https-github-com-saekaze-th1",
@@ -4472,7 +4815,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/saekaze/th15-switch",
     "threadUrl": "https://gbatemp.net/threads/touhou-project-on-switch-all-ports-in-one-place.684850/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-touhou-6-embodiment-of-the-scarlet-devil-https-github-com-saekaz",
@@ -4485,7 +4829,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/saekaze/th06-switch",
     "threadUrl": "https://gbatemp.net/threads/touhou-project-on-switch-all-ports-in-one-place.684850/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-touhou-7-perfect-cherry-blossom-https-github-com-saekaze-th07-sw",
@@ -4498,7 +4843,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/saekaze/th07-switch",
     "threadUrl": "https://gbatemp.net/threads/touhou-project-on-switch-all-ports-in-one-place.684850/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-touhou-7-5-immaterial-and-missing-power-https-github-com-saekaze",
@@ -4511,7 +4857,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/saekaze/th075-switch",
     "threadUrl": "https://gbatemp.net/threads/touhou-project-on-switch-all-ports-in-one-place.684850/post-10926406",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-touhou-8-imperishable-night-https-github-com-saekaze-th08-switch",
@@ -4524,7 +4871,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/saekaze/th08-switch",
     "threadUrl": "https://gbatemp.net/threads/touhou-project-on-switch-all-ports-in-one-place.684850/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-touhou-9-phantasmagoria-of-flower-view-https-github-com-saekaze-",
@@ -4537,7 +4885,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/saekaze/th09-switch",
     "threadUrl": "https://gbatemp.net/threads/touhou-project-on-switch-all-ports-in-one-place.684850/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-touhou-wonderful-waking-world-https-github-com-saekaze-thwww-swi",
@@ -4550,7 +4899,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/saekaze/thWWW-switch",
     "threadUrl": "https://gbatemp.net/threads/touhou-project-on-switch-all-ports-in-one-place.684850/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-undertale-yellow-https-github-com-naliendev-undertale-yellow-nx",
@@ -4563,7 +4913,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NalienDev/Undertale-Yellow-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-velikolepny-vovochka-https-github-com-worthis-vovochka",
@@ -4576,7 +4927,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/worthis/Vovochka",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-warcraft-https-github-com-thorhax-war1gus-nx-modern",
@@ -4589,7 +4941,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/War1gus-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-warcraft-ii-https-github-com-thorhax-wargus-nx-modern",
@@ -4602,7 +4955,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Wargus-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-wolfenstein-3d-https-github-com-thorhax-wolf4sdl-nx-modern",
@@ -4615,7 +4969,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/Wolf4SDL-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-zuma-deluxe-https-github-com-1timewire1-circleshootapp-tree-swit",
@@ -4628,7 +4983,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/1timewire1/CircleShootApp/tree/switch",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "preservia-2s2h-2ship2harkinian",
@@ -4642,6 +4998,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/2s2h.png"
   },
   {
@@ -4656,6 +5013,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/fallout2.png"
   },
   {
@@ -4670,6 +5028,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/fallout.png"
   },
   {
@@ -4684,6 +5043,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/max_nx.png"
   },
   {
@@ -4698,6 +5058,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/openlara.png"
   },
   {
@@ -4712,6 +5073,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/openrct2.png"
   },
   {
@@ -4726,6 +5088,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/soh.png"
   },
   {
@@ -4740,6 +5103,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/simpsons.png"
   },
   {
@@ -4754,6 +5118,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/sm64.png"
   },
   {
@@ -4768,6 +5133,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/pinball.png"
   },
   {
@@ -4782,6 +5148,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/spaghettify.png"
   },
   {
@@ -4796,6 +5163,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/starship.png"
   },
   {
@@ -4810,6 +5178,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "threadUrl": "",
     "archived": false,
     "recent": false,
+    "source": "Preservia",
     "imageUrl": "https://preservia.github.io/ports/icons/xash3d.png"
   },
   {
@@ -4823,7 +5192,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/sega-vr-disasm",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "sony-playstation-sony-playstation-lain-https-github-com-amydevs-lainnx",
@@ -4836,7 +5206,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/amydevs/lainNX",
     "threadUrl": "https://gbatemp.net/threads/release-lain-ps1-switch-port-port-of-laintsx-for-nintendo-switch-using-nx-js.682875/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "sony-playstation-sony-playstation-ms-pacman-maze-madness-https-github-",
@@ -4849,7 +5220,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/adumah/MsPacManMazeMadnessRecomp",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "sony-playstation-sony-playstation-tekken-3-https-github-com-markaurel1",
@@ -4862,7 +5234,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/markaurel13/tekken3-nx",
     "threadUrl": "https://gbatemp.net/threads/tekken-3-switch-port.685957/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "sony-playstation-sony-playstation-wipeout-https-github-com-emuman100-w",
@@ -4875,7 +5248,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/emuman100/wipeout-rewrite-nintendo-switch-homebrew",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "sony-playstation-2-sony-playstation-2-dragonball-z-tenkaichi-budokai-3",
@@ -4888,7 +5262,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://gitlab.com/alexyt2021es/DBT-NX",
     "threadUrl": "",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "sony-playstation-2-sony-playstation-2-jak-and-daxter-trilogy-https-git",
@@ -4901,7 +5276,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/fildicio/jak-project-switch",
     "threadUrl": "https://gbatemp.net/threads/opengoal-port-on-nintendo-switch.684945/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "sony-playstation-2-sony-playstation-2-rampage-total-destruction-https-",
@@ -4914,7 +5290,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/jjmhalew/RampageRE",
     "threadUrl": "https://gbatemp.net/threads/rampage-total-destruction-port-with-optional-content-from-wii.685951/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "super-nintendo-entertainment-system-super-nintendo-entertainment-syste",
@@ -4927,7 +5304,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/souldbminerr/DKC1Recomp-NX",
     "threadUrl": "https://gbatemp.net/threads/donkey-kong-country-trilogy-port-16-9-widescreen-2-player-support.684319/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "super-nintendo-entertainment-system-super-nintendo-entertainment-syste",
@@ -4940,7 +5318,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/souldbminerr/DKC2Recomp-NX",
     "threadUrl": "https://gbatemp.net/threads/donkey-kong-country-trilogy-port-16-9-widescreen-2-player-support.684319/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "super-nintendo-entertainment-system-super-nintendo-entertainment-syste",
@@ -4953,7 +5332,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/souldbminerr/DKC3Recomp-NX",
     "threadUrl": "https://gbatemp.net/threads/donkey-kong-country-trilogy-port-16-9-widescreen-2-player-support.684319/",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "super-nintendo-entertainment-system-super-nintendo-entertainment-syste",
@@ -4966,7 +5346,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/F-Zero-NX-Modern",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "super-nintendo-entertainment-system-super-nintendo-entertainment-syste",
@@ -4979,7 +5360,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/mrOt4/babel-recomp",
     "threadUrl": "",
     "archived": false,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "super-nintendo-entertainment-system-super-nintendo-entertainment-syste",
@@ -4992,7 +5374,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/Thorhax/MegaManX-NX",
     "threadUrl": "https://gbatemp.net/threads/megaman-x-recomp-nx.685184/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "super-nintendo-entertainment-system-super-nintendo-entertainment-syste",
@@ -5005,7 +5388,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/kandowontu2/starfox-enhanced",
     "threadUrl": "https://gbatemp.net/threads/star-fox-enhanced.684201/",
     "archived": false,
-    "recent": true
+    "recent": true,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-cloverpit-https-github-com-chanseyisthebes",
@@ -5018,7 +5402,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/cloverpit_nx",
     "threadUrl": "https://gbatemp.net/threads/cloverpit-switch-port.683303/#post-10887272",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-plants-vs-zombies-ultimate-https-github-co",
@@ -5031,7 +5416,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/pvz_ultimate_nx",
     "threadUrl": "https://gbatemp.net/threads/pvz-ultimate-switch-port.683858/",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-the-room-3-https-github-com-chanseyisthebe",
@@ -5044,7 +5430,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/theroomthree_nx/",
     "threadUrl": "https://gbatemp.net/threads/the-room-three-old-sins-switch-port.683590/",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "android-64bit-android-64bit-the-room-old-sins-https-github-com-chansey",
@@ -5057,7 +5444,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/ChanseyIsTheBest/theroom4_nx/",
     "threadUrl": "https://gbatemp.net/threads/the-room-three-old-sins-switch-port.683590/",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "nintendo-64-nintendo-64-doom-64-https-github-com-fgsfdsfgs-doom64ex",
@@ -5070,7 +5458,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/fgsfdsfgs/Doom64EX",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-abuse-https-github-com-capsterx-switch-abuse",
@@ -5083,7 +5472,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/capsterx-switch/abuse",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-arx-fatalis-https-github-com-fgsfdsfgs-arxlibertatis",
@@ -5096,7 +5486,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/fgsfdsfgs/ArxLibertatis",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-brogue-https-github-com-capsterx-switch-broguece",
@@ -5109,7 +5500,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/capsterx-switch/BrogueCE",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-caesar-iii-https-github-com-rsn8887-julius",
@@ -5122,7 +5514,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/rsn8887/julius",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-captain-claw-https-github-com-rsn8887-openclaw",
@@ -5135,7 +5528,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/rsn8887/OpenClaw",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-command-conquer-red-alert-https-github-com-capsterx-switch-vanil",
@@ -5148,7 +5542,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/capsterx-switch/Vanilla-Conquer/",
     "threadUrl": "https://gbatemp.net/threads/c-c-vanilla-conquer.579074/",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-dethrace-https-github-com-alexart878-dethrace-switch",
@@ -5161,7 +5556,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/alexart878/dethrace-switch",
     "threadUrl": "https://gbatemp.net/threads/dethrace-nx.670358/",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-duke-nukem-3d-https-github-com-fgsfdsfgs-eduke32",
@@ -5174,7 +5570,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/fgsfdsfgs/eduke32",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-hurrican-https-github-com-rsn8887-hurrican",
@@ -5187,7 +5584,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/rsn8887/Hurrican",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-jazz-jackrabbit-https-github-com-krankrival-openjazznx",
@@ -5200,7 +5598,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/KranKRival/OpenJazzNX?",
     "threadUrl": "https://gbatemp.net/threads/openjazznx-openjazz-port-with-sdl2-for-the-nintendo-switch.546759/",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-opentyrian-2000-https-github-com-theflippedbit-opentyrian-nx",
@@ -5213,7 +5612,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/theflippedbit/opentyrian-nx",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-quake-iii-arena-https-github-com-fgsfdsfgs-ioq3",
@@ -5226,7 +5626,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/fgsfdsfgs/ioq3",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-return-to-castle-wolfenstein-https-github-com-capsterx-switch-io",
@@ -5239,7 +5640,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/capsterx-switch/iortcw",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-rocks-n-diamonds-mirrormagic-https-github-com-rsn8887-rocksndiam",
@@ -5252,7 +5654,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/rsn8887/rocksndiamonds",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-serious-sam-the-first-encounter-the-second-encounter-https-githu",
@@ -5265,7 +5668,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/fgsfdsfgs/Serious-Engine",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-sonic-2006-https-github-com-nagaa95-marathonrecomp-nx",
@@ -5278,7 +5682,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/NaGaa95/MarathonRecomp-NX",
     "threadUrl": "https://gbatemp.net/threads/marathon-recompiled-sonic-the-hedgehog-2006-switch-port.682907/",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-sonic-cd-https-github-com-heyjoeway-sonic-cd-11-decompilation",
@@ -5291,7 +5696,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/heyjoeway/Sonic-CD-11-Decompilation/",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-transport-tycoon-deluxe-https-github-com-rsn8887-openttd",
@@ -5304,7 +5710,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/rsn8887/OpenTTD",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-ultima-vii-https-github-com-capsterx-switch-exult",
@@ -5317,7 +5724,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/capsterx-switch/exult",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-unreal-unreal-gold-https-github-com-fgsfdsfgs-unreal-nx",
@@ -5330,7 +5738,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/fgsfdsfgs/unreal_nx",
     "threadUrl": "",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "pc-pc-xcom-https-github-com-alexart878-openxcom-switch",
@@ -5343,7 +5752,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/alexart878/OpenXcom-switch",
     "threadUrl": "https://gbatemp.net/threads/openxcom-port-for-nintendo-switch.663495/",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "super-nintendo-entertainment-system-super-nintendo-entertainment-syste",
@@ -5356,7 +5766,8 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/snesrev/sm/",
     "threadUrl": "https://gbatemp.net/threads/super-metroid-sm-nintendo-switch-port.628933/",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   },
   {
     "id": "super-nintendo-entertainment-system-super-nintendo-entertainment-syste",
@@ -5369,6 +5780,7 @@ export const CATALOG_SEED: CatalogItem[] = [
     "repoUrl": "https://github.com/snesrev/zelda3/",
     "threadUrl": "https://gbatemp.net/threads/the-legend-of-zelda-a-link-to-the-past-aleks-ultimate-nx.683965/",
     "archived": true,
-    "recent": false
+    "recent": false,
+    "source": "SwitchPorts"
   }
 ];

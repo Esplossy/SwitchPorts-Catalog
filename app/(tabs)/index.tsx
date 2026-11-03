@@ -7,9 +7,10 @@ import { CatalogCard } from "@/components/catalog-card";
 import { ScreenContainer } from "@/components/screen-container";
 import { useCatalog } from "@/lib/catalog-context";
 import { useColors } from "@/hooks/use-colors";
-import { sortCatalogItems, type CatalogItem } from "@/lib/catalog";
+import { getFirmwareStatus, sortCatalogItems, type CatalogItem } from "@/lib/catalog";
 
 type StatusFilter = "all" | "recent" | "active" | "archived";
+type SourceFilter = "all" | "SwitchPorts" | "Preservia";
 
 function FilterChip({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
   const colors = useColors();
@@ -27,6 +28,7 @@ export default function CatalogScreen() {
   const [query, setQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("Todos");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [sourceFilter, setSourceFilter] = useState<SourceFilter>("all");
 
   const categories = useMemo(() => {
     const values = new Set(items.filter((item) => showArchived || !item.archived).map((item) => item.category));
@@ -44,13 +46,14 @@ export default function CatalogScreen() {
         if (statusFilter === "archived") return item.archived;
         return true;
       })
-      .filter((item) => !firmwareOnly || item.firmware.toLowerCase() === "yes")
+      .filter((item) => sourceFilter === "all" || (item.source ?? "SwitchPorts") === sourceFilter)
+      .filter((item) => !firmwareOnly || getFirmwareStatus(item.firmware) === "fw21")
       .filter((item) => {
         if (!normalizedQuery) return true;
         return [item.name, item.system, item.category, item.version, item.repoUrl].some((value) => value.toLocaleLowerCase("pt-BR").includes(normalizedQuery));
       });
     return sortCatalogItems(matchingItems, sortMode);
-  }, [categoryFilter, firmwareOnly, items, query, showArchived, sortMode, statusFilter]);
+  }, [categoryFilter, firmwareOnly, items, query, showArchived, sortMode, sourceFilter, statusFilter]);
 
   const renderItem = ({ item }: { item: CatalogItem }) => (
     <CatalogCard
@@ -97,6 +100,12 @@ export default function CatalogScreen() {
               <FilterChip label="Ativos" selected={statusFilter === "active"} onPress={() => setStatusFilter("active")} />
               {showArchived && <FilterChip label="Arquivados" selected={statusFilter === "archived"} onPress={() => setStatusFilter("archived")} />}
               <FilterChip label="FW 21+" selected={firmwareOnly} onPress={() => setFirmwareOnly(!firmwareOnly)} />
+            </ScrollView>
+            <Text style={[styles.sectionLabel, { color: colors.muted }]}>FONTE</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}>
+              <FilterChip label="Todas" selected={sourceFilter === "all"} onPress={() => setSourceFilter("all")} />
+              <FilterChip label="SwitchPorts" selected={sourceFilter === "SwitchPorts"} onPress={() => setSourceFilter("SwitchPorts")} />
+              <FilterChip label="Preservia" selected={sourceFilter === "Preservia"} onPress={() => setSourceFilter("Preservia")} />
             </ScrollView>
             <Text style={[styles.sectionLabel, { color: colors.muted }]}>CATEGORIA</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}>

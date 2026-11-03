@@ -37,11 +37,16 @@
   - Permite compartilhar o nome e o repositório pela folha nativa do Android.
   - Oferece notificações locais somente para favoritos quando há mudança de versão, data, firmware ou links durante uma sincronização.
   - Integra 13 itens adicionais da lista JSON do Preservia Port Archive, deduplica “Perfect Dark” já existente e mantém GBATemp/GitHub Topics como fontes de descoberta manual.
+  - Exibe a origem em cada cartão e permite filtrar por SwitchPorts ou Preservia.
+  - Mostra firmware como FW 21+, FW ≤20 ou FW n/d, sem tratar compatibilidade desconhecida como confirmação.
+  - Mantém histórico local de ports adicionados, atualizados ou removidos.
+  - Cacheia miniaturas localmente após o primeiro carregamento.
+  - Registra tarefa de sincronização periódica com Expo BackgroundTask, sujeita às regras de bateria, rede e encerramento do Android.
 
 - [x] **Validação do projeto**
   - TypeScript, lint e configuração pública do Expo foram verificados sem erros.
   - Metro 8081 e API 3000 foram iniciados; a prévia mobile carregou as telas Catálogo, Favoritos, Ajustes e Detalhe.
 
-- [ ] **Gerar e instalar o APK**
+- [x] **Gerar e instalar o APK**
   - A configuração Android está pronta para o build (`space.manus.switchports.t165141055861472`).
-  - O APK/AAB deve ser gerado pela ação de build Android do Dashboard do projeto; ele não foi chamado de pronto antes de existir um artefato real.
+  - APK release standalone gerado e validado com assinatura própria; SHA-256 `dabc0d9288509a404f69a6149afaf6816c0470c26adbee02c7583ee56b310461`.

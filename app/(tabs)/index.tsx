@@ -10,7 +10,7 @@ import { useColors } from "@/hooks/use-colors";
 import { getFirmwareStatus, sortCatalogItems, type CatalogItem } from "@/lib/catalog";
 
 type StatusFilter = "all" | "recent" | "active" | "archived";
-type SourceFilter = "all" | "SwitchPorts" | "Preservia";
+type SourceFilter = "all" | "SwitchPorts" | "Preservia" | "BTech";
 
 function FilterChip({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
   const colors = useColors();
@@ -106,6 +106,7 @@ export default function CatalogScreen() {
               <FilterChip label="Todas" selected={sourceFilter === "all"} onPress={() => setSourceFilter("all")} />
               <FilterChip label="SwitchPorts" selected={sourceFilter === "SwitchPorts"} onPress={() => setSourceFilter("SwitchPorts")} />
               <FilterChip label="Preservia" selected={sourceFilter === "Preservia"} onPress={() => setSourceFilter("Preservia")} />
+              <FilterChip label="BTech" selected={sourceFilter === "BTech"} onPress={() => setSourceFilter("BTech")} />
             </ScrollView>
             <Text style={[styles.sectionLabel, { color: colors.muted }]}>CATEGORIA</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}>

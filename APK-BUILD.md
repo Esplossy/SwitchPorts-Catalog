@@ -13,7 +13,7 @@ O projeto possui duas variantes standalone locais:
 - Versão: `1.0.0` / versionCode `1`
 - Compile/target SDK: 36
 - Assinatura: Android APK Signature Scheme v2 válida
-- SHA-256: `dabc0d9288509a404f69a6149afaf6816c0470c26adbee02c7583ee56b310461`
+- SHA-256: `a8f86283549d7b6d313e7f9969bd6b82b5d45a7ff3719e86a82f7c1cfadc85d8`
 
 A keystore release e a senha ficam somente no ambiente local e são ignoradas pelo Git. Para preservar a possibilidade de atualizar o APK instalado, não apague `android/app/switchports-release.keystore` nem `.release-keystore.env` neste ambiente.
 
@@ -40,3 +40,4 @@ A pasta nativa `android/`, os ambientes locais, keystores e `artifacts/` ficam i
 - Estados de firmware mais claros: FW 21+, FW ≤20 ou FW n/d.
 - Cache local das miniaturas depois do primeiro carregamento.
 - Deduplicação preservando a fonte principal antes da Preservia.
+- Integração completa da API BTech Games: 317 itens em 14 páginas, com origem e classificação por tipo.

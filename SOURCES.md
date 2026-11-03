@@ -20,4 +20,8 @@ A página de tópico [GitHub · switch-homebrew](https://github.com/topics/switc
 
 ## Critério adotado
 
-O catálogo sincroniza automaticamente o SwitchPorts como fonte principal e a lista JSON estruturada da Preservia como fonte complementar. GBATemp e GitHub Topics continuam como fontes de descoberta manual em **Ajustes → Fontes complementares**, evitando duplicações, resultados não comparáveis e inclusão acidental de links diretos para arquivos distribuíveis.
+O catálogo sincroniza automaticamente o SwitchPorts como fonte principal, a lista JSON da Preservia e a API pública paginada da BTech Games. Os 317 registros BTech são mantidos, mesmo quando o mesmo projeto também aparece em outra fonte, porque cada cartão informa a origem. Eles são classificados como `Port`, `Emulador` ou `Android` e agrupados nas categorias `BTech · ...`, além de mostrar a plataforma original, versão, data, projeto, discussão e capa quando fornecidos.
+
+A API BTech consultada em 03/11/2026 retornou 317 itens em 14 páginas: 163 Android, 129 ports de plataformas clássicas e 25 emuladores. O app importa todas as páginas automaticamente, preserva o snapshot para uso offline e não baixa nem redistribui arquivos executáveis.
+
+GBATemp e GitHub Topics continuam como fontes de descoberta manual em **Ajustes → Fontes complementares**, evitando scraping frágil e inclusão acidental de links diretos para arquivos distribuíveis.

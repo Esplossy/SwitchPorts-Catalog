@@ -7,6 +7,7 @@ export const README_URL = "https://raw.githubusercontent.com/robzilla10001/Switc
 export const DEAD_URL = "https://raw.githubusercontent.com/robzilla10001/SwitchPorts/main/DEAD.md";
 export const PRESERVIA_MANIFEST_URL = "https://raw.githubusercontent.com/preservia/ports/main/ports.json";
 export const PRESERVIA_RAW_BASE_URL = "https://raw.githubusercontent.com/preservia/ports/main/";
+export const BTECH_CATALOG_URL = "https://btechgames.com/index.php/wp-json/btech-ports/v1/catalog";
 export const COMPLEMENTARY_SOURCES = [
   {
     name: "Preservia Port Archive",
@@ -26,6 +27,12 @@ export const COMPLEMENTARY_SOURCES = [
     url: "https://github.com/topics/switch-homebrew",
     repositoryUrl: "https://github.com/topics/switch-homebrew",
   },
+  {
+    name: "BTech Games · Central de Ports",
+    description: "Catálogo público com ports, emuladores e projetos classificados pela plataforma de origem.",
+    url: "https://btechgames.com/index.php/status_ports/",
+    repositoryUrl: "https://btechgames.com/index.php/wp-json/btech-ports/v1/catalog",
+  },
 ] as const;
 
 export type CatalogItem = {
@@ -40,7 +47,8 @@ export type CatalogItem = {
   threadUrl: string;
   archived: boolean;
   recent: boolean;
-  source?: "SwitchPorts" | "Preservia";
+  source?: "SwitchPorts" | "Preservia" | "BTech";
+  catalogType?: "Port" | "Emulador" | "Android" | "Outro";
   imageUrl?: string;
 };
 
@@ -131,6 +139,42 @@ export function parsePreserviaRecords(manifest: unknown, records: Array<{ key: s
   return keys.map((key) => parsePreserviaRecord(byKey.get(key) ?? {}, key)).filter((item): item is CatalogItem => Boolean(item));
 }
 
+type BtechRecord = { id?: unknown; platform?: unknown; title?: unknown; system?: unknown; version?: unknown; source_date?: unknown; project_url?: unknown; thread_url?: unknown; source_marker?: unknown; cover_url?: unknown };
+
+function classifyBtechType(platform: string): CatalogItem["catalogType"] {
+  if (/emulator/i.test(platform)) return "Emulador";
+  if (/android/i.test(platform)) return "Android";
+  if (/xbox|playstation|gamecube|gameboy|nintendo|sega|arcade|super nintendo/i.test(platform)) return "Port";
+  return "Outro";
+}
+
+export function parseBtechRecords(records: BtechRecord[]) {
+  return records.flatMap((record) => {
+    const title = typeof record.title === "string" ? cleanCell(record.title) : "";
+    const projectUrl = typeof record.project_url === "string" && /^https?:\/\//i.test(record.project_url) ? record.project_url : "";
+    if (!title || !projectUrl) return [];
+    const platform = typeof record.platform === "string" ? cleanCell(record.platform) : "BTech Games";
+    const version = typeof record.version === "string" ? cleanCell(record.version) : "n/a";
+    const date = typeof record.source_date === "string" ? record.source_date : "n/a";
+    return [{
+      id: slug(`btech-${String(record.id ?? title)}-${title}-${projectUrl}`),
+      name: title,
+      system: typeof record.system === "string" && record.system ? cleanCell(record.system) : platform,
+      category: `BTech · ${classifyBtechType(platform)}`,
+      version: version || "n/a",
+      lastUpdated: date || "n/a",
+      firmware: "n/d",
+      repoUrl: projectUrl,
+      threadUrl: typeof record.thread_url === "string" ? record.thread_url : "",
+      archived: false,
+      recent: record.source_marker === "highlight",
+      source: "BTech" as const,
+      catalogType: classifyBtechType(platform),
+      imageUrl: typeof record.cover_url === "string" && record.cover_url ? record.cover_url : undefined,
+    } satisfies CatalogItem];
+  });
+}
+
 export function parsePortMarkdown(markdown: string, archived: boolean): CatalogItem[] {
   const text = markdown.replace(/<!--[\s\S]*?-->/g, "");
   const lines = text.split(/\r?\n/);
@@ -199,7 +243,7 @@ export function parsePortMarkdown(markdown: string, archived: boolean): CatalogI
 
 export async function fetchCatalog(): Promise<CatalogItem[]> {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 12000);
+  const timeout = setTimeout(() => controller.abort(), 30000);
   try {
     const responses = await Promise.all(
       [README_URL, DEAD_URL].map((url) => fetch(url, { signal: controller.signal })),
@@ -222,11 +266,29 @@ export async function fetchCatalog(): Promise<CatalogItem[]> {
     } catch {
       complementaryItems = [];
     }
-    const seenNames = new Set<string>();
-    const unique = [...primaryItems, ...complementaryItems].filter((item) => {
-      const key = item.name.trim().toLocaleLowerCase("pt-BR");
-      if (seenNames.has(key)) return false;
-      seenNames.add(key);
+    let btechItems: CatalogItem[] = [];
+    try {
+      const firstResponse = await fetch(`${BTECH_CATALOG_URL}?page=1`, { signal: controller.signal });
+      if (firstResponse.ok) {
+        const firstPage = await firstResponse.json() as { items?: BtechRecord[]; pagination?: { pages?: number } };
+        const pages = Math.min(Math.max(Number(firstPage.pagination?.pages ?? 1), 1), 30);
+        const pageRecords = [...(firstPage.items ?? [])];
+        if (pages > 1) {
+          const pageResponses = await Promise.all(Array.from({ length: pages - 1 }, (_, index) => fetch(`${BTECH_CATALOG_URL}?page=${index + 2}`, { signal: controller.signal })));
+          for (const response of pageResponses) if (response.ok) pageRecords.push(...((await response.json()) as { items?: BtechRecord[] }).items ?? []);
+        }
+        btechItems = parseBtechRecords(pageRecords);
+      }
+    } catch {
+      btechItems = [];
+    }
+    const seenProjects = new Set<string>();
+    const unique = [...primaryItems, ...complementaryItems, ...btechItems].filter((item) => {
+      const projectKey = item.repoUrl.trim().toLocaleLowerCase("pt-BR").replace(/\/?(?:releases|\.git)\/?$/, "");
+      const fallbackKey = item.name.trim().toLocaleLowerCase("pt-BR");
+      const key = `${item.source ?? "SwitchPorts"}:${projectKey || fallbackKey}`;
+      if (seenProjects.has(key)) return false;
+      seenProjects.add(key);
       return true;
     });
     if (unique.length < 10) throw new Error("A fonte retornou poucos itens para uma sincronização segura.");

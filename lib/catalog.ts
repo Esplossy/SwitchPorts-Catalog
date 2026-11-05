@@ -430,7 +430,7 @@ export async function refreshGithubPopularity(items: CatalogItem[], favorites: s
 
 const EXTERNAL_COVERS_CACHE_KEY = "switchports.external.covers.v2";
 
-export type CoverProgress = { processed: number; total: number; found: number };
+export type CoverProgress = { processed: number; total: number; found: number; error?: string };
 
 export async function refreshExternalCovers(items: CatalogItem[], onProgress?: (progress: CoverProgress) => void) {
   let cache: Record<string, { url: string; fetchedAt: string }> = {};

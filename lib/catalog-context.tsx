@@ -45,6 +45,7 @@ type CatalogContextValue = {
   setFavoriteNotifications: (value: boolean) => Promise<void>;
   setExternalCovers: (value: boolean) => Promise<void>;
   coverProgress: CoverProgress | null;
+  clearCoverProgress: () => void;
 };
 
 const CatalogContext = createContext<CatalogContextValue | null>(null);
@@ -171,15 +172,29 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
     setExternalCoversState(value);
     if (!value) return;
     coverRunRef.current = true;
+    setCoverProgress({ processed: 0, total: 1, found: 0 });
     try {
-      const enriched = await refreshExternalCovers(itemsRef.current, setCoverProgress);
+      let sourceItems = itemsRef.current;
+      if (sourceItems.length < 10) {
+        const cached = await loadCachedCatalog();
+        if (cached?.items.length) {
+          sourceItems = cached.items;
+          itemsRef.current = cached.items;
+          setItems(cached.items);
+        }
+      }
+      if (sourceItems.length < 10) throw new Error("O catálogo ainda não foi carregado. Sincronize o catálogo e tente novamente.");
+      const enriched = await refreshExternalCovers(sourceItems, setCoverProgress);
       setItems(enriched);
       if (lastSyncedAtRef.current) await saveCachedCatalog(enriched, lastSyncedAtRef.current);
+    } catch (error) {
+      setCoverProgress({ processed: 0, total: 1, found: 0, error: error instanceof Error ? error.message : "Não foi possível buscar as capas." });
     } finally {
-      setCoverProgress(null);
       coverRunRef.current = false;
     }
   }, []);
+
+  const clearCoverProgress = useCallback(() => setCoverProgress(null), []);
 
   const toggleFavorite = useCallback((id: string) => {
     setFavorites((current) => (current.includes(id) ? current.filter((favorite) => favorite !== id) : [...current, id]));
@@ -210,8 +225,9 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setFavoriteNotifications,
       setExternalCovers,
       coverProgress,
+      clearCoverProgress,
     }),
-    [changeHistory, coverProgress, errorMessage, externalCovers, favoriteNotifications, favorites, firmwareOnly, isFavorite, items, lastSyncedAt, setExternalCovers, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
+    [changeHistory, clearCoverProgress, coverProgress, errorMessage, externalCovers, favoriteNotifications, favorites, firmwareOnly, isFavorite, items, lastSyncedAt, setExternalCovers, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
   );
 
   return <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>;

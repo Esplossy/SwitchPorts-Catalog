@@ -9,9 +9,9 @@ import { useCatalog } from "@/lib/catalog-context";
 
 export default function SettingsScreen() {
   const colors = useColors();
-  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, externalCovers, setExternalCovers, coverProgress, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
+  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, externalCovers, setExternalCovers, coverProgress, clearCoverProgress, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
   const isSyncing = syncState === "syncing";
-  const coversPercent = coverProgress && coverProgress.total > 0 ? Math.min(100, Math.round((coverProgress.processed / coverProgress.total) * 100)) : 0;
+  const coversPercent = coverProgress?.error ? 0 : coverProgress && coverProgress.total > 0 ? Math.min(100, Math.round((coverProgress.processed / coverProgress.total) * 100)) : 100;
 
   return (
     <ScreenContainer>
@@ -67,11 +67,12 @@ export default function SettingsScreen() {
         <View style={[styles.coverProgressScreen, { backgroundColor: colors.background }]}>
           <View style={[styles.coverProgressCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
             <ActivityIndicator size="large" color={colors.primary} />
-            <Text style={[styles.coverProgressTitle, { color: colors.foreground }]}>Buscando capas dos jogos</Text>
+            <Text style={[styles.coverProgressTitle, { color: colors.foreground }]}>{coverProgress?.error ? "Busca de capas interrompida" : coversPercent === 100 ? "Capas prontas" : "Buscando capas dos jogos"}</Text>
             <Text style={[styles.coverProgressPercent, { color: colors.primary }]}>{coversPercent}%</Text>
             <View style={[styles.coverProgressTrack, { backgroundColor: colors.border }]}><View style={[styles.coverProgressFill, { width: `${coversPercent}%`, backgroundColor: colors.primary }]} /></View>
             <Text style={[styles.coverProgressMeta, { color: colors.muted }]}>{coverProgress?.processed ?? 0} de {coverProgress?.total ?? 0} jogos processados</Text>
-            <Text style={[styles.coverProgressHint, { color: colors.muted }]}>O app permanece nesta tela até concluir. As capas ficam salvas para uso offline.</Text>
+            <Text style={[styles.coverProgressHint, { color: coverProgress?.error ? colors.warning : colors.muted }]}>{coverProgress?.error ?? "O app permanece nesta tela até concluir. As capas ficam salvas para uso offline."}</Text>
+            {(coverProgress?.error || coversPercent === 100) && <Pressable onPress={clearCoverProgress} style={[styles.coverProgressClose, { backgroundColor: colors.primary }]}><Text style={styles.coverProgressCloseText}>{coverProgress?.error ? "Fechar" : "Continuar"}</Text></Pressable>}
           </View>
         </View>
       </Modal>
@@ -130,4 +131,6 @@ const styles = StyleSheet.create({
   coverProgressFill: { height: "100%", borderRadius: 99 },
   coverProgressMeta: { fontSize: 13, fontWeight: "700" },
   coverProgressHint: { fontSize: 12, lineHeight: 18, textAlign: "center", marginTop: 4 },
+  coverProgressClose: { minWidth: 120, borderRadius: 12, paddingHorizontal: 18, paddingVertical: 11, alignItems: "center", marginTop: 4 },
+  coverProgressCloseText: { color: "#07131F", fontSize: 13, fontWeight: "900" },
 });

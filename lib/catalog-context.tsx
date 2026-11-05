@@ -11,6 +11,7 @@ import {
   saveCachedCatalog,
   saveChangeHistory,
   savePreferences,
+  refreshGithubPopularity,
   type CatalogChange,
   type CatalogItem,
   type CatalogSort,
@@ -70,7 +71,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
     setSyncState("syncing");
     setErrorMessage(null);
     try {
-      const freshItems = await fetchCatalog();
+      const freshItems = await refreshGithubPopularity(await fetchCatalog(), favoritesRef.current);
       const syncedAt = new Date().toISOString();
       const changes = getCatalogChanges(itemsRef.current, freshItems, syncedAt);
       if (changes.length > 0) {

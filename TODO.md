@@ -40,6 +40,7 @@
   - Integra todos os 317 ports paginados da API BTech Games no Catálogo principal, mantendo a origem BTech visível e organizando os registros como Port, Emulador ou Android.
   - Exibe a plataforma de origem da BTech e separa as categorias `BTech · Port`, `BTech · Emulador` e `BTech · Android`.
   - Mantém uma aba BTech própria para os seis Projetos da BTech da watchlist: quatro packs e dois utilitários; esses projetos não aparecem misturados no Catálogo principal.
+  - Consulta métricas públicas do GitHub por projeto, mostra estrelas e forks nos cards, oferece ordenação por popularidade e filtro de 100+ estrelas, usando cache local de 24 horas e sem esconder projetos que não possuem repositório GitHub.
   - Exibe a origem em cada cartão e permite filtrar por SwitchPorts ou Preservia.
   - Mostra firmware como FW 21+, FW ≤20 ou FW n/d, sem tratar compatibilidade desconhecida como confirmação.
   - Mantém histórico local de ports adicionados, atualizados ou removidos.

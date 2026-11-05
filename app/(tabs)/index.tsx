@@ -29,9 +29,10 @@ export default function CatalogScreen() {
   const [categoryFilter, setCategoryFilter] = useState("Todos");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [sourceFilter, setSourceFilter] = useState<SourceFilter>("all");
+  const [popularOnly, setPopularOnly] = useState(false);
 
   const categories = useMemo(() => {
-    const values = new Set(items.filter((item) => showArchived || !item.archived).map((item) => item.category));
+    const values = new Set(items.filter((item) => item.source !== "BTechProjects" && (showArchived || !item.archived)).map((item) => item.category));
     return ["Todos", ...Array.from(values).sort((a, b) => a.localeCompare(b))];
   }, [items, showArchived]);
 
@@ -49,12 +50,13 @@ export default function CatalogScreen() {
       })
       .filter((item) => sourceFilter === "all" || (item.source ?? "SwitchPorts") === sourceFilter)
       .filter((item) => !firmwareOnly || getFirmwareStatus(item.firmware) === "fw21")
+      .filter((item) => !popularOnly || (item.githubPopularity?.stars ?? 0) >= 100)
       .filter((item) => {
         if (!normalizedQuery) return true;
         return [item.name, item.system, item.category, item.version, item.repoUrl].some((value) => value.toLocaleLowerCase("pt-BR").includes(normalizedQuery));
       });
     return sortCatalogItems(matchingItems, sortMode);
-  }, [categoryFilter, firmwareOnly, items, query, showArchived, sortMode, sourceFilter, statusFilter]);
+  }, [categoryFilter, firmwareOnly, items, popularOnly, query, showArchived, sortMode, sourceFilter, statusFilter]);
 
   const renderItem = ({ item }: { item: CatalogItem }) => (
     <CatalogCard
@@ -101,6 +103,7 @@ export default function CatalogScreen() {
               <FilterChip label="Ativos" selected={statusFilter === "active"} onPress={() => setStatusFilter("active")} />
               {showArchived && <FilterChip label="Arquivados" selected={statusFilter === "archived"} onPress={() => setStatusFilter("archived")} />}
               <FilterChip label="FW 21+" selected={firmwareOnly} onPress={() => setFirmwareOnly(!firmwareOnly)} />
+              <FilterChip label="100+ estrelas" selected={popularOnly} onPress={() => setPopularOnly(!popularOnly)} />
             </ScrollView>
             <Text style={[styles.sectionLabel, { color: colors.muted }]}>FONTE</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}>
@@ -117,6 +120,7 @@ export default function CatalogScreen() {
               <FilterChip label="Mais recentes" selected={sortMode === "recent"} onPress={() => setSortMode("recent")} />
               <FilterChip label="Mais antigos" selected={sortMode === "oldest"} onPress={() => setSortMode("oldest")} />
               <FilterChip label="A–Z" selected={sortMode === "name"} onPress={() => setSortMode("name")} />
+              <FilterChip label="Mais populares" selected={sortMode === "popularity"} onPress={() => setSortMode("popularity")} />
             </ScrollView>
             {syncState === "offline" && <View style={[styles.offlineBanner, { backgroundColor: `${colors.warning}18`, borderColor: `${colors.warning}55` }]}><MaterialIcons name="cloud-off" size={17} color={colors.warning} /><Text style={[styles.offlineText, { color: colors.warning }]}>Modo offline: mostrando a última cópia disponível.</Text></View>}
           </View>

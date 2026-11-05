@@ -51,7 +51,10 @@ export type CatalogItem = {
   source?: "SwitchPorts" | "Preservia" | "BTech" | "BTechProjects";
   catalogType?: "Port" | "Emulador" | "Android" | "Pack" | "Utilitário" | "Outro";
   imageUrl?: string;
+  githubPopularity?: GithubPopularity;
 };
+
+export type GithubPopularity = { stars: number; forks: number; watchers: number; openIssues: number; fetchedAt: string };
 
 export type FirmwareStatus = "fw21" | "older" | "unknown";
 export type CatalogChangeType = "added" | "updated" | "removed";
@@ -59,7 +62,7 @@ export type CatalogChange = { id: string; name: string; type: CatalogChangeType;
 
 export type SyncState = "loading" | "ready" | "syncing" | "offline" | "error";
 
-export type CatalogSort = "recent" | "oldest" | "name";
+export type CatalogSort = "recent" | "oldest" | "name" | "popularity";
 
 export type CachedCatalog = {
   items: CatalogItem[];
@@ -68,6 +71,7 @@ export type CachedCatalog = {
 
 const CATALOG_CACHE_KEY = "switchports.catalog.cache.v1";
 const PREFERENCES_KEY = "switchports.preferences.v2";
+const GITHUB_POPULARITY_CACHE_KEY = "switchports.github.popularity.v1";
 
 function cleanCell(value = "") {
   return value
@@ -366,7 +370,7 @@ export async function loadPreferences(): Promise<{ favorites: string[]; showArch
     return {
       favorites: Array.isArray(parsed.favorites) ? parsed.favorites.filter((value): value is string => typeof value === "string") : [],
       showArchived: parsed.showArchived !== false,
-      sortMode: parsed.sortMode === "oldest" || parsed.sortMode === "name" ? parsed.sortMode : "recent",
+      sortMode: parsed.sortMode === "oldest" || parsed.sortMode === "name" || parsed.sortMode === "popularity" ? parsed.sortMode : "recent",
       firmwareOnly: parsed.firmwareOnly === true,
       favoriteNotifications: parsed.favoriteNotifications === true,
     };
@@ -377,6 +381,49 @@ export async function loadPreferences(): Promise<{ favorites: string[]; showArch
 
 export async function savePreferences(favorites: string[], showArchived: boolean, sortMode: CatalogSort, firmwareOnly: boolean, favoriteNotifications: boolean) {
   await AsyncStorage.setItem(PREFERENCES_KEY, JSON.stringify({ favorites, showArchived, sortMode, firmwareOnly, favoriteNotifications }));
+}
+
+function getGithubRepoPath(repoUrl: string) {
+  const match = repoUrl.match(/^https?:\/\/(?:www\.)?github\.com\/([^/#?]+)\/([^/#?]+)/i);
+  return match ? `${match[1]}/${match[2].replace(/\.git$/, "")}` : null;
+}
+
+export async function refreshGithubPopularity(items: CatalogItem[], favorites: string[] = []) {
+  let cache: Record<string, GithubPopularity> = {};
+  try {
+    const raw = await AsyncStorage.getItem(GITHUB_POPULARITY_CACHE_KEY);
+    if (raw) cache = JSON.parse(raw) as Record<string, GithubPopularity>;
+  } catch {
+    cache = {};
+  }
+  const byPath = new Map<string, CatalogItem>();
+  for (const item of items) {
+    const path = getGithubRepoPath(item.repoUrl);
+    if (path) byPath.set(path, item);
+  }
+  const now = Date.now();
+  const stale = Array.from(byPath.entries())
+    .filter(([path]) => !cache[path] || now - new Date(cache[path].fetchedAt).getTime() > 24 * 60 * 60 * 1000)
+    .sort(([pathA, itemA], [pathB, itemB]) => Number(favorites.includes(itemB.id)) - Number(favorites.includes(itemA.id)) || pathA.localeCompare(pathB));
+  let requests = 0;
+  for (const [path] of stale) {
+    if (requests >= 45) break;
+    try {
+      const response = await fetch(`https://api.github.com/repos/${path}`, { headers: { Accept: "application/vnd.github+json" } });
+      requests += 1;
+      if (response.status === 403 || response.status === 429) break;
+      if (!response.ok) continue;
+      const data = await response.json() as { stargazers_count?: number; forks_count?: number; subscribers_count?: number; open_issues_count?: number };
+      cache[path] = { stars: data.stargazers_count ?? 0, forks: data.forks_count ?? 0, watchers: data.subscribers_count ?? 0, openIssues: data.open_issues_count ?? 0, fetchedAt: new Date().toISOString() };
+    } catch {
+      requests += 1;
+    }
+  }
+  await AsyncStorage.setItem(GITHUB_POPULARITY_CACHE_KEY, JSON.stringify(cache));
+  return items.map((item) => {
+    const path = getGithubRepoPath(item.repoUrl);
+    return path && cache[path] ? { ...item, githubPopularity: cache[path] } : item;
+  });
 }
 
 export async function loadChangeHistory(): Promise<CatalogChange[]> {
@@ -448,6 +495,7 @@ function catalogDateValue(value: string) {
 export function sortCatalogItems(items: CatalogItem[], sort: CatalogSort = "recent") {
   return [...items].sort((a, b) => {
     if (sort === "name") return a.name.localeCompare(b.name, "pt-BR") || a.category.localeCompare(b.category, "pt-BR");
+    if (sort === "popularity") return (b.githubPopularity?.stars ?? -1) - (a.githubPopularity?.stars ?? -1) || a.name.localeCompare(b.name, "pt-BR");
     const aDate = catalogDateValue(a.lastUpdated);
     const bDate = catalogDateValue(b.lastUpdated);
     if (aDate === 0 && bDate !== 0) return 1;

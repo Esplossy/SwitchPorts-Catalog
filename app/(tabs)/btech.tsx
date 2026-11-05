@@ -22,6 +22,7 @@ export default function BtechScreen() {
   const [typeFilter, setTypeFilter] = useState("Todos");
   const [platformFilter, setPlatformFilter] = useState("Todas");
   const [recentOnly, setRecentOnly] = useState(false);
+  const [popularOnly, setPopularOnly] = useState(false);
 
   const btechItems = useMemo(() => items.filter((item) => item.source === "BTechProjects"), [items]);
   const types = useMemo(() => ["Todos", ...Array.from(new Set(btechItems.map((item) => item.catalogType ?? "Outro"))).sort()], [btechItems]);
@@ -33,8 +34,9 @@ export default function BtechScreen() {
       .filter((item) => typeFilter === "Todos" || (item.catalogType ?? "Outro") === typeFilter)
       .filter((item) => platformFilter === "Todas" || item.system === platformFilter)
       .filter((item) => !recentOnly || item.recent)
+      .filter((item) => !popularOnly || (item.githubPopularity?.stars ?? 0) >= 100)
       .filter((item) => !normalized || [item.name, item.system, item.category, item.version].some((value) => value.toLocaleLowerCase("pt-BR").includes(normalized))), sortMode);
-  }, [btechItems, platformFilter, query, recentOnly, showArchived, sortMode, typeFilter]);
+  }, [btechItems, platformFilter, popularOnly, query, recentOnly, showArchived, sortMode, typeFilter]);
 
   return <ScreenContainer edges={["top", "left", "right"]}>
     <FlatList
@@ -50,9 +52,9 @@ export default function BtechScreen() {
         <Text style={[styles.subtitle, { color: colors.muted }]}>Packs, utilitários e ferramentas monitorados pela BTech. Os ports de jogos ficam no Catálogo.</Text>
         <View style={styles.resultMeta}><Text style={[styles.resultMetaText, { color: colors.muted }]}>{filteredItems.length} resultados</Text><Text style={[styles.resultMetaText, { color: colors.muted }]}>· {btechItems.length} projetos</Text></View>
         <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.border }]}><MaterialIcons name="search" size={22} color={colors.muted} /><TextInput value={query} onChangeText={setQuery} placeholder="Buscar projeto ou plataforma" placeholderTextColor={colors.muted} style={[styles.searchInput, { color: colors.foreground }]} />{query.length > 0 && <Pressable onPress={() => setQuery("")} hitSlop={8}><MaterialIcons name="close" size={19} color={colors.muted} /></Pressable>}</View>
-        <Text style={[styles.sectionLabel, { color: colors.muted }]}>TIPO</Text><ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}>{types.map((type) => <FilterChip key={type} label={type} selected={typeFilter === type} onPress={() => setTypeFilter(type)} />)}<FilterChip label="Recentes" selected={recentOnly} onPress={() => setRecentOnly(!recentOnly)} /></ScrollView>
+        <Text style={[styles.sectionLabel, { color: colors.muted }]}>TIPO</Text><ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}>{types.map((type) => <FilterChip key={type} label={type} selected={typeFilter === type} onPress={() => setTypeFilter(type)} />)}<FilterChip label="Recentes" selected={recentOnly} onPress={() => setRecentOnly(!recentOnly)} /><FilterChip label="100+ estrelas" selected={popularOnly} onPress={() => setPopularOnly(!popularOnly)} /></ScrollView>
         <Text style={[styles.sectionLabel, { color: colors.muted }]}>PLATAFORMA DE ORIGEM</Text><ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}>{platforms.map((platform) => <FilterChip key={platform} label={platform} selected={platformFilter === platform} onPress={() => setPlatformFilter(platform)} />)}</ScrollView>
-        <Text style={[styles.sectionLabel, { color: colors.muted }]}>ORDENAR</Text><ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}><FilterChip label="Mais recentes" selected={sortMode === "recent"} onPress={() => setSortMode("recent")} /><FilterChip label="Mais antigos" selected={sortMode === "oldest"} onPress={() => setSortMode("oldest")} /><FilterChip label="A–Z" selected={sortMode === "name"} onPress={() => setSortMode("name")} /></ScrollView>
+        <Text style={[styles.sectionLabel, { color: colors.muted }]}>ORDENAR</Text><ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRow}><FilterChip label="Mais recentes" selected={sortMode === "recent"} onPress={() => setSortMode("recent")} /><FilterChip label="Mais antigos" selected={sortMode === "oldest"} onPress={() => setSortMode("oldest")} /><FilterChip label="A–Z" selected={sortMode === "name"} onPress={() => setSortMode("name")} /><FilterChip label="Mais populares" selected={sortMode === "popularity"} onPress={() => setSortMode("popularity")} /></ScrollView>
       </View>}
       ListEmptyComponent={<View style={styles.empty}><MaterialIcons name="manage-search" size={42} color={colors.muted} /><Text style={[styles.emptyTitle, { color: colors.foreground }]}>Nenhum projeto BTech encontrado</Text><Text style={[styles.emptyText, { color: colors.muted }]}>Tente limpar a busca ou trocar os filtros.</Text></View>}
     />

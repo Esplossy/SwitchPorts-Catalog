@@ -30,6 +30,7 @@ export function CatalogCard({ item, favorite, onPress, onToggleFavorite }: { ite
           <View style={styles.titleWrap}>
             <Text numberOfLines={1} style={[styles.title, { color: colors.foreground }]}>{item.name}</Text>
             <Text numberOfLines={1} style={[styles.system, { color: colors.muted }]}>{item.system === item.category ? item.system : `${item.system} · ${item.category}`}</Text>
+            {item.githubPopularity && <Text numberOfLines={1} style={[styles.popularity, { color: colors.primary }]}><MaterialIcons name="star" size={12} color={colors.primary} /> {item.githubPopularity.stars.toLocaleString("pt-BR")} estrelas · {item.githubPopularity.forks.toLocaleString("pt-BR")} forks</Text>}
           </View>
           <Pressable accessibilityLabel={favorite ? "Remover dos favoritos" : "Adicionar aos favoritos"} hitSlop={10} onPress={onToggleFavorite} style={styles.favoriteButton}>
             <MaterialIcons name={favorite ? "star" : "star-border"} size={23} color={favorite ? colors.warning : colors.muted} />
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
   titleWrap: { flex: 1, gap: 5 },
   title: { fontSize: 16, fontWeight: "800", letterSpacing: -0.2 },
   system: { fontSize: 12 },
+  popularity: { fontSize: 11, fontWeight: "700" },
   favoriteButton: { padding: 1 },
   bottomLine: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", gap: 8 },
   metaGroup: { flexDirection: "row", alignItems: "center", gap: 10 },

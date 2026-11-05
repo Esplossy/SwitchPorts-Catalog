@@ -38,7 +38,7 @@ export default function SettingsScreen() {
         </View>
         <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
           <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Buscar capas externas</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>Opcional: procura uma capa pelo nome de todos os jogos na Wikipédia. Quando encontra, prefere a capa do jogo à prévia do GitHub; quando não encontra, usa um fallback neutro.</Text></View>
-          <Switch value={externalCovers} onValueChange={(value) => void setExternalCovers(value)} trackColor={{ false: colors.border, true: `${colors.primary}88` }} thumbColor={externalCovers ? colors.primary : colors.muted} />
+          <Switch disabled={coverProgress !== null || isSyncing || syncState === "loading"} value={externalCovers} onValueChange={(value) => void setExternalCovers(value)} trackColor={{ false: colors.border, true: `${colors.primary}88` }} thumbColor={externalCovers ? colors.primary : colors.muted} />
         </View>
         <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
           <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Ordem do catálogo</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>A escolha feita em “Ordenar por” fica salva entre as sessões.</Text></View><Text style={[styles.preferenceValue, { color: colors.primary }]}>{sortMode === "oldest" ? "Mais antigos" : sortMode === "name" ? "A–Z" : sortMode === "popularity" ? "Mais populares" : "Mais recentes"}</Text>

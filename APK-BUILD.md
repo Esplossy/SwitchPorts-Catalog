@@ -13,7 +13,7 @@ O projeto possui duas variantes standalone locais:
 - Versão: `1.0.0` / versionCode `1`
 - Compile/target SDK: 36
 - Assinatura: Android APK Signature Scheme v2 válida
-- SHA-256: `2c82d9ac6a7cc7803c6b066ee93a5a68132711428a6033507640f17a6225af93`
+- SHA-256: `c60fe82c90c9a8482d3df9a7beb403193c4accc6a55b513b23d6cd44a6d2c8f8`
 
 A keystore release e a senha ficam somente no ambiente local e são ignoradas pelo Git. Para preservar a possibilidade de atualizar o APK instalado, não apague `android/app/switchports-release.keystore` nem `.release-keystore.env` neste ambiente.
 
@@ -43,4 +43,4 @@ A pasta nativa `android/`, os ambientes locais, keystores e `artifacts/` ficam i
 - Integração completa da API BTech Games: 317 itens em 14 páginas, com origem e classificação por tipo.
 - Aba BTech separada para os 6 Projetos da BTech da watchlist: 4 packs e 2 utilitários; os ports de jogos continuam no Catálogo principal.
 - Popularidade do GitHub por projeto: estrelas, forks, watchers e issues abertas, com ordenação “Mais populares”, filtro “100+ estrelas” e cache local de 24 horas. Repositórios GitLab e outros serviços aparecem sem métrica GitHub.
-- Opção opt-in “Buscar capas externas” em Ajustes: busca miniaturas por nome na Wikipédia para todos os jogos, prioriza a capa encontrada e remove a prévia genérica do GitHub quando não há correspondência. A busca fica bloqueada em uma tela de progresso de 0% a 100%, processa todos os itens pendentes sem limite artificial e salva resultados positivos e negativos em cache; novas entradas são processadas automaticamente na próxima sincronização.
+- Opção opt-in “Buscar capas externas” em Ajustes: busca miniaturas por nome na Wikipédia para todos os jogos, prioriza a capa encontrada e remove a prévia genérica do GitHub quando não há correspondência. A busca fica bloqueada em uma tela de progresso de 0% a 100%, processa todos os itens pendentes sem limite artificial e salva resultados positivos e negativos em cache; novas entradas são processadas automaticamente na próxima sincronização. O interruptor não pode mais ser sobrescrito pela carga inicial nem acionado duas vezes durante a operação.

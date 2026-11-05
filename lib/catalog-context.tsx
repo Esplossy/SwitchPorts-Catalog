@@ -63,6 +63,8 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   const [lastSyncedAt, setLastSyncedAt] = useState<string | null>(null);
   const [preferencesReady, setPreferencesReady] = useState(false);
   const [coverProgress, setCoverProgress] = useState<CoverProgress | null>(null);
+  const coverRunRef = useRef(false);
+  const externalCoversTouchedRef = useRef(false);
   const itemsRef = useRef(items);
   const favoritesRef = useRef(favorites);
   const lastSyncedAtRef = useRef(lastSyncedAt);
@@ -133,7 +135,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setSortMode(preferences.sortMode);
       setFirmwareOnly(preferences.firmwareOnly);
       setFavoriteNotificationsState(preferences.favoriteNotifications);
-      setExternalCoversState(preferences.externalCovers);
+      if (!externalCoversTouchedRef.current) setExternalCoversState(preferences.externalCovers);
       setChangeHistory(history);
       favoritesRef.current = preferences.favorites;
       favoriteNotificationsRef.current = preferences.favoriteNotifications;
@@ -164,14 +166,18 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const setExternalCovers = useCallback(async (value: boolean) => {
+    externalCoversTouchedRef.current = true;
+    if (coverRunRef.current) return;
     setExternalCoversState(value);
     if (!value) return;
+    coverRunRef.current = true;
     try {
       const enriched = await refreshExternalCovers(itemsRef.current, setCoverProgress);
       setItems(enriched);
       if (lastSyncedAtRef.current) await saveCachedCatalog(enriched, lastSyncedAtRef.current);
     } finally {
       setCoverProgress(null);
+      coverRunRef.current = false;
     }
   }, []);
 

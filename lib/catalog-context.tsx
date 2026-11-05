@@ -13,6 +13,7 @@ import {
   savePreferences,
   refreshGithubPopularity,
   refreshExternalCovers,
+  type CoverProgress,
   type CatalogChange,
   type CatalogItem,
   type CatalogSort,
@@ -43,6 +44,7 @@ type CatalogContextValue = {
   setFirmwareOnly: (value: boolean) => void;
   setFavoriteNotifications: (value: boolean) => Promise<void>;
   setExternalCovers: (value: boolean) => Promise<void>;
+  coverProgress: CoverProgress | null;
 };
 
 const CatalogContext = createContext<CatalogContextValue | null>(null);
@@ -60,23 +62,23 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [lastSyncedAt, setLastSyncedAt] = useState<string | null>(null);
   const [preferencesReady, setPreferencesReady] = useState(false);
+  const [coverProgress, setCoverProgress] = useState<CoverProgress | null>(null);
   const itemsRef = useRef(items);
   const favoritesRef = useRef(favorites);
   const lastSyncedAtRef = useRef(lastSyncedAt);
   const favoriteNotificationsRef = useRef(favoriteNotifications);
   const changeHistoryRef = useRef(changeHistory);
-  itemsRef.current = items;
-  favoritesRef.current = favorites;
-  lastSyncedAtRef.current = lastSyncedAt;
-  favoriteNotificationsRef.current = favoriteNotifications;
-  changeHistoryRef.current = changeHistory;
+  const externalCoversRef = useRef(externalCovers);
 
   const syncNow = useCallback(async () => {
     setSyncState("syncing");
     setErrorMessage(null);
     try {
       let freshItems = await refreshGithubPopularity(await fetchCatalog(), favoritesRef.current);
-      if (externalCovers) freshItems = await refreshExternalCovers(freshItems);
+      if (externalCoversRef.current) {
+        freshItems = await refreshExternalCovers(freshItems, setCoverProgress);
+        setCoverProgress(null);
+      }
       const syncedAt = new Date().toISOString();
       const changes = getCatalogChanges(itemsRef.current, freshItems, syncedAt);
       if (changes.length > 0) {
@@ -100,10 +102,20 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setSyncState("ready");
       await saveCachedCatalog(freshItems, syncedAt);
     } catch (error) {
+      setCoverProgress(null);
       setSyncState("offline");
       setErrorMessage(error instanceof Error ? error.message : "Não foi possível sincronizar agora.");
     }
-  }, [externalCovers]);
+  }, []);
+
+  useEffect(() => {
+    itemsRef.current = items;
+    favoritesRef.current = favorites;
+    lastSyncedAtRef.current = lastSyncedAt;
+    favoriteNotificationsRef.current = favoriteNotifications;
+    changeHistoryRef.current = changeHistory;
+    externalCoversRef.current = externalCovers;
+  }, [changeHistory, externalCovers, favoriteNotifications, favorites, items, lastSyncedAt]);
 
   useEffect(() => {
     let cancelled = false;
@@ -113,6 +125,8 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       if (cached) {
         setItems(cached.items);
         setLastSyncedAt(cached.syncedAt);
+        itemsRef.current = cached.items;
+        lastSyncedAtRef.current = cached.syncedAt;
       }
       setFavorites(preferences.favorites);
       setShowArchived(preferences.showArchived);
@@ -121,6 +135,10 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setFavoriteNotificationsState(preferences.favoriteNotifications);
       setExternalCoversState(preferences.externalCovers);
       setChangeHistory(history);
+      favoritesRef.current = preferences.favorites;
+      favoriteNotificationsRef.current = preferences.favoriteNotifications;
+      changeHistoryRef.current = history;
+      externalCoversRef.current = preferences.externalCovers;
       setPreferencesReady(true);
       void registerBackgroundSync();
       if (!cancelled) await syncNow();
@@ -147,10 +165,13 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
 
   const setExternalCovers = useCallback(async (value: boolean) => {
     setExternalCoversState(value);
-    if (value) {
-      const enriched = await refreshExternalCovers(itemsRef.current);
+    if (!value) return;
+    try {
+      const enriched = await refreshExternalCovers(itemsRef.current, setCoverProgress);
       setItems(enriched);
       if (lastSyncedAtRef.current) await saveCachedCatalog(enriched, lastSyncedAtRef.current);
+    } finally {
+      setCoverProgress(null);
     }
   }, []);
 
@@ -182,8 +203,9 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setFirmwareOnly,
       setFavoriteNotifications,
       setExternalCovers,
+      coverProgress,
     }),
-    [changeHistory, errorMessage, externalCovers, favoriteNotifications, favorites, firmwareOnly, isFavorite, items, lastSyncedAt, setExternalCovers, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
+    [changeHistory, coverProgress, errorMessage, externalCovers, favoriteNotifications, favorites, firmwareOnly, isFavorite, items, lastSyncedAt, setExternalCovers, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
   );
 
   return <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>;

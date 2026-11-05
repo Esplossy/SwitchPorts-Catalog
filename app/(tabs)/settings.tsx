@@ -1,5 +1,5 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { Linking, Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
+import { ActivityIndicator, Linking, Modal, Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
 
 import { ScreenContainer } from "@/components/screen-container";
 import { StatusPill } from "@/components/status-pill";
@@ -9,8 +9,9 @@ import { useCatalog } from "@/lib/catalog-context";
 
 export default function SettingsScreen() {
   const colors = useColors();
-  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, externalCovers, setExternalCovers, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
+  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, externalCovers, setExternalCovers, coverProgress, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
   const isSyncing = syncState === "syncing";
+  const coversPercent = coverProgress && coverProgress.total > 0 ? Math.min(100, Math.round((coverProgress.processed / coverProgress.total) * 100)) : 0;
 
   return (
     <ScreenContainer>
@@ -62,6 +63,18 @@ export default function SettingsScreen() {
         <View style={[styles.notice, { backgroundColor: `${colors.warning}12`, borderColor: `${colors.warning}45` }]}><MaterialIcons name="info-outline" size={19} color={colors.warning} /><Text style={[styles.noticeText, { color: colors.muted }]}>Este app é apenas um catálogo de links e metadados. Ele não baixa nem distribui jogos, ROMs, executáveis ou arquivos protegidos.</Text></View>
         <Text style={[styles.footer, { color: colors.muted }]}>Fonte pública: github.com/robzilla10001/SwitchPorts{`\n`}Os links pertencem aos autores de cada projeto.</Text>
       </ScrollView>
+      <Modal visible={coverProgress !== null} animationType="fade" transparent={false} statusBarTranslucent>
+        <View style={[styles.coverProgressScreen, { backgroundColor: colors.background }]}>
+          <View style={[styles.coverProgressCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+            <ActivityIndicator size="large" color={colors.primary} />
+            <Text style={[styles.coverProgressTitle, { color: colors.foreground }]}>Buscando capas dos jogos</Text>
+            <Text style={[styles.coverProgressPercent, { color: colors.primary }]}>{coversPercent}%</Text>
+            <View style={[styles.coverProgressTrack, { backgroundColor: colors.border }]}><View style={[styles.coverProgressFill, { width: `${coversPercent}%`, backgroundColor: colors.primary }]} /></View>
+            <Text style={[styles.coverProgressMeta, { color: colors.muted }]}>{coverProgress?.processed ?? 0} de {coverProgress?.total ?? 0} jogos processados</Text>
+            <Text style={[styles.coverProgressHint, { color: colors.muted }]}>O app permanece nesta tela até concluir. As capas ficam salvas para uso offline.</Text>
+          </View>
+        </View>
+      </Modal>
     </ScreenContainer>
   );
 }
@@ -109,4 +122,12 @@ const styles = StyleSheet.create({
   notice: { borderWidth: 1, borderRadius: 15, padding: 13, flexDirection: "row", gap: 9, alignItems: "flex-start" },
   noticeText: { flex: 1, fontSize: 12, lineHeight: 18 },
   footer: { fontSize: 11, lineHeight: 17, textAlign: "center", marginTop: 5 },
+  coverProgressScreen: { flex: 1, alignItems: "center", justifyContent: "center", padding: 22 },
+  coverProgressCard: { width: "100%", maxWidth: 390, borderWidth: 1, borderRadius: 24, padding: 26, alignItems: "center", gap: 14 },
+  coverProgressTitle: { fontSize: 20, fontWeight: "900", textAlign: "center", marginTop: 4 },
+  coverProgressPercent: { fontSize: 54, lineHeight: 60, fontWeight: "900", letterSpacing: -1.5 },
+  coverProgressTrack: { width: "100%", height: 12, borderRadius: 99, overflow: "hidden" },
+  coverProgressFill: { height: "100%", borderRadius: 99 },
+  coverProgressMeta: { fontSize: 13, fontWeight: "700" },
+  coverProgressHint: { fontSize: 12, lineHeight: 18, textAlign: "center", marginTop: 4 },
 });

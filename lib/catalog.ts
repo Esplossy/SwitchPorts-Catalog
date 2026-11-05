@@ -428,9 +428,11 @@ export async function refreshGithubPopularity(items: CatalogItem[], favorites: s
   });
 }
 
-const EXTERNAL_COVERS_CACHE_KEY = "switchports.external.covers.v1";
+const EXTERNAL_COVERS_CACHE_KEY = "switchports.external.covers.v2";
 
-export async function refreshExternalCovers(items: CatalogItem[]) {
+export type CoverProgress = { processed: number; total: number; found: number };
+
+export async function refreshExternalCovers(items: CatalogItem[], onProgress?: (progress: CoverProgress) => void) {
   let cache: Record<string, { url: string; fetchedAt: string }> = {};
   try {
     const raw = await AsyncStorage.getItem(EXTERNAL_COVERS_CACHE_KEY);
@@ -440,22 +442,27 @@ export async function refreshExternalCovers(items: CatalogItem[]) {
   }
   const candidates = items.filter((item) => item.source !== "BTechProjects" && !/pack|utilitário|util/i.test(`${item.category} ${item.system}`));
   const now = Date.now();
-  let requests = 0;
-  for (const item of candidates) {
+  const pending = candidates.filter((item) => {
     const key = item.name.trim().toLocaleLowerCase("pt-BR");
-    if (cache[key] && now - new Date(cache[key].fetchedAt).getTime() < 30 * 24 * 60 * 60 * 1000) continue;
-    if (requests >= 25) break;
+    return !cache[key] || now - new Date(cache[key].fetchedAt).getTime() >= 30 * 24 * 60 * 60 * 1000;
+  });
+  let processed = 0;
+  let found = candidates.filter((item) => Boolean(cache[item.name.trim().toLocaleLowerCase("pt-BR")]?.url)).length;
+  onProgress?.({ processed, total: pending.length, found });
+  for (const item of pending) {
+    const key = item.name.trim().toLocaleLowerCase("pt-BR");
     try {
       const params = new URLSearchParams({ action: "query", generator: "search", gsrsearch: `${item.name} video game`, gsrlimit: "1", prop: "pageimages", pithumbsize: "320", format: "json", origin: "*" });
       const response = await fetch(`https://en.wikipedia.org/w/api.php?${params.toString()}`);
-      requests += 1;
-      if (!response.ok) continue;
-      const payload = await response.json() as { query?: { pages?: Record<string, { thumbnail?: { source?: string } }> } };
-      const thumbnail = Object.values(payload.query?.pages ?? {})[0]?.thumbnail?.source;
+      const payload = response.ok ? await response.json() as { query?: { pages?: Record<string, { thumbnail?: { source?: string } }> } } : {};
+      const thumbnail = Object.values(payload.query?.pages ?? {})[0]?.thumbnail?.source ?? "";
       cache[key] = { url: thumbnail ?? "", fetchedAt: new Date().toISOString() };
     } catch {
-      requests += 1;
+      cache[key] = { url: "", fetchedAt: new Date().toISOString() };
     }
+    processed += 1;
+    if (cache[key]?.url) found += 1;
+    onProgress?.({ processed, total: pending.length, found });
   }
   await AsyncStorage.setItem(EXTERNAL_COVERS_CACHE_KEY, JSON.stringify(cache));
   return items.map((item) => {

@@ -438,7 +438,7 @@ export async function refreshExternalCovers(items: CatalogItem[]) {
   } catch {
     cache = {};
   }
-  const candidates = items.filter((item) => !item.imageUrl && item.source !== "BTechProjects" && !/pack|utilitário|util/i.test(`${item.category} ${item.system}`));
+  const candidates = items.filter((item) => item.source !== "BTechProjects" && !/pack|utilitário|util/i.test(`${item.category} ${item.system}`));
   const now = Date.now();
   let requests = 0;
   for (const item of candidates) {
@@ -459,7 +459,6 @@ export async function refreshExternalCovers(items: CatalogItem[]) {
   }
   await AsyncStorage.setItem(EXTERNAL_COVERS_CACHE_KEY, JSON.stringify(cache));
   return items.map((item) => {
-    if (item.imageUrl) return item;
     const cover = cache[item.name.trim().toLocaleLowerCase("pt-BR")];
     return cover?.url ? { ...item, externalImageUrl: cover.url } : item;
   });

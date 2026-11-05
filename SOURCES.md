@@ -26,4 +26,4 @@ A API BTech consultada em 03/11/2026 retornou 317 ports em 14 páginas: 163 Andr
 
 GBATemp e GitHub Topics continuam como fontes de descoberta manual em **Ajustes → Fontes complementares**, evitando scraping frágil e inclusão acidental de links diretos para arquivos distribuíveis.
 
-As capas externas são opcionais em **Ajustes → Buscar capas externas**. Quando ativadas, o app consulta a busca pública da Wikipédia por título, usa a miniatura retornada apenas para itens que não possuem imagem da fonte, grava o resultado em cache local por 30 dias e mantém o fallback visual quando não há correspondência. A opção vem desligada por padrão.
+As capas externas são opcionais em **Ajustes → Buscar capas externas**. Quando ativadas, o app consulta a busca pública da Wikipédia por título para todos os jogos, prefere a miniatura encontrada à prévia genérica do GitHub, grava o resultado em cache local por 30 dias e usa um fallback neutro quando não há correspondência. A opção vem desligada por padrão.

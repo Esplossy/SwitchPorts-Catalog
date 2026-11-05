@@ -36,7 +36,7 @@ export default function SettingsScreen() {
           <Switch value={favoriteNotifications} onValueChange={(value) => void setFavoriteNotifications(value)} trackColor={{ false: colors.border, true: `${colors.primary}88` }} thumbColor={favoriteNotifications ? colors.primary : colors.muted} />
         </View>
         <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-          <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Buscar capas externas</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>Opcional: procura uma miniatura pelo nome na Wikipédia apenas quando a fonte não fornece capa. Usa cache local e não substitui imagens existentes.</Text></View>
+          <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Buscar capas externas</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>Opcional: procura uma capa pelo nome de todos os jogos na Wikipédia. Quando encontra, prefere a capa do jogo à prévia do GitHub; quando não encontra, usa um fallback neutro.</Text></View>
           <Switch value={externalCovers} onValueChange={(value) => void setExternalCovers(value)} trackColor={{ false: colors.border, true: `${colors.primary}88` }} thumbColor={externalCovers ? colors.primary : colors.muted} />
         </View>
         <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>

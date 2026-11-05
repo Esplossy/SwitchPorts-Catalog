@@ -24,6 +24,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen name="index" options={{ title: "Catálogo", tabBarIcon: ({ color }) => <MaterialIcons size={25} name="view-list" color={color} /> }} />
+      <Tabs.Screen name="btech" options={{ title: "BTech", tabBarIcon: ({ color }) => <MaterialIcons size={25} name="bolt" color={color} /> }} />
       <Tabs.Screen name="favorites" options={{ title: "Favoritos", tabBarIcon: ({ color }) => <MaterialIcons size={25} name="star" color={color} /> }} />
       <Tabs.Screen name="settings" options={{ title: "Ajustes", tabBarIcon: ({ color }) => <MaterialIcons size={25} name="tune" color={color} /> }} />
     </Tabs>

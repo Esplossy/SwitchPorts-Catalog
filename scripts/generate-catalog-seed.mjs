@@ -13,6 +13,7 @@ const sources = [
 const PRESERVIA_MANIFEST_URL = "https://raw.githubusercontent.com/preservia/ports/main/ports.json";
 const PRESERVIA_RAW_BASE_URL = "https://raw.githubusercontent.com/preservia/ports/main/";
 const BTECH_CATALOG_URL = "https://btechgames.com/index.php/wp-json/btech-ports/v1/catalog";
+const BTECH_PROJECTS_URL = "https://btechgames.com/index.php/wp-json/btech-ports/v1/watchlist";
 
 function cleanCell(value = "") {
   return value
@@ -84,6 +85,12 @@ function classifyBtechType(platform) {
   return "Outro";
 }
 
+function classifyBtechProjectType(kind, platform) {
+  if (kind === "pack" || /pack/i.test(platform)) return "Pack";
+  if (kind === "utilitario" || /util/i.test(platform)) return "Utilitário";
+  return "Outro";
+}
+
 function parseBtechRecords(records) {
   return records.flatMap((record) => {
     const name = typeof record.title === "string" ? cleanCell(record.title) : "";
@@ -104,6 +111,32 @@ function parseBtechRecords(records) {
       archived: false,
       recent: record.source_marker === "highlight",
       source: "BTech",
+      catalogType: type,
+      ...(typeof record.cover_url === "string" && record.cover_url ? { imageUrl: record.cover_url } : {}),
+    }];
+  });
+}
+
+function parseBtechProjectRecords(records) {
+  return records.flatMap((record) => {
+    const name = typeof record.title === "string" ? cleanCell(record.title) : "";
+    const repoUrl = typeof record.project_url === "string" && /^https?:\/\//i.test(record.project_url) ? record.project_url : "";
+    if (!name || !repoUrl) return [];
+    const platform = typeof record.platform === "string" ? cleanCell(record.platform) : "BTech Games";
+    const type = classifyBtechProjectType(typeof record.kind === "string" ? record.kind : "", platform);
+    return [{
+      id: slug(`btech-project-${String(record.id ?? name)}-${name}-${repoUrl}`),
+      name,
+      system: platform,
+      category: `BTech Projetos · ${type}`,
+      version: typeof record.version === "string" ? cleanCell(record.version) || "n/a" : "n/a",
+      lastUpdated: typeof record.source_date === "string" ? record.source_date : "n/a",
+      firmware: "n/d",
+      repoUrl,
+      threadUrl: typeof record.thread_url === "string" ? record.thread_url : "",
+      archived: Boolean(record.archived),
+      recent: record.last_change === "novo" || record.source_marker === "highlight",
+      source: "BTechProjects",
       catalogType: type,
       ...(typeof record.cover_url === "string" && record.cover_url ? { imageUrl: record.cover_url } : {}),
     }];
@@ -204,6 +237,12 @@ if (btechFirstResponse.ok) {
     if (response.ok) records.push(...((await response.json()).items ?? []));
   }
   allItems.push(...parseBtechRecords(records));
+}
+
+const btechProjectsResponse = await fetch(BTECH_PROJECTS_URL);
+if (btechProjectsResponse.ok) {
+  const payload = await btechProjectsResponse.json();
+  allItems.push(...parseBtechProjectRecords(payload.items ?? []));
 }
 
 const seenProjects = new Set();

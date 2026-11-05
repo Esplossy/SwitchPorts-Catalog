@@ -41,7 +41,7 @@ export function CatalogCard({ item, favorite, onPress, onToggleFavorite }: { ite
             <Text style={[styles.date, { color: colors.muted }]}>{formatPortDate(item.lastUpdated)}</Text>
           </View>
           <View style={styles.badges}>
-            <StatusPill label={item.source === "Preservia" ? "PRESERVIA" : item.source === "BTech" ? `BTECH · ${item.catalogType ?? "OUTRO"}` : "SWITCHPORTS"} tone="info" />
+            <StatusPill label={item.source === "Preservia" ? "PRESERVIA" : item.source === "BTechProjects" ? `BTECH PROJETO · ${item.catalogType ?? "OUTRO"}` : item.source === "BTech" ? `BTECH · ${item.catalogType ?? "OUTRO"}` : "SWITCHPORTS"} tone="info" />
             {firmwareStatus !== "unknown" && <StatusPill label={getFirmwareLabel(item.firmware)} tone={firmwareStatus === "fw21" ? "success" : "warning"} />}
             {item.recent && <StatusPill label="NOVO" tone="success" />}
             {item.archived && <StatusPill label="ARQUIVADO" tone="warning" />}

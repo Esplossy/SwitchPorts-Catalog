@@ -8,6 +8,7 @@ export const DEAD_URL = "https://raw.githubusercontent.com/robzilla10001/SwitchP
 export const PRESERVIA_MANIFEST_URL = "https://raw.githubusercontent.com/preservia/ports/main/ports.json";
 export const PRESERVIA_RAW_BASE_URL = "https://raw.githubusercontent.com/preservia/ports/main/";
 export const BTECH_CATALOG_URL = "https://btechgames.com/index.php/wp-json/btech-ports/v1/catalog";
+export const BTECH_PROJECTS_URL = "https://btechgames.com/index.php/wp-json/btech-ports/v1/watchlist";
 export const COMPLEMENTARY_SOURCES = [
   {
     name: "Preservia Port Archive",
@@ -47,8 +48,8 @@ export type CatalogItem = {
   threadUrl: string;
   archived: boolean;
   recent: boolean;
-  source?: "SwitchPorts" | "Preservia" | "BTech";
-  catalogType?: "Port" | "Emulador" | "Android" | "Outro";
+  source?: "SwitchPorts" | "Preservia" | "BTech" | "BTechProjects";
+  catalogType?: "Port" | "Emulador" | "Android" | "Pack" | "Utilitário" | "Outro";
   imageUrl?: string;
 };
 
@@ -139,12 +140,18 @@ export function parsePreserviaRecords(manifest: unknown, records: Array<{ key: s
   return keys.map((key) => parsePreserviaRecord(byKey.get(key) ?? {}, key)).filter((item): item is CatalogItem => Boolean(item));
 }
 
-type BtechRecord = { id?: unknown; platform?: unknown; title?: unknown; system?: unknown; version?: unknown; source_date?: unknown; project_url?: unknown; thread_url?: unknown; source_marker?: unknown; cover_url?: unknown };
+type BtechRecord = { id?: unknown; platform?: unknown; title?: unknown; system?: unknown; kind?: unknown; version?: unknown; source_date?: unknown; project_url?: unknown; thread_url?: unknown; source_marker?: unknown; cover_url?: unknown; archived?: unknown; last_change?: unknown };
 
 function classifyBtechType(platform: string): CatalogItem["catalogType"] {
   if (/emulator/i.test(platform)) return "Emulador";
   if (/android/i.test(platform)) return "Android";
   if (/xbox|playstation|gamecube|gameboy|nintendo|sega|arcade|super nintendo/i.test(platform)) return "Port";
+  return "Outro";
+}
+
+function classifyBtechProjectType(kind: string, platform: string): CatalogItem["catalogType"] {
+  if (kind === "pack" || /pack/i.test(platform)) return "Pack";
+  if (kind === "utilitario" || /util/i.test(platform)) return "Utilitário";
   return "Outro";
 }
 
@@ -170,6 +177,33 @@ export function parseBtechRecords(records: BtechRecord[]) {
       recent: record.source_marker === "highlight",
       source: "BTech" as const,
       catalogType: classifyBtechType(platform),
+      imageUrl: typeof record.cover_url === "string" && record.cover_url ? record.cover_url : undefined,
+    } satisfies CatalogItem];
+  });
+}
+
+export function parseBtechProjectRecords(records: BtechRecord[]) {
+  return records.flatMap((record) => {
+    const title = typeof record.title === "string" ? cleanCell(record.title) : "";
+    const projectUrl = typeof record.project_url === "string" && /^https?:\/\//i.test(record.project_url) ? record.project_url : "";
+    if (!title || !projectUrl) return [];
+    const platform = typeof record.platform === "string" ? cleanCell(record.platform) : "BTech Games";
+    const kind = typeof record.kind === "string" ? record.kind : "";
+    const type = classifyBtechProjectType(kind, platform);
+    return [{
+      id: slug(`btech-project-${String(record.id ?? title)}-${title}-${projectUrl}`),
+      name: title,
+      system: platform,
+      category: `BTech Projetos · ${type}`,
+      version: typeof record.version === "string" ? cleanCell(record.version) || "n/a" : "n/a",
+      lastUpdated: typeof record.source_date === "string" ? record.source_date : "n/a",
+      firmware: "n/d",
+      repoUrl: projectUrl,
+      threadUrl: typeof record.thread_url === "string" ? record.thread_url : "",
+      archived: Boolean(record.archived),
+      recent: record.last_change === "novo" || record.source_marker === "highlight",
+      source: "BTechProjects" as const,
+      catalogType: type,
       imageUrl: typeof record.cover_url === "string" && record.cover_url ? record.cover_url : undefined,
     } satisfies CatalogItem];
   });
@@ -282,8 +316,18 @@ export async function fetchCatalog(): Promise<CatalogItem[]> {
     } catch {
       btechItems = [];
     }
+    let btechProjectItems: CatalogItem[] = [];
+    try {
+      const projectsResponse = await fetch(BTECH_PROJECTS_URL, { signal: controller.signal });
+      if (projectsResponse.ok) {
+        const projectsPayload = await projectsResponse.json() as { items?: BtechRecord[] };
+        btechProjectItems = parseBtechProjectRecords(projectsPayload.items ?? []);
+      }
+    } catch {
+      btechProjectItems = [];
+    }
     const seenProjects = new Set<string>();
-    const unique = [...primaryItems, ...complementaryItems, ...btechItems].filter((item) => {
+    const unique = [...primaryItems, ...complementaryItems, ...btechItems, ...btechProjectItems].filter((item) => {
       const projectKey = item.repoUrl.trim().toLocaleLowerCase("pt-BR").replace(/\/?(?:releases|\.git)\/?$/, "");
       const fallbackKey = item.name.trim().toLocaleLowerCase("pt-BR");
       const key = `${item.source ?? "SwitchPorts"}:${projectKey || fallbackKey}`;

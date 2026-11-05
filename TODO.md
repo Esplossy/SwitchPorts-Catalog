@@ -37,8 +37,9 @@
   - Permite compartilhar o nome e o repositório pela folha nativa do Android.
   - Oferece notificações locais somente para favoritos quando há mudança de versão, data, firmware ou links durante uma sincronização.
   - Integra 13 itens adicionais da lista JSON do Preservia Port Archive, deduplica “Perfect Dark” já existente e mantém GBATemp/GitHub Topics como fontes de descoberta manual.
-  - Integra todos os 317 itens paginados da API BTech Games, mantendo a origem BTech visível e organizando os registros como Port, Emulador ou Android.
+  - Integra todos os 317 ports paginados da API BTech Games no Catálogo principal, mantendo a origem BTech visível e organizando os registros como Port, Emulador ou Android.
   - Exibe a plataforma de origem da BTech e separa as categorias `BTech · Port`, `BTech · Emulador` e `BTech · Android`.
+  - Mantém uma aba BTech própria para os seis Projetos da BTech da watchlist: quatro packs e dois utilitários; esses projetos não aparecem misturados no Catálogo principal.
   - Exibe a origem em cada cartão e permite filtrar por SwitchPorts ou Preservia.
   - Mostra firmware como FW 21+, FW ≤20 ou FW n/d, sem tratar compatibilidade desconhecida como confirmação.
   - Mantém histórico local de ports adicionados, atualizados ou removidos.

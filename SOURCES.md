@@ -25,3 +25,5 @@ O catálogo principal sincroniza automaticamente o SwitchPorts, a lista JSON da 
 A API BTech consultada em 03/11/2026 retornou 317 ports em 14 páginas: 163 Android, 129 ports de plataformas clássicas e 25 emuladores. A watchlist de Projetos retornou Nexus Pack, GNX Pack, CNX Pack, KEFIR Pack, CNX Updater e PortNX. O app importa as duas coleções automaticamente, preserva o snapshot para uso offline e não baixa nem redistribui arquivos executáveis.
 
 GBATemp e GitHub Topics continuam como fontes de descoberta manual em **Ajustes → Fontes complementares**, evitando scraping frágil e inclusão acidental de links diretos para arquivos distribuíveis.
+
+As capas externas são opcionais em **Ajustes → Buscar capas externas**. Quando ativadas, o app consulta a busca pública da Wikipédia por título, usa a miniatura retornada apenas para itens que não possuem imagem da fonte, grava o resultado em cache local por 30 dias e mantém o fallback visual quando não há correspondência. A opção vem desligada por padrão.

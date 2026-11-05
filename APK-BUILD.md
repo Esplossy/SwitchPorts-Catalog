@@ -13,7 +13,7 @@ O projeto possui duas variantes standalone locais:
 - Versão: `1.0.0` / versionCode `1`
 - Compile/target SDK: 36
 - Assinatura: Android APK Signature Scheme v2 válida
-- SHA-256: `571cb3f2e49092213c04596632ef449ca9773fa349c735ef153b0cd5296438a8`
+- SHA-256: `cf795cbfbdb2e9d2fb365122c6ffcbf3fb0dd6caba862f6773cd25d9c1c426d7`
 
 A keystore release e a senha ficam somente no ambiente local e são ignoradas pelo Git. Para preservar a possibilidade de atualizar o APK instalado, não apague `android/app/switchports-release.keystore` nem `.release-keystore.env` neste ambiente.
 
@@ -43,3 +43,4 @@ A pasta nativa `android/`, os ambientes locais, keystores e `artifacts/` ficam i
 - Integração completa da API BTech Games: 317 itens em 14 páginas, com origem e classificação por tipo.
 - Aba BTech separada para os 6 Projetos da BTech da watchlist: 4 packs e 2 utilitários; os ports de jogos continuam no Catálogo principal.
 - Popularidade do GitHub por projeto: estrelas, forks, watchers e issues abertas, com ordenação “Mais populares”, filtro “100+ estrelas” e cache local de 24 horas. Repositórios GitLab e outros serviços aparecem sem métrica GitHub.
+- Opção opt-in “Buscar capas externas” em Ajustes: busca miniaturas por nome na Wikipédia somente para itens sem capa, com cache local de 30 dias e sem substituir imagens fornecidas pelas fontes.

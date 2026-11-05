@@ -9,7 +9,7 @@ import { useCatalog } from "@/lib/catalog-context";
 
 export default function SettingsScreen() {
   const colors = useColors();
-  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
+  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, externalCovers, setExternalCovers, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
   const isSyncing = syncState === "syncing";
 
   return (
@@ -36,7 +36,11 @@ export default function SettingsScreen() {
           <Switch value={favoriteNotifications} onValueChange={(value) => void setFavoriteNotifications(value)} trackColor={{ false: colors.border, true: `${colors.primary}88` }} thumbColor={favoriteNotifications ? colors.primary : colors.muted} />
         </View>
         <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-          <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Ordem do catálogo</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>A escolha feita em “Ordenar por” fica salva entre as sessões.</Text></View><Text style={[styles.preferenceValue, { color: colors.primary }]}>{sortMode === "oldest" ? "Mais antigos" : sortMode === "name" ? "A–Z" : "Mais recentes"}</Text>
+          <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Buscar capas externas</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>Opcional: procura uma miniatura pelo nome na Wikipédia apenas quando a fonte não fornece capa. Usa cache local e não substitui imagens existentes.</Text></View>
+          <Switch value={externalCovers} onValueChange={(value) => void setExternalCovers(value)} trackColor={{ false: colors.border, true: `${colors.primary}88` }} thumbColor={externalCovers ? colors.primary : colors.muted} />
+        </View>
+        <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Ordem do catálogo</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>A escolha feita em “Ordenar por” fica salva entre as sessões.</Text></View><Text style={[styles.preferenceValue, { color: colors.primary }]}>{sortMode === "oldest" ? "Mais antigos" : sortMode === "name" ? "A–Z" : sortMode === "popularity" ? "Mais populares" : "Mais recentes"}</Text>
         </View>
 
         <Text style={[styles.sectionLabel, { color: colors.muted }]}>FONTE E CRÉDITOS</Text>

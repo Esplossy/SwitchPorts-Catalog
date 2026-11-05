@@ -51,6 +51,7 @@ export type CatalogItem = {
   source?: "SwitchPorts" | "Preservia" | "BTech" | "BTechProjects";
   catalogType?: "Port" | "Emulador" | "Android" | "Pack" | "Utilitário" | "Outro";
   imageUrl?: string;
+  externalImageUrl?: string;
   githubPopularity?: GithubPopularity;
 };
 
@@ -362,25 +363,26 @@ export async function saveCachedCatalog(items: CatalogItem[], syncedAt: string) 
   await AsyncStorage.setItem(CATALOG_CACHE_KEY, JSON.stringify({ items, syncedAt } satisfies CachedCatalog));
 }
 
-export async function loadPreferences(): Promise<{ favorites: string[]; showArchived: boolean; sortMode: CatalogSort; firmwareOnly: boolean; favoriteNotifications: boolean }> {
+export async function loadPreferences(): Promise<{ favorites: string[]; showArchived: boolean; sortMode: CatalogSort; firmwareOnly: boolean; favoriteNotifications: boolean; externalCovers: boolean }> {
   try {
     const raw = await AsyncStorage.getItem(PREFERENCES_KEY);
-    if (!raw) return { favorites: [], showArchived: true, sortMode: "recent", firmwareOnly: false, favoriteNotifications: false };
-    const parsed = JSON.parse(raw) as { favorites?: unknown; showArchived?: unknown; sortMode?: unknown; firmwareOnly?: unknown; favoriteNotifications?: unknown };
+    if (!raw) return { favorites: [], showArchived: true, sortMode: "recent", firmwareOnly: false, favoriteNotifications: false, externalCovers: false };
+    const parsed = JSON.parse(raw) as { favorites?: unknown; showArchived?: unknown; sortMode?: unknown; firmwareOnly?: unknown; favoriteNotifications?: unknown; externalCovers?: unknown };
     return {
       favorites: Array.isArray(parsed.favorites) ? parsed.favorites.filter((value): value is string => typeof value === "string") : [],
       showArchived: parsed.showArchived !== false,
       sortMode: parsed.sortMode === "oldest" || parsed.sortMode === "name" || parsed.sortMode === "popularity" ? parsed.sortMode : "recent",
       firmwareOnly: parsed.firmwareOnly === true,
       favoriteNotifications: parsed.favoriteNotifications === true,
+      externalCovers: parsed.externalCovers === true,
     };
   } catch {
-    return { favorites: [], showArchived: true, sortMode: "recent", firmwareOnly: false, favoriteNotifications: false };
+    return { favorites: [], showArchived: true, sortMode: "recent", firmwareOnly: false, favoriteNotifications: false, externalCovers: false };
   }
 }
 
-export async function savePreferences(favorites: string[], showArchived: boolean, sortMode: CatalogSort, firmwareOnly: boolean, favoriteNotifications: boolean) {
-  await AsyncStorage.setItem(PREFERENCES_KEY, JSON.stringify({ favorites, showArchived, sortMode, firmwareOnly, favoriteNotifications }));
+export async function savePreferences(favorites: string[], showArchived: boolean, sortMode: CatalogSort, firmwareOnly: boolean, favoriteNotifications: boolean, externalCovers: boolean) {
+  await AsyncStorage.setItem(PREFERENCES_KEY, JSON.stringify({ favorites, showArchived, sortMode, firmwareOnly, favoriteNotifications, externalCovers }));
 }
 
 function getGithubRepoPath(repoUrl: string) {
@@ -423,6 +425,43 @@ export async function refreshGithubPopularity(items: CatalogItem[], favorites: s
   return items.map((item) => {
     const path = getGithubRepoPath(item.repoUrl);
     return path && cache[path] ? { ...item, githubPopularity: cache[path] } : item;
+  });
+}
+
+const EXTERNAL_COVERS_CACHE_KEY = "switchports.external.covers.v1";
+
+export async function refreshExternalCovers(items: CatalogItem[]) {
+  let cache: Record<string, { url: string; fetchedAt: string }> = {};
+  try {
+    const raw = await AsyncStorage.getItem(EXTERNAL_COVERS_CACHE_KEY);
+    if (raw) cache = JSON.parse(raw) as Record<string, { url: string; fetchedAt: string }>;
+  } catch {
+    cache = {};
+  }
+  const candidates = items.filter((item) => !item.imageUrl && item.source !== "BTechProjects" && !/pack|utilitário|util/i.test(`${item.category} ${item.system}`));
+  const now = Date.now();
+  let requests = 0;
+  for (const item of candidates) {
+    const key = item.name.trim().toLocaleLowerCase("pt-BR");
+    if (cache[key] && now - new Date(cache[key].fetchedAt).getTime() < 30 * 24 * 60 * 60 * 1000) continue;
+    if (requests >= 25) break;
+    try {
+      const params = new URLSearchParams({ action: "query", generator: "search", gsrsearch: `${item.name} video game`, gsrlimit: "1", prop: "pageimages", pithumbsize: "320", format: "json", origin: "*" });
+      const response = await fetch(`https://en.wikipedia.org/w/api.php?${params.toString()}`);
+      requests += 1;
+      if (!response.ok) continue;
+      const payload = await response.json() as { query?: { pages?: Record<string, { thumbnail?: { source?: string } }> } };
+      const thumbnail = Object.values(payload.query?.pages ?? {})[0]?.thumbnail?.source;
+      cache[key] = { url: thumbnail ?? "", fetchedAt: new Date().toISOString() };
+    } catch {
+      requests += 1;
+    }
+  }
+  await AsyncStorage.setItem(EXTERNAL_COVERS_CACHE_KEY, JSON.stringify(cache));
+  return items.map((item) => {
+    if (item.imageUrl) return item;
+    const cover = cache[item.name.trim().toLocaleLowerCase("pt-BR")];
+    return cover?.url ? { ...item, externalImageUrl: cover.url } : item;
   });
 }
 

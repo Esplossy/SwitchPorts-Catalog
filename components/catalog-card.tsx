@@ -7,10 +7,10 @@ import { formatPortDate, getFirmwareLabel, getFirmwareStatus, getRepositoryPrevi
 import { cacheImage } from "@/lib/image-cache";
 import { StatusPill } from "@/components/status-pill";
 
-export function CatalogCard({ item, favorite, onPress, onToggleFavorite }: { item: CatalogItem; favorite: boolean; onPress: () => void; onToggleFavorite: () => void }) {
+export function CatalogCard({ item, favorite, showExternalImage = false, onPress, onToggleFavorite }: { item: CatalogItem; favorite: boolean; showExternalImage?: boolean; onPress: () => void; onToggleFavorite: () => void }) {
   const colors = useColors();
   const [failedImageUrl, setFailedImageUrl] = useState<string | null>(null);
-  const previewUrl = item.imageUrl ?? getRepositoryPreviewUrl(item.repoUrl);
+  const previewUrl = item.imageUrl ?? (showExternalImage ? item.externalImageUrl : undefined) ?? getRepositoryPreviewUrl(item.repoUrl);
   const [cachedPreview, setCachedPreview] = useState<{ source: string; uri: string } | null>(null);
   const firmwareStatus = getFirmwareStatus(item.firmware);
   useEffect(() => {

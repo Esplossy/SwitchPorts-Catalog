@@ -3,6 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import {
   fetchCatalog,
   formatSyncDate,
+  getRepositoryPreviewUrl,
   getCatalogChanges,
   getCatalogSeed,
   loadCachedCatalog,
@@ -17,6 +18,7 @@ import {
   type CatalogSort,
   type SyncState,
 } from "@/lib/catalog";
+import { downloadCatalogImages, type ImageDownloadProgress } from "@/lib/image-cache";
 import { notifyFavoriteChanges } from "@/lib/notifications";
 import "@/lib/background-sync";
 import { registerBackgroundSync } from "@/lib/background-sync";
@@ -33,13 +35,16 @@ type CatalogContextValue = {
   errorMessage: string | null;
   lastSyncedAt: string | null;
   lastSyncedLabel: string;
-  syncNow: () => Promise<void>;
+  syncNow: () => Promise<CatalogItem[]>;
   toggleFavorite: (id: string) => void;
   isFavorite: (id: string) => boolean;
   setShowArchived: (value: boolean) => void;
   setSortMode: (value: CatalogSort) => void;
   setFirmwareOnly: (value: boolean) => void;
   setFavoriteNotifications: (value: boolean) => Promise<void>;
+  imageDownload: (ImageDownloadProgress & { active: boolean; completed: boolean }) | null;
+  downloadAllImages: () => Promise<void>;
+  dismissImageDownload: () => void;
 };
 
 const CatalogContext = createContext<CatalogContextValue | null>(null);
@@ -51,6 +56,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   const [sortMode, setSortMode] = useState<CatalogSort>("recent");
   const [firmwareOnly, setFirmwareOnly] = useState(false);
   const [favoriteNotifications, setFavoriteNotificationsState] = useState(false);
+  const [imageDownload, setImageDownload] = useState<(ImageDownloadProgress & { active: boolean; completed: boolean }) | null>(null);
   const [changeHistory, setChangeHistory] = useState<CatalogChange[]>([]);
   const [syncState, setSyncState] = useState<SyncState>("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -94,9 +100,11 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setLastSyncedAt(syncedAt);
       setSyncState("ready");
       await saveCachedCatalog(freshItems, syncedAt);
+      return freshItems;
     } catch (error) {
       setSyncState("offline");
       setErrorMessage(error instanceof Error ? error.message : "Não foi possível sincronizar agora.");
+      return itemsRef.current;
     }
   }, []);
 
@@ -139,6 +147,27 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
     setFavoriteNotificationsState(granted);
   }, []);
 
+  const downloadAllImages = useCallback(async () => {
+    if (imageDownload?.active || itemsRef.current.length === 0) return;
+    setImageDownload({ current: 0, total: itemsRef.current.length, downloaded: 0, failed: 0, currentName: "Atualizando lista…", active: true, completed: false });
+    try {
+      const freshItems = await syncNow();
+      setImageDownload({ current: 0, total: freshItems.length, downloaded: 0, failed: 0, currentName: "Preparando imagens…", active: true, completed: false });
+      const result = await downloadCatalogImages(
+        freshItems,
+        (item) => item.imageUrl ?? getRepositoryPreviewUrl(item.repoUrl),
+        (progress) => setImageDownload({ ...progress, active: true, completed: false }),
+      );
+      setImageDownload({ current: result.total, total: result.total, downloaded: result.downloaded, failed: result.failed, currentName: "Concluído", active: false, completed: true });
+    } catch {
+      setImageDownload((current) => current ? { ...current, active: false, completed: true, currentName: "Concluído com alguns erros" } : current);
+    }
+  }, [imageDownload?.active, syncNow]);
+
+  const dismissImageDownload = useCallback(() => {
+    setImageDownload((current) => current?.active ? current : null);
+  }, []);
+
   const toggleFavorite = useCallback((id: string) => {
     setFavorites((current) => (current.includes(id) ? current.filter((favorite) => favorite !== id) : [...current, id]));
   }, []);
@@ -165,8 +194,11 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setSortMode,
       setFirmwareOnly,
       setFavoriteNotifications,
+      imageDownload,
+      downloadAllImages,
+      dismissImageDownload,
     }),
-    [changeHistory, errorMessage, favoriteNotifications, favorites, firmwareOnly, isFavorite, items, lastSyncedAt, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
+    [changeHistory, dismissImageDownload, downloadAllImages, errorMessage, favoriteNotifications, favorites, firmwareOnly, imageDownload, isFavorite, items, lastSyncedAt, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
   );
 
   return <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>;

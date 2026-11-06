@@ -9,7 +9,7 @@ import { useCatalog } from "@/lib/catalog-context";
 
 export default function SettingsScreen() {
   const colors = useColors();
-  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
+  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items, downloadAllImages, imageDownload } = useCatalog();
   const isSyncing = syncState === "syncing";
 
   return (
@@ -34,6 +34,10 @@ export default function SettingsScreen() {
         <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
           <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Notificar favoritos</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>Avisa somente quando um port salvo nos favoritos receber nova versão, data ou compatibilidade atualizada.</Text></View>
           <Switch value={favoriteNotifications} onValueChange={(value) => void setFavoriteNotifications(value)} trackColor={{ false: colors.border, true: `${colors.primary}88` }} thumbColor={favoriteNotifications ? colors.primary : colors.muted} />
+        </View>
+        <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Catálogo offline completo</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>Atualiza a lista e baixa todas as imagens disponíveis para uso sem internet.</Text></View>
+          <Pressable disabled={imageDownload?.active} onPress={() => void downloadAllImages()} style={({ pressed }) => [styles.downloadButton, { backgroundColor: colors.primary }, pressed && styles.pressed, imageDownload?.active && styles.disabled]}><MaterialIcons name="cloud-download" size={18} color="#07131F" /></Pressable>
         </View>
         <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
           <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Ordem do catálogo</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>A escolha feita em “Ordenar por” fica salva entre as sessões.</Text></View><Text style={[styles.preferenceValue, { color: colors.primary }]}>{sortMode === "oldest" ? "Mais antigos" : sortMode === "name" ? "A–Z" : "Mais recentes"}</Text>
@@ -82,6 +86,7 @@ const styles = StyleSheet.create({
   preferenceCopy: { flex: 1, gap: 5 },
   preferenceTitle: { fontSize: 15, fontWeight: "800" },
   preferenceDescription: { fontSize: 12, lineHeight: 17 },
+  downloadButton: { width: 42, height: 42, borderRadius: 13, alignItems: "center", justifyContent: "center" },
   preferenceValue: { fontSize: 12, fontWeight: "900", textAlign: "right", maxWidth: 88 },
   infoCard: { borderWidth: 1, borderRadius: 17, padding: 15, gap: 15 },
   infoRow: { flexDirection: "row", gap: 12, alignItems: "flex-start" },

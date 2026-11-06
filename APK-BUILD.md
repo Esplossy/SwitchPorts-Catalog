@@ -43,3 +43,4 @@ A pasta nativa `android/`, os ambientes locais, keystores e `artifacts/` ficam i
 - Integração completa da API BTech Games: 317 itens em 14 páginas, com origem e classificação por tipo.
 - Aba BTech separada para os 6 Projetos da BTech da watchlist: 4 packs e 2 utilitários; os ports de jogos continuam no Catálogo principal.
 - Popularidade do GitHub por projeto: estrelas, forks, watchers e issues abertas, com ordenação “Mais populares”, filtro “100+ estrelas” e cache local de 24 horas. Repositórios GitLab e outros serviços aparecem sem métrica GitHub.
+- Botão “Catálogo offline completo”: sincroniza a lista, processa todos os nomes e baixa as imagens disponíveis para armazenamento permanente, com tela bloqueada de 0% a 100%.

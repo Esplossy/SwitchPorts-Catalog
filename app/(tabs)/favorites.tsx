@@ -12,7 +12,7 @@ import { sortCatalogItems } from "@/lib/catalog";
 export default function FavoritesScreen() {
   const router = useRouter();
   const colors = useColors();
-  const { items, favorites, showArchived, externalCovers, toggleFavorite, isFavorite } = useCatalog();
+  const { items, favorites, showArchived, toggleFavorite, isFavorite } = useCatalog();
   const favoriteItems = useMemo(() => sortCatalogItems(items.filter((item) => favorites.includes(item.id) && (showArchived || !item.archived))), [favorites, items, showArchived]);
 
   return (
@@ -21,7 +21,7 @@ export default function FavoritesScreen() {
         data={favoriteItems}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.content}
-        renderItem={({ item }) => <CatalogCard item={item} showExternalImage={externalCovers} favorite={isFavorite(item.id)} onToggleFavorite={() => toggleFavorite(item.id)} onPress={() => router.push({ pathname: "/details/[id]", params: { id: item.id } })} />}
+        renderItem={({ item }) => <CatalogCard item={item} favorite={isFavorite(item.id)} onToggleFavorite={() => toggleFavorite(item.id)} onPress={() => router.push({ pathname: "/details/[id]", params: { id: item.id } })} />}
         ListHeaderComponent={<View style={styles.header}><Text style={[styles.eyebrow, { color: colors.primary }]}>SUA COLEÇÃO</Text><Text style={[styles.title, { color: colors.foreground }]}>Favoritos</Text><Text style={[styles.subtitle, { color: colors.muted }]}>{favoriteItems.length === 0 ? "Guarde os ports que você quer acompanhar de perto." : `${favoriteItems.length} ${favoriteItems.length === 1 ? "item salvo" : "itens salvos"}.`}</Text></View>}
         ListEmptyComponent={<View style={styles.empty}><View style={[styles.emptyIcon, { backgroundColor: `${colors.warning}18` }]}><MaterialIcons name="star-border" size={35} color={colors.warning} /></View><Text style={[styles.emptyTitle, { color: colors.foreground }]}>Sua lista está vazia</Text><Text style={[styles.emptyText, { color: colors.muted }]}>Toque na estrela de qualquer card para criar sua lista pessoal.</Text></View>}
       />

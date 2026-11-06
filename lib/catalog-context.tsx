@@ -12,8 +12,6 @@ import {
   saveChangeHistory,
   savePreferences,
   refreshGithubPopularity,
-  refreshExternalCovers,
-  type CoverProgress,
   type CatalogChange,
   type CatalogItem,
   type CatalogSort,
@@ -30,7 +28,6 @@ type CatalogContextValue = {
   sortMode: CatalogSort;
   firmwareOnly: boolean;
   favoriteNotifications: boolean;
-  externalCovers: boolean;
   changeHistory: CatalogChange[];
   syncState: SyncState;
   errorMessage: string | null;
@@ -43,9 +40,6 @@ type CatalogContextValue = {
   setSortMode: (value: CatalogSort) => void;
   setFirmwareOnly: (value: boolean) => void;
   setFavoriteNotifications: (value: boolean) => Promise<void>;
-  setExternalCovers: (value: boolean) => Promise<void>;
-  coverProgress: CoverProgress | null;
-  clearCoverProgress: () => void;
 };
 
 const CatalogContext = createContext<CatalogContextValue | null>(null);
@@ -57,31 +51,27 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   const [sortMode, setSortMode] = useState<CatalogSort>("recent");
   const [firmwareOnly, setFirmwareOnly] = useState(false);
   const [favoriteNotifications, setFavoriteNotificationsState] = useState(false);
-  const [externalCovers, setExternalCoversState] = useState(false);
   const [changeHistory, setChangeHistory] = useState<CatalogChange[]>([]);
   const [syncState, setSyncState] = useState<SyncState>("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [lastSyncedAt, setLastSyncedAt] = useState<string | null>(null);
   const [preferencesReady, setPreferencesReady] = useState(false);
-  const [coverProgress, setCoverProgress] = useState<CoverProgress | null>(null);
-  const coverRunRef = useRef(false);
-  const externalCoversTouchedRef = useRef(false);
   const itemsRef = useRef(items);
   const favoritesRef = useRef(favorites);
   const lastSyncedAtRef = useRef(lastSyncedAt);
   const favoriteNotificationsRef = useRef(favoriteNotifications);
   const changeHistoryRef = useRef(changeHistory);
-  const externalCoversRef = useRef(externalCovers);
+  itemsRef.current = items;
+  favoritesRef.current = favorites;
+  lastSyncedAtRef.current = lastSyncedAt;
+  favoriteNotificationsRef.current = favoriteNotifications;
+  changeHistoryRef.current = changeHistory;
 
   const syncNow = useCallback(async () => {
     setSyncState("syncing");
     setErrorMessage(null);
     try {
-      let freshItems = await refreshGithubPopularity(await fetchCatalog(), favoritesRef.current);
-      if (externalCoversRef.current) {
-        freshItems = await refreshExternalCovers(freshItems, setCoverProgress);
-        setCoverProgress(null);
-      }
+      const freshItems = await refreshGithubPopularity(await fetchCatalog(), favoritesRef.current);
       const syncedAt = new Date().toISOString();
       const changes = getCatalogChanges(itemsRef.current, freshItems, syncedAt);
       if (changes.length > 0) {
@@ -105,20 +95,10 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setSyncState("ready");
       await saveCachedCatalog(freshItems, syncedAt);
     } catch (error) {
-      setCoverProgress(null);
       setSyncState("offline");
       setErrorMessage(error instanceof Error ? error.message : "Não foi possível sincronizar agora.");
     }
   }, []);
-
-  useEffect(() => {
-    itemsRef.current = items;
-    favoritesRef.current = favorites;
-    lastSyncedAtRef.current = lastSyncedAt;
-    favoriteNotificationsRef.current = favoriteNotifications;
-    changeHistoryRef.current = changeHistory;
-    externalCoversRef.current = externalCovers;
-  }, [changeHistory, externalCovers, favoriteNotifications, favorites, items, lastSyncedAt]);
 
   useEffect(() => {
     let cancelled = false;
@@ -128,20 +108,13 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       if (cached) {
         setItems(cached.items);
         setLastSyncedAt(cached.syncedAt);
-        itemsRef.current = cached.items;
-        lastSyncedAtRef.current = cached.syncedAt;
       }
       setFavorites(preferences.favorites);
       setShowArchived(preferences.showArchived);
       setSortMode(preferences.sortMode);
       setFirmwareOnly(preferences.firmwareOnly);
       setFavoriteNotificationsState(preferences.favoriteNotifications);
-      if (!externalCoversTouchedRef.current) setExternalCoversState(preferences.externalCovers);
       setChangeHistory(history);
-      favoritesRef.current = preferences.favorites;
-      favoriteNotificationsRef.current = preferences.favoriteNotifications;
-      changeHistoryRef.current = history;
-      externalCoversRef.current = preferences.externalCovers;
       setPreferencesReady(true);
       void registerBackgroundSync();
       if (!cancelled) await syncNow();
@@ -153,8 +126,8 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
   }, [syncNow]);
 
   useEffect(() => {
-    if (preferencesReady) void savePreferences(favorites, showArchived, sortMode, firmwareOnly, favoriteNotifications, externalCovers);
-  }, [externalCovers, favoriteNotifications, favorites, firmwareOnly, preferencesReady, showArchived, sortMode]);
+    if (preferencesReady) void savePreferences(favorites, showArchived, sortMode, firmwareOnly, favoriteNotifications);
+  }, [favoriteNotifications, favorites, firmwareOnly, preferencesReady, showArchived, sortMode]);
 
   const setFavoriteNotifications = useCallback(async (value: boolean) => {
     if (!value) {
@@ -165,36 +138,6 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
     const granted = await requestFavoriteNotificationPermission();
     setFavoriteNotificationsState(granted);
   }, []);
-
-  const setExternalCovers = useCallback(async (value: boolean) => {
-    externalCoversTouchedRef.current = true;
-    if (coverRunRef.current) return;
-    setExternalCoversState(value);
-    if (!value) return;
-    coverRunRef.current = true;
-    setCoverProgress({ processed: 0, total: 1, found: 0 });
-    try {
-      let sourceItems = itemsRef.current;
-      if (sourceItems.length < 10) {
-        const cached = await loadCachedCatalog();
-        if (cached?.items.length) {
-          sourceItems = cached.items;
-          itemsRef.current = cached.items;
-          setItems(cached.items);
-        }
-      }
-      if (sourceItems.length < 10) throw new Error("O catálogo ainda não foi carregado. Sincronize o catálogo e tente novamente.");
-      const enriched = await refreshExternalCovers(sourceItems, setCoverProgress);
-      setItems(enriched);
-      if (lastSyncedAtRef.current) await saveCachedCatalog(enriched, lastSyncedAtRef.current);
-    } catch (error) {
-      setCoverProgress({ processed: 0, total: 1, found: 0, error: error instanceof Error ? error.message : "Não foi possível buscar as capas." });
-    } finally {
-      coverRunRef.current = false;
-    }
-  }, []);
-
-  const clearCoverProgress = useCallback(() => setCoverProgress(null), []);
 
   const toggleFavorite = useCallback((id: string) => {
     setFavorites((current) => (current.includes(id) ? current.filter((favorite) => favorite !== id) : [...current, id]));
@@ -210,7 +153,6 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       sortMode,
       firmwareOnly,
       favoriteNotifications,
-      externalCovers,
       changeHistory,
       syncState,
       errorMessage,
@@ -223,11 +165,8 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setSortMode,
       setFirmwareOnly,
       setFavoriteNotifications,
-      setExternalCovers,
-      coverProgress,
-      clearCoverProgress,
     }),
-    [changeHistory, clearCoverProgress, coverProgress, errorMessage, externalCovers, favoriteNotifications, favorites, firmwareOnly, isFavorite, items, lastSyncedAt, setExternalCovers, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
+    [changeHistory, errorMessage, favoriteNotifications, favorites, firmwareOnly, isFavorite, items, lastSyncedAt, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
   );
 
   return <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>;

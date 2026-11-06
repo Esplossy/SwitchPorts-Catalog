@@ -17,7 +17,7 @@ function FilterChip({ label, selected, onPress }: { label: string; selected: boo
 export default function BtechScreen() {
   const router = useRouter();
   const colors = useColors();
-  const { items, showArchived, externalCovers, sortMode, setSortMode, syncState, lastSyncedLabel, toggleFavorite, isFavorite, syncNow } = useCatalog();
+  const { items, showArchived, sortMode, setSortMode, syncState, lastSyncedLabel, toggleFavorite, isFavorite, syncNow } = useCatalog();
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState("Todos");
   const [platformFilter, setPlatformFilter] = useState("Todas");
@@ -44,7 +44,7 @@ export default function BtechScreen() {
       keyExtractor={(item) => item.id}
       keyboardShouldPersistTaps="handled"
       contentContainerStyle={styles.listContent}
-      renderItem={({ item }: { item: CatalogItem }) => <CatalogCard item={item} showExternalImage={externalCovers} favorite={isFavorite(item.id)} onToggleFavorite={() => toggleFavorite(item.id)} onPress={() => router.push({ pathname: "/details/[id]", params: { id: item.id } })} />}
+      renderItem={({ item }: { item: CatalogItem }) => <CatalogCard item={item} favorite={isFavorite(item.id)} onToggleFavorite={() => toggleFavorite(item.id)} onPress={() => router.push({ pathname: "/details/[id]", params: { id: item.id } })} />}
       refreshControl={<RefreshControl refreshing={syncState === "syncing"} onRefresh={() => void syncNow()} tintColor={colors.primary} colors={[colors.primary]} />}
       ListHeaderComponent={<View style={styles.header}>
         <View style={styles.brandRow}><View style={styles.brandLockup}><View style={[styles.brandMark, { backgroundColor: colors.primary }]}><MaterialIcons name="bolt" size={18} color="#07131F" /></View><Text style={[styles.eyebrow, { color: colors.primary }]}>BTECH GAMES / PROJETOS</Text></View><Text numberOfLines={1} style={[styles.syncText, { color: colors.muted }]}>{lastSyncedLabel}</Text></View>

@@ -1,5 +1,5 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { ActivityIndicator, Linking, Modal, Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
+import { Linking, Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
 
 import { ScreenContainer } from "@/components/screen-container";
 import { StatusPill } from "@/components/status-pill";
@@ -9,9 +9,8 @@ import { useCatalog } from "@/lib/catalog-context";
 
 export default function SettingsScreen() {
   const colors = useColors();
-  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, externalCovers, setExternalCovers, coverProgress, clearCoverProgress, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
+  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items } = useCatalog();
   const isSyncing = syncState === "syncing";
-  const coversPercent = coverProgress?.error ? 0 : coverProgress && coverProgress.total > 0 ? Math.min(100, Math.round((coverProgress.processed / coverProgress.total) * 100)) : 100;
 
   return (
     <ScreenContainer>
@@ -37,11 +36,7 @@ export default function SettingsScreen() {
           <Switch value={favoriteNotifications} onValueChange={(value) => void setFavoriteNotifications(value)} trackColor={{ false: colors.border, true: `${colors.primary}88` }} thumbColor={favoriteNotifications ? colors.primary : colors.muted} />
         </View>
         <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-          <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Buscar capas externas</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>Opcional: procura uma capa pelo nome de todos os jogos na Wikipédia. Quando encontra, prefere a capa do jogo à prévia do GitHub; quando não encontra, usa um fallback neutro.</Text></View>
-          <Switch disabled={coverProgress !== null || isSyncing || syncState === "loading"} value={externalCovers} onValueChange={(value) => void setExternalCovers(value)} trackColor={{ false: colors.border, true: `${colors.primary}88` }} thumbColor={externalCovers ? colors.primary : colors.muted} />
-        </View>
-        <View style={[styles.preferenceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-          <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Ordem do catálogo</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>A escolha feita em “Ordenar por” fica salva entre as sessões.</Text></View><Text style={[styles.preferenceValue, { color: colors.primary }]}>{sortMode === "oldest" ? "Mais antigos" : sortMode === "name" ? "A–Z" : sortMode === "popularity" ? "Mais populares" : "Mais recentes"}</Text>
+          <View style={styles.preferenceCopy}><Text style={[styles.preferenceTitle, { color: colors.foreground }]}>Ordem do catálogo</Text><Text style={[styles.preferenceDescription, { color: colors.muted }]}>A escolha feita em “Ordenar por” fica salva entre as sessões.</Text></View><Text style={[styles.preferenceValue, { color: colors.primary }]}>{sortMode === "oldest" ? "Mais antigos" : sortMode === "name" ? "A–Z" : "Mais recentes"}</Text>
         </View>
 
         <Text style={[styles.sectionLabel, { color: colors.muted }]}>FONTE E CRÉDITOS</Text>
@@ -63,19 +58,6 @@ export default function SettingsScreen() {
         <View style={[styles.notice, { backgroundColor: `${colors.warning}12`, borderColor: `${colors.warning}45` }]}><MaterialIcons name="info-outline" size={19} color={colors.warning} /><Text style={[styles.noticeText, { color: colors.muted }]}>Este app é apenas um catálogo de links e metadados. Ele não baixa nem distribui jogos, ROMs, executáveis ou arquivos protegidos.</Text></View>
         <Text style={[styles.footer, { color: colors.muted }]}>Fonte pública: github.com/robzilla10001/SwitchPorts{`\n`}Os links pertencem aos autores de cada projeto.</Text>
       </ScrollView>
-      <Modal visible={coverProgress !== null} animationType="fade" transparent={false} statusBarTranslucent>
-        <View style={[styles.coverProgressScreen, { backgroundColor: colors.background }]}>
-          <View style={[styles.coverProgressCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-            <ActivityIndicator size="large" color={colors.primary} />
-            <Text style={[styles.coverProgressTitle, { color: colors.foreground }]}>{coverProgress?.error ? "Busca de capas interrompida" : coversPercent === 100 ? "Capas prontas" : "Buscando capas dos jogos"}</Text>
-            <Text style={[styles.coverProgressPercent, { color: colors.primary }]}>{coversPercent}%</Text>
-            <View style={[styles.coverProgressTrack, { backgroundColor: colors.border }]}><View style={[styles.coverProgressFill, { width: `${coversPercent}%`, backgroundColor: colors.primary }]} /></View>
-            <Text style={[styles.coverProgressMeta, { color: colors.muted }]}>{coverProgress?.processed ?? 0} de {coverProgress?.total ?? 0} jogos processados</Text>
-            <Text style={[styles.coverProgressHint, { color: coverProgress?.error ? colors.warning : colors.muted }]}>{coverProgress?.error ?? "O app permanece nesta tela até concluir. As capas ficam salvas para uso offline."}</Text>
-            {(coverProgress?.error || coversPercent === 100) && <Pressable onPress={clearCoverProgress} style={[styles.coverProgressClose, { backgroundColor: colors.primary }]}><Text style={styles.coverProgressCloseText}>{coverProgress?.error ? "Fechar" : "Continuar"}</Text></Pressable>}
-          </View>
-        </View>
-      </Modal>
     </ScreenContainer>
   );
 }
@@ -123,14 +105,4 @@ const styles = StyleSheet.create({
   notice: { borderWidth: 1, borderRadius: 15, padding: 13, flexDirection: "row", gap: 9, alignItems: "flex-start" },
   noticeText: { flex: 1, fontSize: 12, lineHeight: 18 },
   footer: { fontSize: 11, lineHeight: 17, textAlign: "center", marginTop: 5 },
-  coverProgressScreen: { flex: 1, alignItems: "center", justifyContent: "center", padding: 22 },
-  coverProgressCard: { width: "100%", maxWidth: 390, borderWidth: 1, borderRadius: 24, padding: 26, alignItems: "center", gap: 14 },
-  coverProgressTitle: { fontSize: 20, fontWeight: "900", textAlign: "center", marginTop: 4 },
-  coverProgressPercent: { fontSize: 54, lineHeight: 60, fontWeight: "900", letterSpacing: -1.5 },
-  coverProgressTrack: { width: "100%", height: 12, borderRadius: 99, overflow: "hidden" },
-  coverProgressFill: { height: "100%", borderRadius: 99 },
-  coverProgressMeta: { fontSize: 13, fontWeight: "700" },
-  coverProgressHint: { fontSize: 12, lineHeight: 18, textAlign: "center", marginTop: 4 },
-  coverProgressClose: { minWidth: 120, borderRadius: 12, paddingHorizontal: 18, paddingVertical: 11, alignItems: "center", marginTop: 4 },
-  coverProgressCloseText: { color: "#07131F", fontSize: 13, fontWeight: "900" },
 });

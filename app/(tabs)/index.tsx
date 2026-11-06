@@ -24,7 +24,7 @@ function FilterChip({ label, selected, onPress }: { label: string; selected: boo
 export default function CatalogScreen() {
   const router = useRouter();
   const colors = useColors();
-  const { items, showArchived, externalCovers, firmwareOnly, setFirmwareOnly, sortMode, setSortMode, syncState, lastSyncedLabel, toggleFavorite, isFavorite, syncNow } = useCatalog();
+  const { items, showArchived, firmwareOnly, setFirmwareOnly, sortMode, setSortMode, syncState, lastSyncedLabel, toggleFavorite, isFavorite, syncNow } = useCatalog();
   const [query, setQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("Todos");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
@@ -61,7 +61,6 @@ export default function CatalogScreen() {
   const renderItem = ({ item }: { item: CatalogItem }) => (
     <CatalogCard
       item={item}
-      showExternalImage={externalCovers}
       favorite={isFavorite(item.id)}
       onToggleFavorite={() => toggleFavorite(item.id)}
       onPress={() => router.push({ pathname: "/details/[id]", params: { id: item.id } })}

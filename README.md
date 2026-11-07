@@ -72,6 +72,8 @@ O código é público justamente para permitir auditoria, revisão humana, corre
 
 O repositório público mantém **Secret Scanning**, **Push Protection**, **Dependabot Security Updates** e análise **CodeQL** habilitados. Isso reduz riscos comuns, mas não substitui revisão humana, testes ou auditoria independente.
 
+**Estado da auditoria:** no primeiro scan público, o GitHub identificou alertas em dependências transitivas do ecossistema JavaScript, incluindo pacotes usados pelo servidor e pelas ferramentas de build. Eles estão visíveis na aba [Security](https://github.com/Esplossy/SwitchPorts-Catalog/security/dependabot) e serão tratados por atualizações do Dependabot e revisão de compatibilidade com Expo 57. Por isso, esta release deve ser considerada experimental; não declaramos que todas as dependências estão sem alertas.
+
 Leia [`CONTRIBUTING.md`](CONTRIBUTING.md) antes de enviar pull requests. O código segue a [Licença MIT](LICENSE); imagens, marcas, nomes e conteúdos de terceiros continuam sujeitos às licenças de seus respectivos autores.
 
 ## Fontes

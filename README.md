@@ -21,6 +21,8 @@ O SwitchPorts Catalog é um aplicativo Android em Português (Brasil) que agrega
 
 O aplicativo **não hospeda, baixa ou distribui jogos, ROMs, chaves, executáveis ou arquivos protegidos**. Cada projeto continua pertencendo aos seus autores e todas as fontes são creditadas em [`SOURCES.md`](SOURCES.md).
 
+O repositório também não inclui servidor, banco de dados, login, chaves de API ou serviços pagos: é um aplicativo Expo/React Native local, com sincronização direta de fontes públicas e armazenamento offline no aparelho. Isso mantém o download simples e reduz a superfície de ataque.
+
 ## Recursos
 
 - Catálogo agregado de SwitchPorts, Preservia e BTech Games.
@@ -72,7 +74,7 @@ O código é público justamente para permitir auditoria, revisão humana, corre
 
 O repositório público mantém **Secret Scanning**, **Push Protection**, **Dependabot Security Updates** e análise **CodeQL** habilitados. Isso reduz riscos comuns, mas não substitui revisão humana, testes ou auditoria independente.
 
-**Estado da auditoria:** no primeiro scan público, o GitHub identificou alertas em dependências transitivas do ecossistema JavaScript, incluindo pacotes usados pelo servidor e pelas ferramentas de build. Eles estão visíveis na aba [Security](https://github.com/Esplossy/SwitchPorts-Catalog/security/dependabot) e serão tratados por atualizações do Dependabot e revisão de compatibilidade com Expo 57. Por isso, esta release deve ser considerada experimental; não declaramos que todas as dependências estão sem alertas.
+**Estado da auditoria:** o GitHub pode identificar alertas em dependências transitivas do ecossistema JavaScript, principalmente nas ferramentas de build do Expo. Eles ficam visíveis na aba [Security](https://github.com/Esplossy/SwitchPorts-Catalog/security/dependabot) e são acompanhados pelo Dependabot. As dependências de servidor foram removidas deste projeto para reduzir a superfície de ataque; ainda assim, esta release deve ser considerada experimental e não declaramos que todas as dependências estão sem alertas.
 
 Leia [`CONTRIBUTING.md`](CONTRIBUTING.md) antes de enviar pull requests. O código segue a [Licença MIT](LICENSE); imagens, marcas, nomes e conteúdos de terceiros continuam sujeitos às licenças de seus respectivos autores.
 

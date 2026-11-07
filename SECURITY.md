@@ -22,6 +22,7 @@ A equipe tentará confirmar o recebimento, avaliar o impacto e publicar uma corr
 
 ## Práticas do projeto
 
+- O aplicativo distribuído é local e não inclui servidor, banco, login ou chaves de API.
 - Segredos locais, keystores e artefatos de build não pertencem ao Git.
 - Workflows usam permissões explícitas e mínimas.
 - Pull requests devem passar por verificação TypeScript e lint.

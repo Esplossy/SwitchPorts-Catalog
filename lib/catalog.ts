@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
 import { CATALOG_SEED } from "@/data/catalog-seed";
+import { normalizeTrustedUrl } from "@/lib/url-safety";
 
 export const REPOSITORY_URL = "https://github.com/robzilla10001/SwitchPorts";
 export const README_URL = "https://raw.githubusercontent.com/robzilla10001/SwitchPorts/main/README.md";
@@ -95,9 +95,9 @@ function isSeparator(line: string) {
 
 function extractLink(value = "") {
   const match = value.match(/\[[^\]]*\]\(([^)]+)\)/);
-  if (match) return match[1].trim();
+  if (match) return normalizeTrustedUrl(match[1]) ?? "";
   const raw = cleanCell(value);
-  return /^https?:\/\//i.test(raw) ? raw : "";
+  return normalizeTrustedUrl(raw) ?? "";
 }
 
 function stripMarker(value = "") {
@@ -119,7 +119,7 @@ type PreserviaRecord = { name?: unknown; icon?: unknown; version?: unknown; sour
 function parsePreserviaRecord(record: PreserviaRecord, key: string): CatalogItem | null {
   const name = typeof record.name === "string" ? cleanCell(record.name) : "";
   if (!name) return null;
-  const source = typeof record.source === "string" && /^https?:\/\//i.test(record.source) ? record.source : "https://github.com/preservia/ports";
+  const source = normalizeTrustedUrl(record.source) ?? "https://github.com/preservia/ports";
   const icon = typeof record.icon === "string" ? record.icon.replace(/^\/+/, "") : "";
   return {
     id: slug(`preservia-${key}-${name}`),
@@ -134,7 +134,7 @@ function parsePreserviaRecord(record: PreserviaRecord, key: string): CatalogItem
     archived: false,
     recent: false,
     source: "Preservia",
-    imageUrl: icon ? `https://preservia.github.io/ports/${icon}` : undefined,
+    imageUrl: icon ? normalizeTrustedUrl(`https://preservia.github.io/ports/${icon}`) ?? undefined : undefined,
   };
 }
 
@@ -162,7 +162,7 @@ function classifyBtechProjectType(kind: string, platform: string): CatalogItem["
 export function parseBtechRecords(records: BtechRecord[]) {
   return records.flatMap((record) => {
     const title = typeof record.title === "string" ? cleanCell(record.title) : "";
-    const projectUrl = typeof record.project_url === "string" && /^https?:\/\//i.test(record.project_url) ? record.project_url : "";
+    const projectUrl = normalizeTrustedUrl(record.project_url) ?? "";
     if (!title || !projectUrl) return [];
     const platform = typeof record.platform === "string" ? cleanCell(record.platform) : "BTech Games";
     const version = typeof record.version === "string" ? cleanCell(record.version) : "n/a";
@@ -176,12 +176,12 @@ export function parseBtechRecords(records: BtechRecord[]) {
       lastUpdated: date || "n/a",
       firmware: "n/d",
       repoUrl: projectUrl,
-      threadUrl: typeof record.thread_url === "string" ? record.thread_url : "",
+      threadUrl: normalizeTrustedUrl(record.thread_url) ?? "",
       archived: false,
       recent: record.source_marker === "highlight",
       source: "BTech" as const,
       catalogType: classifyBtechType(platform),
-      imageUrl: typeof record.cover_url === "string" && record.cover_url ? record.cover_url : undefined,
+      imageUrl: normalizeTrustedUrl(record.cover_url) ?? undefined,
     } satisfies CatalogItem];
   });
 }
@@ -189,7 +189,7 @@ export function parseBtechRecords(records: BtechRecord[]) {
 export function parseBtechProjectRecords(records: BtechRecord[]) {
   return records.flatMap((record) => {
     const title = typeof record.title === "string" ? cleanCell(record.title) : "";
-    const projectUrl = typeof record.project_url === "string" && /^https?:\/\//i.test(record.project_url) ? record.project_url : "";
+    const projectUrl = normalizeTrustedUrl(record.project_url) ?? "";
     if (!title || !projectUrl) return [];
     const platform = typeof record.platform === "string" ? cleanCell(record.platform) : "BTech Games";
     const kind = typeof record.kind === "string" ? record.kind : "";
@@ -203,12 +203,12 @@ export function parseBtechProjectRecords(records: BtechRecord[]) {
       lastUpdated: typeof record.source_date === "string" ? record.source_date : "n/a",
       firmware: "n/d",
       repoUrl: projectUrl,
-      threadUrl: typeof record.thread_url === "string" ? record.thread_url : "",
+      threadUrl: normalizeTrustedUrl(record.thread_url) ?? "",
       archived: Boolean(record.archived),
       recent: record.last_change === "novo" || record.source_marker === "highlight",
       source: "BTechProjects" as const,
       catalogType: type,
-      imageUrl: typeof record.cover_url === "string" && record.cover_url ? record.cover_url : undefined,
+      imageUrl: normalizeTrustedUrl(record.cover_url) ?? undefined,
     } satisfies CatalogItem];
   });
 }
@@ -478,7 +478,8 @@ export function getFirmwareLabel(value: string) {
 }
 
 export function getRepositoryPreviewUrl(repoUrl: string) {
-  const match = repoUrl.match(/^https?:\/\/(?:www\.)?github\.com\/([^/#?]+)\/([^/#?]+)/i);
+  const trustedUrl = normalizeTrustedUrl(repoUrl);
+  const match = trustedUrl?.match(/^https:\/\/(?:www\.)?github\.com\/([^/#?]+)\/([^/#?]+)/i);
   if (!match) return null;
   const repository = match[2].replace(/\.git$/, "");
   return `https://opengraph.githubassets.com/1/${match[1]}/${repository}`;

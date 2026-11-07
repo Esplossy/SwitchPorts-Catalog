@@ -6,11 +6,12 @@ import { useColors } from "@/hooks/use-colors";
 import { formatPortDate, getFirmwareLabel, getFirmwareStatus, getRepositoryPreviewUrl, type CatalogItem } from "@/lib/catalog";
 import { cacheImage } from "@/lib/image-cache";
 import { StatusPill } from "@/components/status-pill";
+import { isTrustedUrl } from "@/lib/url-safety";
 
 export function CatalogCard({ item, favorite, onPress, onToggleFavorite }: { item: CatalogItem; favorite: boolean; onPress: () => void; onToggleFavorite: () => void }) {
   const colors = useColors();
   const [failedImageUrl, setFailedImageUrl] = useState<string | null>(null);
-  const previewUrl = item.imageUrl ?? getRepositoryPreviewUrl(item.repoUrl);
+  const previewUrl = item.imageUrl && isTrustedUrl(item.imageUrl) ? item.imageUrl : getRepositoryPreviewUrl(item.repoUrl);
   const [cachedPreview, setCachedPreview] = useState<{ source: string; uri: string } | null>(null);
   const firmwareStatus = getFirmwareStatus(item.firmware);
   useEffect(() => {

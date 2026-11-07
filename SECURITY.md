@@ -27,3 +27,9 @@ A equipe tentará confirmar o recebimento, avaliar o impacto e publicar uma corr
 - Workflows usam permissões explícitas e mínimas.
 - Pull requests devem passar por verificação TypeScript e lint.
 - Dependências e actions de terceiros devem ser revisadas antes de atualização.
+
+## Distribuição do APK
+
+O workflow de release assinado usa os segredos `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS` e `ANDROID_KEY_PASSWORD` do GitHub Actions. A keystore nunca deve ser commitada nem publicada. Cada APK distribuído deve acompanhar o arquivo SHA-256 gerado pelo workflow e o commit de origem.
+
+O catálogo aceita somente links HTTPS de domínios conhecidos para as fontes do projeto. Links HTTP antigos do GitHub são convertidos para HTTPS; outros esquemas ou domínios são descartados. Essa validação reduz o risco de uma fonte externa introduzir um link inesperado no aplicativo, mas não substitui a revisão humana das fontes.

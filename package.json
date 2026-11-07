@@ -8,6 +8,8 @@
     "dev:metro": "cross-env EXPO_USE_METRO_WORKSPACE_ROOT=1 EXPO_PORT=8081 npx expo start --web --port 8081",
     "check": "tsc --noEmit",
     "lint": "expo lint",
+    "test:security": "tsx scripts/security-check.ts",
+    "verify": "pnpm check && pnpm lint && pnpm test:security",
     "format": "prettier --write .",
     "android": "expo run:android",
     "ios": "expo run:ios",
@@ -59,11 +61,5 @@
     "tsx": "^4.21.0",
     "typescript": "~6.0.3"
   },
-  "packageManager": "pnpm@9.12.0",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "unrs-resolver"
-    ]
-  }
+  "packageManager": "pnpm@9.12.0"
 }

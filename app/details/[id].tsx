@@ -7,6 +7,7 @@ import { StatusPill } from "@/components/status-pill";
 import { useColors } from "@/hooks/use-colors";
 import { formatPortDate } from "@/lib/catalog";
 import { useCatalog } from "@/lib/catalog-context";
+import { isTrustedUrl } from "@/lib/url-safety";
 
 export default function DetailScreen() {
   const router = useRouter();
@@ -20,7 +21,9 @@ export default function DetailScreen() {
   }
 
   const favorite = isFavorite(item.id);
-  const open = (url: string) => void Linking.openURL(url);
+  const open = (url: string) => {
+    if (isTrustedUrl(url)) void Linking.openURL(url);
+  };
 
   return (
     <ScreenContainer>

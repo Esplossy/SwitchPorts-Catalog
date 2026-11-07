@@ -55,7 +55,7 @@ pnpm verify
 pnpm android
 ```
 
-O workflow em [`.github/workflows/android-apk.yml`](.github/workflows/android-apk.yml) gera um APK debug e o disponibiliza como artefato da execução. O workflow manual [`.github/workflows/android-release.yml`](.github/workflows/android-release.yml) gera um APK release assinado quando os segredos da keystore estão configurados. Não são necessárias chaves de API para compilar o projeto.
+O workflow em [`.github/workflows/android-apk.yml`](.github/workflows/android-apk.yml) gera um APK debug e o disponibiliza como artefato da execução. O workflow manual [`.github/workflows/android-release.yml`](.github/workflows/android-release.yml) gera um APK release assinado quando os segredos da keystore estão configurados. Não são necessárias chaves de API para compilar o projeto. A keystore deve ser criada pelo mantenedor e cadastrada nos secrets do repositório; ela nunca deve ser commitada.
 
 ## Transparência sobre inteligência artificial
 

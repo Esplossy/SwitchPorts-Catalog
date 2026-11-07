@@ -7,6 +7,7 @@
 
 <p align="center">
   <a href="https://github.com/Esplossy/SwitchPorts-Catalog/actions/workflows/android-apk.yml"><img src="https://github.com/Esplossy/SwitchPorts-Catalog/actions/workflows/android-apk.yml/badge.svg" alt="Build Android" /></a>
+  <a href="https://github.com/Esplossy/SwitchPorts-Catalog/actions/workflows/codeql.yml"><img src="https://github.com/Esplossy/SwitchPorts-Catalog/actions/workflows/codeql.yml/badge.svg" alt="CodeQL Security" /></a>
   <a href="https://github.com/Esplossy/SwitchPorts-Catalog/releases"><img src="https://img.shields.io/github/v/release/Esplossy/SwitchPorts-Catalog?display_name=tag&sort=semver" alt="Release" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-29d3b2.svg" alt="Licença MIT" /></a>
   <a href="https://github.com/Esplossy/SwitchPorts-Catalog/issues"><img src="https://img.shields.io/github/issues/Esplossy/SwitchPorts-Catalog" alt="Issues" /></a>
@@ -68,6 +69,8 @@ O código é público justamente para permitir auditoria, revisão humana, corre
 - Dados locais, como favoritos e cache, ficam no armazenamento do dispositivo.
 - Dependências devem ser atualizadas e revisadas antes de qualquer release.
 - Vulnerabilidades devem ser reportadas seguindo [`SECURITY.md`](SECURITY.md), e não em uma issue pública.
+
+O repositório público mantém **Secret Scanning**, **Push Protection**, **Dependabot Security Updates** e análise **CodeQL** habilitados. Isso reduz riscos comuns, mas não substitui revisão humana, testes ou auditoria independente.
 
 Leia [`CONTRIBUTING.md`](CONTRIBUTING.md) antes de enviar pull requests. O código segue a [Licença MIT](LICENSE); imagens, marcas, nomes e conteúdos de terceiros continuam sujeitos às licenças de seus respectivos autores.
 

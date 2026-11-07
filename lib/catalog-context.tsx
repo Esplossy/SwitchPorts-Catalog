@@ -20,8 +20,6 @@ import {
 } from "@/lib/catalog";
 import { downloadCatalogImages, type ImageDownloadProgress } from "@/lib/image-cache";
 import { notifyFavoriteChanges } from "@/lib/notifications";
-import "@/lib/background-sync";
-import { registerBackgroundSync } from "@/lib/background-sync";
 
 type CatalogContextValue = {
   items: CatalogItem[];
@@ -140,7 +138,8 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       setFavoriteNotificationsState(preferences.favoriteNotifications);
       setChangeHistory(history);
       setPreferencesReady(true);
-      void registerBackgroundSync();
+      const { registerBackgroundSync } = await import("@/lib/background-sync");
+      await registerBackgroundSync();
       if (!cancelled) await syncNow();
     }
     void bootstrap();

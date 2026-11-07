@@ -1,10 +1,11 @@
 import "@/global.css";
 import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
-import { Platform } from "react-native";
+import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import "@/lib/_core/nativewind-pressable";
 import { ThemeProvider } from "@/lib/theme-provider";
 import { CatalogProvider } from "@/lib/catalog-context";
@@ -36,6 +37,10 @@ export default function RootLayout() {
   // Initialize Manus runtime for cookie injection from parent container
   useEffect(() => {
     initManusRuntime();
+  }, []);
+
+  useEffect(() => {
+    void SplashScreen.hideAsync();
   }, []);
 
   const handleSafeAreaUpdate = useCallback((metrics: Metrics) => {
@@ -98,3 +103,23 @@ export default function RootLayout() {
     </ThemeProvider>
   );
 }
+
+export function ErrorBoundary({ error, retry }: { error: Error; retry: () => void }) {
+  return (
+    <View style={styles.errorScreen}>
+      <Text style={styles.errorTitle}>Não foi possível abrir o catálogo</Text>
+      <Text style={styles.errorText}>O app encontrou um erro local ao iniciar. Tente novamente; seus dados não foram enviados.</Text>
+      <Pressable onPress={retry} style={styles.retryButton}><Text style={styles.retryText}>Tentar novamente</Text></Pressable>
+      <Text selectable style={styles.errorCode}>{error.message}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  errorScreen: { flex: 1, alignItems: "center", justifyContent: "center", padding: 28, backgroundColor: "#07131F", gap: 14 },
+  errorTitle: { color: "#E8F4F5", fontSize: 21, fontWeight: "800", textAlign: "center" },
+  errorText: { color: "#AFC4C8", fontSize: 14, lineHeight: 21, textAlign: "center" },
+  retryButton: { backgroundColor: "#59E1B5", borderRadius: 13, paddingHorizontal: 18, paddingVertical: 12 },
+  retryText: { color: "#07131F", fontSize: 14, fontWeight: "800" },
+  errorCode: { color: "#718991", fontSize: 10, textAlign: "center" },
+});

@@ -33,12 +33,13 @@ O repositório também não inclui servidor, banco de dados, login, chaves de AP
 - Miniaturas com cache persistente para consulta offline.
 - **Catálogo offline completo:** sincroniza a lista, percorre os itens e baixa as imagens disponíveis com progresso bloqueado de 0% a 100%.
 - APK compilado automaticamente pelo GitHub Actions a cada atualização da branch `main`.
+- Verificação de TypeScript, lint, parser e política de URLs no CI.
 
 ## Instalar no Android
 
 Baixe o APK na [release mais recente](https://github.com/Esplossy/SwitchPorts-Catalog/releases). No Android, abra o arquivo e autorize a instalação de fontes desconhecidas se o sistema solicitar.
 
-A versão atual também está disponível diretamente em [SwitchPorts-Catalog-debug.apk](https://github.com/Esplossy/SwitchPorts-Catalog/releases/download/v1.0.0-open-source/SwitchPorts-Catalog-debug.apk).
+A versão pública deve ser o APK release assinado, acompanhado do SHA-256 publicado na release. APKs debug ficam reservados para testes e artefatos de CI.
 
 Antes de instalar, confira o SHA-256 publicado na release. APKs de terceiros não devem ser tratados como confiáveis apenas por usarem o mesmo nome do projeto.
 
@@ -50,12 +51,11 @@ Requisitos: Node.js 22+, pnpm 9, JDK 17 e Android SDK. O ambiente de CI usa Ubun
 git clone https://github.com/Esplossy/SwitchPorts-Catalog.git
 cd SwitchPorts-Catalog
 pnpm install --frozen-lockfile
-pnpm check
-pnpm lint
+pnpm verify
 pnpm android
 ```
 
-O workflow em [`.github/workflows/android-apk.yml`](.github/workflows/android-apk.yml) gera um APK debug e o disponibiliza como artefato da execução. Não são necessárias chaves de API para compilar o projeto.
+O workflow em [`.github/workflows/android-apk.yml`](.github/workflows/android-apk.yml) gera um APK debug e o disponibiliza como artefato da execução. O workflow manual [`.github/workflows/android-release.yml`](.github/workflows/android-release.yml) gera um APK release assinado quando os segredos da keystore estão configurados. Não são necessárias chaves de API para compilar o projeto.
 
 ## Transparência sobre inteligência artificial
 

@@ -9,7 +9,7 @@ import { useCatalog } from "@/lib/catalog-context";
 
 export default function SettingsScreen() {
   const colors = useColors();
-  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items, downloadAllImages, imageDownload } = useCatalog();
+  const { showArchived, setShowArchived, sortMode, favoriteNotifications, setFavoriteNotifications, changeHistory, syncNow, syncState, lastSyncedLabel, errorMessage, items, sourceSummary, downloadAllImages, imageDownload } = useCatalog();
   const isSyncing = syncState === "syncing";
 
   return (
@@ -24,6 +24,12 @@ export default function SettingsScreen() {
           <Text style={styles.darkMeta}>Última sincronização: {lastSyncedLabel}</Text>
           <Pressable disabled={isSyncing} onPress={() => void syncNow()} style={({ pressed }) => [styles.syncButton, { backgroundColor: colors.primary }, pressed && styles.pressed, isSyncing && styles.disabled]}><MaterialIcons name={isSyncing ? "sync" : "refresh"} size={19} color="#07131F" /><Text style={styles.syncButtonText}>{isSyncing ? "Sincronizando" : "Sincronizar agora"}</Text></Pressable>
           {errorMessage && <Text style={styles.darkError}>{errorMessage}</Text>}
+        </View>
+
+        <Text style={[styles.sectionLabel, { color: colors.muted }]}>FONTES MONITORADAS</Text>
+        <View style={[styles.sourceStatusCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          {sourceSummary.map((source) => <View key={source.source} style={styles.sourceStatusRow}><View style={[styles.sourceStatusDot, { backgroundColor: source.count > 0 ? colors.success : colors.warning }]} /><Text style={[styles.sourceStatusLabel, { color: colors.foreground }]}>{source.label}</Text><Text style={[styles.sourceStatusValue, { color: colors.muted }]}>{source.count > 0 ? `${source.count} itens` : "sem itens"}</Text></View>)}
+          <Text style={[styles.sourceStatusHint, { color: colors.muted }]}>A lista é sincronizada de fontes públicas e mantém o último snapshot no aparelho quando a rede falha.</Text>
         </View>
 
         <Text style={[styles.sectionLabel, { color: colors.muted }]}>EXIBIÇÃO</Text>
@@ -59,7 +65,12 @@ export default function SettingsScreen() {
           {changeHistory.length === 0 ? <Text style={[styles.historyEmpty, { color: colors.muted }]}>As alterações aparecerão após a próxima sincronização.</Text> : changeHistory.slice(0, 8).map((change) => <View key={`${change.detectedAt}-${change.id}-${change.type}`} style={styles.historyRow}><View style={[styles.historyDot, { backgroundColor: change.type === "added" ? colors.success : change.type === "removed" ? colors.warning : colors.primary }]} /><View style={styles.historyCopy}><Text numberOfLines={1} style={[styles.historyName, { color: colors.foreground }]}>{change.name}</Text><Text style={[styles.historyMeta, { color: colors.muted }]}>{change.type === "added" ? "Adicionado" : change.type === "removed" ? "Removido" : "Atualizado"} · {change.source} · {new Date(change.detectedAt).toLocaleDateString("pt-BR")}</Text></View></View>)}
         </View>
 
-        <View style={[styles.notice, { backgroundColor: `${colors.warning}12`, borderColor: `${colors.warning}45` }]}><MaterialIcons name="info-outline" size={19} color={colors.warning} /><Text style={[styles.noticeText, { color: colors.muted }]}>Este app é apenas um catálogo de links e metadados. Ele não baixa nem distribui jogos, ROMs, executáveis ou arquivos protegidos.</Text></View>
+        <View style={[styles.transparencyCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <Text style={[styles.transparencyTitle, { color: colors.foreground }]}>TRANSPARÊNCIA E SEGURANÇA</Text>
+          <Text style={[styles.transparencyText, { color: colors.muted }]}>O app é local e offline-first. Não exige conta, não possui servidor próprio e não declara telemetria. Ele exibe metadados e abre links das fontes originais; não hospeda nem distribui jogos, ROMs, chaves ou executáveis.</Text>
+          <Text style={[styles.transparencyText, { color: colors.muted }]}>O código é aberto para auditoria e foi desenvolvido com assistência de IA, sempre sujeito a revisão humana. Fontes externas podem mudar ou ficar indisponíveis.</Text>
+        </View>
+        <View style={[styles.notice, { backgroundColor: `${colors.warning}12`, borderColor: `${colors.warning}45` }]}><MaterialIcons name="info-outline" size={19} color={colors.warning} /><Text style={[styles.noticeText, { color: colors.muted }]}>Antes de instalar um arquivo de terceiros, confira a release oficial e o SHA-256 publicado no GitHub.</Text></View>
         <Text style={[styles.footer, { color: colors.muted }]}>Fonte pública: github.com/robzilla10001/SwitchPorts{`\n`}Os links pertencem aos autores de cada projeto.</Text>
       </ScrollView>
     </ScreenContainer>
@@ -82,6 +93,12 @@ const styles = StyleSheet.create({
   pressed: { opacity: 0.76 },
   disabled: { opacity: 0.55 },
   sectionLabel: { fontSize: 10, fontWeight: "900", letterSpacing: 1.1, marginTop: 8 },
+  sourceStatusCard: { borderWidth: 1, borderRadius: 17, padding: 14, gap: 10 },
+  sourceStatusRow: { flexDirection: "row", alignItems: "center", gap: 9 },
+  sourceStatusDot: { width: 8, height: 8, borderRadius: 8 },
+  sourceStatusLabel: { flex: 1, fontSize: 13, fontWeight: "800" },
+  sourceStatusValue: { fontSize: 12, fontWeight: "700" },
+  sourceStatusHint: { fontSize: 11, lineHeight: 16, marginTop: 2 },
   preferenceCard: { borderWidth: 1, borderRadius: 17, padding: 15, flexDirection: "row", alignItems: "center", gap: 12 },
   preferenceCopy: { flex: 1, gap: 5 },
   preferenceTitle: { fontSize: 15, fontWeight: "800" },
@@ -109,5 +126,8 @@ const styles = StyleSheet.create({
   historyMeta: { fontSize: 11 },
   notice: { borderWidth: 1, borderRadius: 15, padding: 13, flexDirection: "row", gap: 9, alignItems: "flex-start" },
   noticeText: { flex: 1, fontSize: 12, lineHeight: 18 },
+  transparencyCard: { borderWidth: 1, borderRadius: 17, padding: 14, gap: 8 },
+  transparencyTitle: { fontSize: 10, fontWeight: "900", letterSpacing: 1.1 },
+  transparencyText: { fontSize: 12, lineHeight: 18 },
   footer: { fontSize: 11, lineHeight: 17, textAlign: "center", marginTop: 5 },
 });

@@ -35,6 +35,7 @@ type CatalogContextValue = {
   errorMessage: string | null;
   lastSyncedAt: string | null;
   lastSyncedLabel: string;
+  sourceSummary: SourceSummary[];
   syncNow: () => Promise<CatalogItem[]>;
   toggleFavorite: (id: string) => void;
   isFavorite: (id: string) => boolean;
@@ -47,10 +48,23 @@ type CatalogContextValue = {
   dismissImageDownload: () => void;
 };
 
+export type SourceSummary = { source: string; label: string; count: number };
+
+function summarizeSources(items: CatalogItem[]): SourceSummary[] {
+  const definitions = [
+    ["SwitchPorts", "SwitchPorts"],
+    ["Preservia", "Preservia"],
+    ["BTech", "BTech Games"],
+    ["BTechProjects", "BTech Projetos"],
+  ] as const;
+  return definitions.map(([source, label]) => ({ source, label, count: items.filter((item) => item.source === source).length }));
+}
+
 const CatalogContext = createContext<CatalogContextValue | null>(null);
 
 export function CatalogProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CatalogItem[]>(getCatalogSeed());
+  const [sourceSummary, setSourceSummary] = useState<SourceSummary[]>(() => summarizeSources(getCatalogSeed()));
   const [favorites, setFavorites] = useState<string[]>([]);
   const [showArchived, setShowArchived] = useState(true);
   const [sortMode, setSortMode] = useState<CatalogSort>("recent");
@@ -97,6 +111,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
         await notifyFavoriteChanges(changedFavoriteNames);
       }
       setItems(freshItems);
+      setSourceSummary(summarizeSources(freshItems));
       setLastSyncedAt(syncedAt);
       setSyncState("ready");
       await saveCachedCatalog(freshItems, syncedAt);
@@ -115,6 +130,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       if (cancelled) return;
       if (cached) {
         setItems(cached.items);
+        setSourceSummary(summarizeSources(cached.items));
         setLastSyncedAt(cached.syncedAt);
       }
       setFavorites(preferences.favorites);
@@ -187,6 +203,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       errorMessage,
       lastSyncedAt,
       lastSyncedLabel: formatSyncDate(lastSyncedAt),
+      sourceSummary,
       syncNow,
       toggleFavorite,
       isFavorite,
@@ -198,7 +215,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       downloadAllImages,
       dismissImageDownload,
     }),
-    [changeHistory, dismissImageDownload, downloadAllImages, errorMessage, favoriteNotifications, favorites, firmwareOnly, imageDownload, isFavorite, items, lastSyncedAt, setFavoriteNotifications, showArchived, sortMode, syncNow, syncState, toggleFavorite],
+    [changeHistory, dismissImageDownload, downloadAllImages, errorMessage, favoriteNotifications, favorites, firmwareOnly, imageDownload, isFavorite, items, lastSyncedAt, setFavoriteNotifications, showArchived, sortMode, sourceSummary, syncNow, syncState, toggleFavorite],
   );
 
   return <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>;

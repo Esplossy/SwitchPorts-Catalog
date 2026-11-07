@@ -14,6 +14,17 @@ const PRESERVIA_MANIFEST_URL = "https://raw.githubusercontent.com/preservia/port
 const PRESERVIA_RAW_BASE_URL = "https://raw.githubusercontent.com/preservia/ports/main/";
 const BTECH_CATALOG_URL = "https://btechgames.com/index.php/wp-json/btech-ports/v1/catalog";
 const BTECH_PROJECTS_URL = "https://btechgames.com/index.php/wp-json/btech-ports/v1/watchlist";
+const TRUSTED_HOSTS = new Set(["github.com", "raw.githubusercontent.com", "gbatemp.net", "preservia.github.io", "btechgames.com", "opengraph.githubassets.com", "gitlab.com", "flyinghead.github.io", "www.shipofharkinian.com", "eliasoenal.com", "buildbot.libretro.com", "thumbnails.libretro.com", "upload.wikimedia.org"]);
+
+function normalizeTrustedUrl(value) {
+  if (typeof value !== "string" || !value.trim()) return null;
+  let parsed;
+  try { parsed = new URL(value.trim()); } catch { return null; }
+  const host = parsed.hostname.toLowerCase().replace(/^www\./, "");
+  if (parsed.username || parsed.password || parsed.port || ![...TRUSTED_HOSTS].some((trusted) => host === trusted || host.endsWith(`.${trusted}`))) return null;
+  if (parsed.protocol === "http:" && host === "github.com") parsed.protocol = "https:";
+  return parsed.protocol === "https:" ? parsed.toString() : null;
+}
 
 function cleanCell(value = "") {
   return value
@@ -37,9 +48,9 @@ function isSeparator(line) {
 
 function extractLink(value = "") {
   const match = value.match(/\[[^\]]*\]\(([^)]+)\)/);
-  if (match) return match[1].trim();
+  if (match) return normalizeTrustedUrl(match[1]) ?? "";
   const raw = cleanCell(value);
-  return /^https?:\/\//i.test(raw) ? raw : "";
+  return normalizeTrustedUrl(raw) ?? "";
 }
 
 function stripMarker(value = "") {
@@ -59,7 +70,7 @@ function slug(value) {
 function parsePreserviaRecord(record, key) {
   const name = typeof record.name === "string" ? cleanCell(record.name) : "";
   if (!name) return null;
-  const source = typeof record.source === "string" && /^https?:\/\//i.test(record.source) ? record.source : "https://github.com/preservia/ports";
+  const source = normalizeTrustedUrl(record.source) ?? "https://github.com/preservia/ports";
   const icon = typeof record.icon === "string" ? record.icon.replace(/^\/+/, "") : "";
   return {
     id: slug(`preservia-${key}-${name}`),
@@ -74,7 +85,7 @@ function parsePreserviaRecord(record, key) {
     archived: false,
     recent: false,
     source: "Preservia",
-    ...(icon ? { imageUrl: `https://preservia.github.io/ports/${icon}` } : {}),
+    ...(normalizeTrustedUrl(`https://preservia.github.io/ports/${icon}`) ? { imageUrl: normalizeTrustedUrl(`https://preservia.github.io/ports/${icon}`) } : {}),
   };
 }
 
@@ -94,7 +105,7 @@ function classifyBtechProjectType(kind, platform) {
 function parseBtechRecords(records) {
   return records.flatMap((record) => {
     const name = typeof record.title === "string" ? cleanCell(record.title) : "";
-    const repoUrl = typeof record.project_url === "string" && /^https?:\/\//i.test(record.project_url) ? record.project_url : "";
+    const repoUrl = normalizeTrustedUrl(record.project_url) ?? "";
     if (!name || !repoUrl) return [];
     const platform = typeof record.platform === "string" ? cleanCell(record.platform) : "BTech Games";
     const type = classifyBtechType(platform);
@@ -107,12 +118,12 @@ function parseBtechRecords(records) {
       lastUpdated: typeof record.source_date === "string" ? record.source_date : "n/a",
       firmware: "n/d",
       repoUrl,
-      threadUrl: typeof record.thread_url === "string" ? record.thread_url : "",
+      threadUrl: normalizeTrustedUrl(record.thread_url) ?? "",
       archived: false,
       recent: record.source_marker === "highlight",
       source: "BTech",
       catalogType: type,
-      ...(typeof record.cover_url === "string" && record.cover_url ? { imageUrl: record.cover_url } : {}),
+      ...(normalizeTrustedUrl(record.cover_url) ? { imageUrl: normalizeTrustedUrl(record.cover_url) } : {}),
     }];
   });
 }
@@ -120,7 +131,7 @@ function parseBtechRecords(records) {
 function parseBtechProjectRecords(records) {
   return records.flatMap((record) => {
     const name = typeof record.title === "string" ? cleanCell(record.title) : "";
-    const repoUrl = typeof record.project_url === "string" && /^https?:\/\//i.test(record.project_url) ? record.project_url : "";
+    const repoUrl = normalizeTrustedUrl(record.project_url) ?? "";
     if (!name || !repoUrl) return [];
     const platform = typeof record.platform === "string" ? cleanCell(record.platform) : "BTech Games";
     const type = classifyBtechProjectType(typeof record.kind === "string" ? record.kind : "", platform);
@@ -133,12 +144,12 @@ function parseBtechProjectRecords(records) {
       lastUpdated: typeof record.source_date === "string" ? record.source_date : "n/a",
       firmware: "n/d",
       repoUrl,
-      threadUrl: typeof record.thread_url === "string" ? record.thread_url : "",
+      threadUrl: normalizeTrustedUrl(record.thread_url) ?? "",
       archived: Boolean(record.archived),
       recent: record.last_change === "novo" || record.source_marker === "highlight",
       source: "BTechProjects",
       catalogType: type,
-      ...(typeof record.cover_url === "string" && record.cover_url ? { imageUrl: record.cover_url } : {}),
+      ...(normalizeTrustedUrl(record.cover_url) ? { imageUrl: normalizeTrustedUrl(record.cover_url) } : {}),
     }];
   });
 }

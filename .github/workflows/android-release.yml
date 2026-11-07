@@ -70,7 +70,7 @@ jobs:
           rm -f release.keystore dist/SwitchPorts-Catalog-release-aligned.apk
 
       - name: Upload signed release and checksum
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: SwitchPorts-Catalog-release
           path: dist/*

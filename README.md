@@ -1,5 +1,7 @@
 # SwitchPorts Catalog
 
+> **Versão pública atual: 1.0.1** — inclui a correção de inicialização do Android. A release `v1.0.0-open-source` é antiga e não deve mais ser instalada.
+
 <p align="center">
   <strong>Um índice vivo, offline-first e organizado para ports e projetos do Nintendo Switch.</strong><br />
   Feito para encontrar projetos públicos com rapidez — sem distribuir jogos, ROMs ou executáveis.

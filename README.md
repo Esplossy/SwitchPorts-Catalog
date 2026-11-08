@@ -1,6 +1,6 @@
 # SwitchPorts Catalog
 
-> **Versão pública atual: 1.0.1** — inclui a correção de inicialização do Android. A release `v1.0.0-open-source` é antiga e não deve mais ser instalada.
+> **Versão pública atual: 1.0.2** — inclui bundle JavaScript embarcado para instalação independente do Metro. As releases `v1.0.0-open-source` e `v1.0.1-open-source` são antigas e não devem mais ser instaladas.
 
 <p align="center">
   <strong>Um índice vivo, offline-first e organizado para ports e projetos do Nintendo Switch.</strong><br />

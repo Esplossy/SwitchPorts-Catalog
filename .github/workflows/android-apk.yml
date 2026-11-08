@@ -44,6 +44,19 @@ jobs:
       - name: Generate Android project
         run: npx expo prebuild --platform android --no-install
 
+      - name: Stabilize Gradle download
+        run: |
+          sed -i 's/networkTimeout=10000/networkTimeout=120000/' android/gradle/wrapper/gradle-wrapper.properties
+
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('android/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: ${{ runner.os }}-gradle-
+
       - name: Embed production JavaScript bundle
         run: |
           mkdir -p android/app/src/main/assets android/app/src/main/res
